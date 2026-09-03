@@ -3,35 +3,47 @@ import { Volume2, VolumeX, Music } from 'lucide-react';
 
 export default function FloatingMusicPlayer({ autoPlayTrigger }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const mediaRef = useRef(null);
+  const audioRef = useRef(null);
+  const videoRef = useRef(null);
+
+  const getActiveMedia = () => {
+    return audioRef.current || videoRef.current;
+  };
 
   const playAudio = () => {
-    const media = mediaRef.current;
-    if (!media) return;
-    media.volume = 0.85;
-    const promise = media.play();
-    if (promise !== undefined) {
-      promise
+    const audio = audioRef.current;
+    const video = videoRef.current;
+
+    if (audio) {
+      audio.volume = 0.9;
+      audio.play()
         .then(() => setIsPlaying(true))
-        .catch((err) => {
-          console.warn("Auto-play waiting for user interaction:", err);
+        .catch(() => {
+          // If audio tag fails on mp4 format, fallback to video element
+          if (video) {
+            video.volume = 0.9;
+            video.play()
+              .then(() => setIsPlaying(true))
+              .catch((err) => console.warn("Waiting for user tap to play audio:", err));
+          }
         });
+    } else if (video) {
+      video.volume = 0.9;
+      video.play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => console.warn("Waiting for user tap to play audio:", err));
     }
   };
 
   const pauseAudio = () => {
-    const media = mediaRef.current;
-    if (!media) return;
-    media.pause();
+    if (audioRef.current) audioRef.current.pause();
+    if (videoRef.current) videoRef.current.pause();
     setIsPlaying(false);
   };
 
   const toggleMusic = (e) => {
     if (e) e.stopPropagation();
-    const media = mediaRef.current;
-    if (!media) return;
-
-    if (isPlaying || !media.paused) {
+    if (isPlaying) {
       pauseAudio();
     } else {
       playAudio();
@@ -44,10 +56,7 @@ export default function FloatingMusicPlayer({ autoPlayTrigger }) {
 
     // 2. Fallback on first touch or click anywhere on the page
     const handleFirstGesture = () => {
-      const media = mediaRef.current;
-      if (media && media.paused) {
-        playAudio();
-      }
+      playAudio();
       window.removeEventListener('click', handleFirstGesture);
       window.removeEventListener('touchstart', handleFirstGesture);
     };
@@ -70,20 +79,32 @@ export default function FloatingMusicPlayer({ autoPlayTrigger }) {
 
   return (
     <>
-      {/* Hidden audio element with fallback MP4/MP3 sources */}
+      {/* Primary Audio Player */}
       <audio
-        ref={mediaRef}
+        ref={audioRef}
         loop
         playsInline
         preload="auto"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       >
-        <source src="/wedding-bgm.mp4" type="video/mp4" />
-        <source src="/wedding-bgm.mp4" type="audio/mp4" />
-        <source src="/audio/wedding-bgm.mp4" type="video/mp4" />
         <source src="/wedding-bgm.mp3" type="audio/mpeg" />
+        <source src="/wedding-bgm.mp4" type="audio/mp4" />
       </audio>
+
+      {/* Hidden Video Audio Fallback */}
+      <video
+        ref={videoRef}
+        loop
+        playsInline
+        preload="auto"
+        style={{ display: 'none' }}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      >
+        <source src="/wedding-bgm.mp4" type="video/mp4" />
+        <source src="/audio/wedding-bgm.mp4" type="video/mp4" />
+      </video>
 
       <div style={{ position: 'fixed', bottom: '24px', right: '20px', zIndex: 9999 }}>
         <button
