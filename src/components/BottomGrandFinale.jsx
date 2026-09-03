@@ -106,11 +106,11 @@ export default function BottomGrandFinale({ lang, content }) {
 
         {/* Couple Names */}
         <h3 style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
+          fontFamily: lang === 'ta' ? "'Noto Serif Tamil', 'Mukta Malar', serif" : "'Playfair Display', Georgia, serif",
           fontSize: 'clamp(1.15rem, 3.8vw, 1.65rem)',
-          fontWeight: 700,
+          fontWeight: 800,
           color: '#FFFFFF',
-          letterSpacing: '0.04em',
+          letterSpacing: lang === 'ta' ? '0' : '0.04em',
           marginBottom: '18px',
           display: 'flex',
           alignItems: 'center',
@@ -119,9 +119,13 @@ export default function BottomGrandFinale({ lang, content }) {
           gap: '6px 12px',
           textAlign: 'center'
         }}>
-          <span style={{ whiteSpace: 'nowrap' }}>S. KANNAN, B.Sc.</span>
+          <span style={{ whiteSpace: 'nowrap' }}>
+            {lang === 'ta' ? 'S. கண்ணன், B.Sc.' : 'S. KANNAN, B.Sc.'}
+          </span>
           <span style={{ color: '#DFB756', fontWeight: 600 }}>&amp;</span>
-          <span style={{ whiteSpace: 'nowrap' }}>R. SURUTHIKA, D.M.E.</span>
+          <span style={{ whiteSpace: 'nowrap' }}>
+            {lang === 'ta' ? 'R. சுருதிகா, D.M.E.' : 'R. SURUTHIKA, D.M.E.'}
+          </span>
         </h3>
 
         {/* Gold Underline Divider */}

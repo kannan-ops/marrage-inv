@@ -57,11 +57,11 @@ export default function HeroSection({ content, lang }) {
           <span
             className="gold-shimmer-text"
             style={{
-              fontFamily: "'Playfair Display', 'Noto Serif Tamil', Georgia, serif",
-              fontSize: 'clamp(2.4rem, 8vw, 3.8rem)',
+              fontFamily: lang === 'ta' ? "'Noto Serif Tamil', 'Mukta Malar', serif" : "'Playfair Display', 'Cinzel', Georgia, serif",
+              fontSize: 'clamp(2.3rem, 7.5vw, 3.6rem)',
               fontWeight: 900,
-              letterSpacing: '0.01em',
-              lineHeight: '1.15',
+              letterSpacing: lang === 'ta' ? '0' : '0.01em',
+              lineHeight: '1.2',
               filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.15))'
             }}
           >
@@ -118,11 +118,11 @@ export default function HeroSection({ content, lang }) {
           <span
             className="gold-shimmer-text"
             style={{
-              fontFamily: "'Playfair Display', 'Noto Serif Tamil', Georgia, serif",
-              fontSize: 'clamp(2.4rem, 8vw, 3.8rem)',
+              fontFamily: lang === 'ta' ? "'Noto Serif Tamil', 'Mukta Malar', serif" : "'Playfair Display', 'Cinzel', Georgia, serif",
+              fontSize: 'clamp(2.3rem, 7.5vw, 3.6rem)',
               fontWeight: 900,
-              letterSpacing: '0.01em',
-              lineHeight: '1.15',
+              letterSpacing: lang === 'ta' ? '0' : '0.01em',
+              lineHeight: '1.2',
               filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.15))'
             }}
           >
