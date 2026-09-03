@@ -51,31 +51,33 @@ export default function HeroSection({ content, lang }) {
           alignItems: 'center',
           justifyContent: 'center',
           flexWrap: 'wrap',
-          gap: '10px',
+          gap: '12px',
           textAlign: 'center'
         }}>
-          <span style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: 'clamp(1.9rem, 6vw, 2.9rem)',
-            fontWeight: 800,
-            fontStyle: 'italic',
-            color: 'var(--color-royal-peacock)',
-            letterSpacing: '0.02em',
-            lineHeight: '1.2'
-          }}>
-            {content.groom.name}
+          <span
+            className="gold-shimmer-text"
+            style={{
+              fontFamily: "'Playfair Display', 'Noto Serif Tamil', Georgia, serif",
+              fontSize: 'clamp(2.4rem, 8vw, 3.8rem)',
+              fontWeight: 900,
+              letterSpacing: '0.01em',
+              lineHeight: '1.15',
+              filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.15))'
+            }}
+          >
+            {lang === 'ta' ? (content.groom.tamilName || content.groom.name) : content.groom.name}
           </span>
           <span style={{
-            fontSize: '13px',
-            fontWeight: 700,
+            fontSize: '14px',
+            fontWeight: 800,
             fontStyle: 'normal',
-            color: '#8A5D13',
-            background: 'linear-gradient(135deg, #FFFDF8, #F7EAD6)',
-            padding: '3px 10px',
-            borderRadius: '8px',
-            border: '1.5px solid #DFB756',
-            letterSpacing: '0.04em',
-            boxShadow: '0 2px 6px rgba(223, 183, 86, 0.25)'
+            color: '#7A1910',
+            background: 'linear-gradient(135deg, #FFFDF8 0%, #FBF0D8 100%)',
+            padding: '4px 14px',
+            borderRadius: '12px',
+            border: '2px solid #DFB756',
+            letterSpacing: '0.06em',
+            boxShadow: '0 4px 12px rgba(223, 183, 86, 0.4)'
           }}>
             {content.groom.degree}
           </span>
@@ -86,21 +88,22 @@ export default function HeroSection({ content, lang }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '12px',
-          margin: '8px 0'
+          gap: '14px',
+          margin: '12px 0'
         }}>
-          <div style={{ height: '1.5px', width: '36px', background: 'linear-gradient(90deg, transparent, #DFB756)' }}></div>
-          <Heart size={18} style={{ fill: '#7A1910', color: '#7A1910' }} />
+          <div style={{ height: '2px', width: '54px', background: 'linear-gradient(90deg, transparent, #DFB756)' }}></div>
+          <Heart size={22} style={{ fill: '#7A1910', color: '#7A1910', filter: 'drop-shadow(0 2px 5px rgba(122, 25, 16, 0.4))' }} />
           <span style={{
-            fontFamily: "'Cinzel', serif",
-            color: '#DFB756',
-            fontWeight: 700,
-            fontSize: '1.4rem'
+            fontFamily: "'Cinzel', 'Playfair Display', serif",
+            color: '#B88523',
+            fontWeight: 900,
+            fontSize: '1.9rem',
+            textShadow: '0 1px 4px rgba(223, 183, 86, 0.7)'
           }}>
             &amp;
           </span>
-          <Heart size={18} style={{ fill: '#7A1910', color: '#7A1910' }} />
-          <div style={{ height: '1.5px', width: '36px', background: 'linear-gradient(90deg, #DFB756, transparent)' }}></div>
+          <Heart size={22} style={{ fill: '#7A1910', color: '#7A1910', filter: 'drop-shadow(0 2px 5px rgba(122, 25, 16, 0.4))' }} />
+          <div style={{ height: '2px', width: '54px', background: 'linear-gradient(90deg, #DFB756, transparent)' }}></div>
         </div>
 
         {/* Bride Name */}
@@ -109,31 +112,33 @@ export default function HeroSection({ content, lang }) {
           alignItems: 'center',
           justifyContent: 'center',
           flexWrap: 'wrap',
-          gap: '10px',
+          gap: '12px',
           textAlign: 'center'
         }}>
-          <span style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: 'clamp(1.9rem, 6vw, 2.9rem)',
-            fontWeight: 800,
-            fontStyle: 'italic',
-            color: 'var(--color-royal-peacock)',
-            letterSpacing: '0.02em',
-            lineHeight: '1.2'
-          }}>
-            {content.bride.name}
+          <span
+            className="gold-shimmer-text"
+            style={{
+              fontFamily: "'Playfair Display', 'Noto Serif Tamil', Georgia, serif",
+              fontSize: 'clamp(2.4rem, 8vw, 3.8rem)',
+              fontWeight: 900,
+              letterSpacing: '0.01em',
+              lineHeight: '1.15',
+              filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.15))'
+            }}
+          >
+            {lang === 'ta' ? (content.bride.tamilName || content.bride.name) : content.bride.name}
           </span>
           <span style={{
-            fontSize: '13px',
-            fontWeight: 700,
+            fontSize: '14px',
+            fontWeight: 800,
             fontStyle: 'normal',
-            color: '#8A5D13',
-            background: 'linear-gradient(135deg, #FFFDF8, #F7EAD6)',
-            padding: '3px 10px',
-            borderRadius: '8px',
-            border: '1.5px solid #DFB756',
-            letterSpacing: '0.04em',
-            boxShadow: '0 2px 6px rgba(223, 183, 86, 0.25)'
+            color: '#7A1910',
+            background: 'linear-gradient(135deg, #FFFDF8 0%, #FBF0D8 100%)',
+            padding: '4px 14px',
+            borderRadius: '12px',
+            border: '2px solid #DFB756',
+            letterSpacing: '0.06em',
+            boxShadow: '0 4px 12px rgba(223, 183, 86, 0.4)'
           }}>
             {content.bride.degree}
           </span>
@@ -188,12 +193,12 @@ export default function HeroSection({ content, lang }) {
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '6px',
+            gap: '8px',
             flexWrap: 'wrap'
           }}>
-            <span>{content.groom.name}, {content.groom.degree}</span>
+            <span style={{ whiteSpace: 'nowrap' }}>{content.groom.name}, {content.groom.degree}</span>
             <span style={{ color: '#DFB756', fontWeight: 600 }}>&amp;</span>
-            <span>{content.bride.name}, {content.bride.degree}</span>
+            <span style={{ whiteSpace: 'nowrap' }}>{content.bride.name}, {content.bride.degree}</span>
           </div>
 
           {/* Line 2: Romantic Poetry Verse */}

@@ -84,105 +84,105 @@ export const weddingData = {
       {
         src: "/images/couple-proposal.jpg",
         line1: "S. Kannan, B.Sc. & R. Suruthika, D.M.E.",
-        line2: "The Sacred Vow of Love & Togetherness 💍💐",
+        line2: "With hearts intertwined and blessings adorned, our eternal fairy tale begins here. 💍💐",
         tag: "THE PROPOSAL",
         category: "couple"
       },
       {
         src: "/images/couple-forehead.jpg",
         line1: "S. Kannan & R. Suruthika",
-        line2: "A Pure Bond of Love and Soulful Smiles ❤️✨",
+        line2: "A gentle touch of pure devotion, sealing our promise across a lifetime. ❤️✨",
         tag: "SOULMATES",
         category: "couple"
       },
       {
         src: "/images/couple-romantic.jpg",
         line1: "S. Kannan & R. Suruthika",
-        line2: "Lost in Each Other's Eyes Forever 🌸💑",
+        line2: "In your eyes I found my universe, and in your smile my sweetest peace. 🌸💑",
         tag: "ROMANTIC MOMENTS",
         category: "couple"
       },
       {
         src: "/images/couple-intimate.jpg",
         line1: "S. Kannan & R. Suruthika",
-        line2: "Holding Hands into a Lifetime of Happiness 🤝💖",
+        line2: "Walking into forever hand in hand, with hearts synchronized in eternal harmony. 🤝💖",
         tag: "ETERNAL PROMISE",
         category: "couple"
       },
       {
         src: "/images/couple-hero.jpg",
         line1: "S. Kannan, B.Sc. & R. Suruthika, D.M.E.",
-        line2: "Two Hearts Joined Together in Love 🪷✨",
+        line2: "Two souls with a single rhythm, stepping into a lifetime of endless joy. 🪷✨",
         tag: "THE COUPLE",
         category: "couple"
       },
       {
         src: "/images/ring-ceremony.jpg",
         line1: "The Sacred Engagement",
-        line2: "A Circle of Eternal Love & Ring Exchange 💍❤️",
+        line2: "Sealed with a golden ring, our vows of love and loyalty are bound forever. 💍❤️",
         tag: "SACRED UNION",
         category: "ceremony"
       },
       {
         src: "/images/bouquet-ceremony.jpg",
         line1: "Fragrance of Togetherness",
-        line2: "Blessed with Floral Garlands & Happiness 💐🪷",
+        line2: "Blossoming with the fragrance of holy blessings and fragrant garlands. 💐🪷",
         tag: "CEREMONY",
         category: "ceremony"
       },
       {
         src: "/images/couple-parents-four.jpg",
         line1: "With Beloved Parents",
-        line2: "Stepping into Forever with Parents' Blessings 👨‍👩‍👧‍👦🙏",
+        line2: "Embraced by the purest love of parents, stepping forward under their sacred grace. 👨‍👩‍👧‍👦🙏",
         tag: "PARENTS' BLESSINGS",
         category: "family"
       },
       {
         src: "/images/parents-blessings-1.jpg",
         line1: "Cherished Family Love",
-        line2: "Surrounded by the Warmth of Beloved Parents 💖✨",
+        line2: "The warmest shelter in the world is the boundless affection of our loving parents. 💖✨",
         tag: "FAMILY LOVE",
         category: "family"
       },
       {
         src: "/images/parents-blessings-2.jpg",
         line1: "Joyful Family Gatherings",
-        line2: "Creating Memories That Last a Lifetime 🌟😊",
+        line2: "Moments of laughter and shared happiness, etched in our hearts as timeless treasures. 🌟😊",
         tag: "MEMORIES",
         category: "family"
       },
       {
         src: "/images/family-mothers.jpg",
         line1: "With Loving Mothers",
-        line2: "Infinite Affection & Unconditional Love 🪷❤️",
+        line2: "A mother's unconditional love and tender prayers — the sweetest foundation of our home. 🪷❤️",
         tag: "MOTHERS' LOVE",
         category: "family"
       },
       {
         src: "/images/elders-blessings-2.jpg",
         line1: "Grace of Respected Elders",
-        line2: "Guided by Wisdom, Values and Holy Blessings 🙏✨",
+        line2: "Guided by the timeless wisdom, values and sacred blessings of our respected elders. 🙏✨",
         tag: "ELDERS' GRACE",
         category: "family"
       },
       {
         src: "/images/elders-blessings-1.jpg",
         line1: "Traditional Family Celebrations",
-        line2: "Rooted in Sacred Tradition and Family Pride 🪷🕊️",
+        line2: "Rooted in sacred ancestral traditions, honouring culture, dignity and devotion. 🪷🕊️",
         tag: "TRADITION",
         category: "family"
       },
       {
         src: "/images/family-photo.jpg",
         line1: "The Joyful Family Circle",
-        line2: "Together as One Big Happy Family 👨‍👩‍👧‍👦🎉",
+        line2: "Surrounded by the cheerful smiles and loving warmth of our complete family circle. 👨‍👩‍👧‍👦🎉",
         tag: "FAMILY UNION",
         category: "family"
       },
       {
         src: "/images/grand-family.jpg",
         line1: "Grand Gathering of Loved Ones",
-        line2: "A Sacred Celebration Filled with Smiles & Joy 🌟💐",
+        line2: "A grand celebration blessed by the heartfelt prayers and good wishes of all loved ones. 🌟💐",
         tag: "CELEBRATION",
         category: "family"
       }
@@ -271,106 +271,106 @@ export const weddingData = {
     photos: [
       {
         src: "/images/couple-proposal.jpg",
-        line1: "S. Kannan, B.Sc. & R. Suruthika, D.M.E.",
-        line2: "மலர் மாலை சூடும் மங்கல அன்புத் தருணம் 💍💐",
+        line1: "S. கண்ணன், B.Sc. & R. சுருதிகா, D.M.E.",
+        line2: "மலர் மாலை சூடி, மனம் இணைந்து, மரணமில்லா காதல் காவியமாய் வாழத் தொடங்கும் மங்கலத் தருணம்! 💍💐",
         tag: "முன்மொழிவு",
         category: "couple"
       },
       {
         src: "/images/couple-forehead.jpg",
-        line1: "S. Kannan & R. Suruthika",
-        line2: "இதயம் தொட்ட இனிய காதல் புன்னகை ❤️✨",
+        line1: "S. கண்ணன் & R. சுருதிகா",
+        line2: "உன் நெற்றியில் பதியும் என் அன்பின் சுவடு... நம் ஆயுள் வரை மாறாத காதல் உறவு! ❤️✨",
         tag: "காதல் பந்தம்",
         category: "couple"
       },
       {
         src: "/images/couple-romantic.jpg",
-        line1: "S. Kannan & R. Suruthika",
-        line2: "விழிகளில் மலர்ந்த மாறாத அன்புப் பார்வை 🌸💑",
+        line1: "S. கண்ணன் & R. சுருதிகா",
+        line2: "உன் விழிகளில் என் உலகம்... உன் புன்னகையில் என் நிம்மதி! என்றும் பிரியாத அன்புப் பார்வை! 🌸💑",
         tag: "காதல் தருணம்",
         category: "couple"
       },
       {
         src: "/images/couple-intimate.jpg",
-        line1: "S. Kannan & R. Suruthika",
-        line2: "கரம் கோர்த்து வாழும் இனிய புதிய பயணம் 🤝💖",
+        line1: "S. கண்ணன் & R. சுருதிகா",
+        line2: "கைப்பிடித்து நடைபழகும் இந்த புதிய பயணம்... காலமெல்லாம் நிலைத்திருக்கும் நம் காதல் வரம்! 🤝💖",
         tag: "வாழ்க்கைத்துணை",
         category: "couple"
       },
       {
         src: "/images/couple-hero.jpg",
-        line1: "S. Kannan, B.Sc. & R. Suruthika, D.M.E.",
-        line2: "இணை பிரியா அன்போடு வாழும் தம்பதியர் 🪷✨",
+        line1: "S. கண்ணன், B.Sc. & R. சுருதிகா, D.M.E.",
+        line2: "இரு இதயங்கள் இணைந்த நேரம்... இனி வரும் காலம் நம் வசந்த காலம்! 🪷✨",
         tag: "மணமக்கள்",
         category: "couple"
       },
       {
         src: "/images/ring-ceremony.jpg",
         line1: "சுப நிச்சயதார்த்த மங்கல நேரம்",
-        line2: "மோதிர மாற்றத்தோடு தொடங்கிய புதிய உறவு 💍❤️",
+        line2: "விரல் தொட்ட மோதிரம் சொல்லும்... நீ எனக்கானவள் என்று உலகம் அறியும்! 💍❤️",
         tag: "சுப நிகழ்வு",
         category: "ceremony"
       },
       {
         src: "/images/bouquet-ceremony.jpg",
         line1: "மங்கல மலர் மாலை நேரம்",
-        line2: "பூக்களின் மணத்தோடு இணைந்த புதிய பந்தம் 💐🪷",
+        line2: "மணக்கும் மலர்களின் சாட்சியோடு, மனங்கள் இணைந்த மங்கல தருணம்! 💐🪷",
         tag: "ஆசிர்வாதம்",
         category: "ceremony"
       },
       {
         src: "/images/couple-parents-four.jpg",
         line1: "அன்புப் பெற்றோரின் நல்லாசி",
-        line2: "பெற்றோர்களின் ஆசியோடு தொடங்கும் நல்வாழ்வு 👨‍👩‍👧‍👦🙏",
+        line2: "பெற்றோரின் பாச அரவணைப்பில், அவர்களின் ஆசிகளின் நிழலில் தொடங்கும் நல்வாழ்வு! 👨‍👩‍👧‍👦🙏",
         tag: "பெற்றோர் ஆசி",
         category: "family"
       },
       {
         src: "/images/parents-blessings-1.jpg",
         line1: "பாசமிகு குடும்ப தருணம்",
-        line2: "பெற்றோரின் பாச அரவணைப்பில் மணமக்கள் 💖✨",
+        line2: "அன்பும் அரவணைப்பும் நிறைந்த இல்லம்... பெற்றோரின் புன்னகையே எங்கள் செல்வம்! 💖✨",
         tag: "குடும்ப பாசம்",
         category: "family"
       },
       {
         src: "/images/parents-blessings-2.jpg",
         line1: "மகிழ்ச்சி நிறைந்த நினைவுகள்",
-        line2: "என்றும் மறக்க முடியாத இனிய குடும்பப் பந்தம் 🌟😊",
+        line2: "கண்ணிமைக்கும் நேரத்தில் கடந்து போகும் தருணங்கள்... காலமெல்லாம் நிலைத்திருக்கும் பொக்கிஷங்கள்! 🌟😊",
         tag: "நினைவுகள்",
         category: "family"
       },
       {
         src: "/images/family-mothers.jpg",
         line1: "அன்புத் தாய்மார்களின் ஆசிகள்",
-        line2: "மங்கல நல்வாழ்த்துகளோடு தாய்மார்களின் அன்பு 🪷❤️",
+        line2: "தாயின் அன்பு மடியில் தவழ்ந்தோம்... இன்று தாரமாய் கரம் கோர்த்து புதிய இல்லறம் புகுகிறோம்! 🪷❤️",
         tag: "தாய்மை ஆசி",
         category: "family"
       },
       {
         src: "/images/elders-blessings-2.jpg",
         line1: "பெரியோர்களின் நல்லாசி",
-        line2: "மூத்தோரின் ஆசியோடு தொடங்கும் சிறப்பான வாழ்வு 🙏✨",
+        line2: "மூத்தோரின் ஆசி மொழிகள்... எங்கள் இல்லற வாழ்வின் என்றும் ஒளிரும் வழிகாட்டி! 🙏✨",
         tag: "பெரியோர்கள்",
         category: "family"
       },
       {
         src: "/images/elders-blessings-1.jpg",
         line1: "பாரம்பரிய மங்கல விழா",
-        line2: "பாரம்பரியமும் பண்பாடும் போற்றும் உன்னத தருணம் 🪷🕊️",
+        line2: "பண்பாடும் பாரம்பரியமும் போற்றி, தலைமுறை காக்கும் புண்ணிய மங்கல பந்தம்! 🪷🕊️",
         tag: "பாரம்பரியம்",
         category: "family"
       },
       {
         src: "/images/family-photo.jpg",
         line1: "அன்பு குடும்பத்தினருடன்",
-        line2: "சுற்றமும் நட்பும் சூழ மகிழும் பெருவிழா 👨‍👩‍👧‍👦🎉",
+        line2: "சுற்றமும் நட்பும் சூழ மகிழும் இந்த பொன்னான நாள்... எங்கள் வாழ்வின் அழியா வசந்தம்! 👨‍👩‍👧‍👦🎉",
         tag: "குடும்பம்",
         category: "family"
       },
       {
         src: "/images/grand-family.jpg",
         line1: "உற்றார் உறவினர்களின் பெருவிழா",
-        line2: "எல்லா நலமும் பெற்று வாழ வாழ்த்தும் உற்றார்கள் 🌟💐",
+        line2: "உற்றார் உறவினர் ஒன்று கூடி வாழ்த்த, மங்கல நாண் பூட்டி மகிழும் பெருவாழ்வு! 🌟💐",
         tag: "மங்கல விழா",
         category: "family"
       }
@@ -392,41 +392,5 @@ export const weddingData = {
     tapToOpen: "அழைப்பிதழைத் திறக்க தொடவும்",
     weddingBlessing: "தங்களின் மேலான வருகையே மணமக்களுக்கு சிறந்த ஆசிர்வாதம்"
   },
-  initialWishes: [
-    {
-      id: "w1",
-      name: "Jerry Cristofer",
-      type: "wish",
-      message: "Wishing Kannan & Suruthika a wonderful life filled with joy, peace and infinite love! Happy Wedding! 💍✨",
-      time: "Just now"
-    },
-    {
-      id: "w2",
-      name: "Sujith Kumar",
-      type: "wish",
-      message: "Congratulations Kannan bro & Suruthika! Wishing you both a lifetime of happiness! 💯❤️",
-      time: "2 hours ago"
-    },
-    {
-      id: "w3",
-      name: "Kattakalan",
-      type: "advice",
-      message: "Kannan & Suruthika, eppavume sandhosama sirichukitte irunga! Sappadu nalla irukanum! 🍛❤️",
-      time: "4 hours ago"
-    },
-    {
-      id: "w4",
-      name: "Kamaludeen",
-      type: "wish",
-      message: "Kannan machan, romba romba sandhosam da! Happy married life to you & Suruthika! 💐🎉",
-      time: "1 day ago"
-    },
-    {
-      id: "w5",
-      name: "Arun & Family",
-      type: "wish",
-      message: "கண்ணன் மற்றும் சுருதிகா தம்பதியர் நூறாண்டு காலம் சீரோடும் சிறப்போடும் வாழ மனமார்ந்த வாழ்த்துகள்! 🪷🙏",
-      time: "1 day ago"
-    }
-  ]
+  initialWishes: []
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Heart, ChevronUp, Send } from 'lucide-react';
+import { Sparkles, ChevronUp } from 'lucide-react';
 
 export default function RoyalCoverScreen({ onOpen, lang, content }) {
   const [isOpening, setIsOpening] = useState(false);
@@ -8,9 +8,7 @@ export default function RoyalCoverScreen({ onOpen, lang, content }) {
   const triggerOpen = () => {
     if (isOpening) return;
     setIsOpening(true);
-    setTimeout(() => {
-      onOpen();
-    }, 700);
+    onOpen(); // Trigger immediately to unlock browser audio context synchronously
   };
 
   const handleTouchStart = (e) => {
@@ -19,8 +17,7 @@ export default function RoyalCoverScreen({ onOpen, lang, content }) {
 
   const handleTouchEnd = (e) => {
     const touchEndY = e.changedTouches[0].clientY;
-    // Swipe up gesture
-    if (touchStartY - touchEndY > 50) {
+    if (touchStartY - touchEndY > 40) {
       triggerOpen();
     }
   };
@@ -29,88 +26,119 @@ export default function RoyalCoverScreen({ onOpen, lang, content }) {
     <div
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className={`royal-cover-screen ${isOpening ? 'cover-sliding-up' : ''}`}
+      onClick={triggerOpen}
+      className={`ks-envelope-overlay ${isOpening ? 'envelope-revealed' : ''}`}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 999,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#EDE5D8',
+        backgroundImage: 'radial-gradient(ellipse at center, #F4ECE0 0%, #E3D7C5 100%)',
+        padding: '16px',
+        cursor: 'pointer',
+        overflow: 'hidden',
+        transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease'
+      }}
     >
-      {/* Royal Background Texture */}
-      <div className="cover-bg-mandala"></div>
+      {/* 3D Envelope Card Container */}
+      <div
+        className="ks-envelope-card"
+        style={{
+          position: 'relative',
+          maxWidth: '430px',
+          width: '100%',
+          aspectRatio: '9/16',
+          maxHeight: '90vh',
+          borderRadius: '16px',
+          overflow: 'hidden',
+          boxShadow: '0 30px 80px rgba(0, 0, 0, 0.25), 0 10px 30px rgba(0, 0, 0, 0.15)',
+          border: '1px solid rgba(255, 255, 255, 0.6)',
+          transform: isOpening ? 'scale(1.08) translateY(-40px)' : 'scale(1)',
+          transition: 'transform 0.75s cubic-bezier(0.16, 1, 0.3, 1)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        {/* Photorealistic Handmade Embossed KS Wax Envelope Background */}
+        <img
+          src="/images/ks-wax-envelope.jpg"
+          alt="K & S Royal Wedding Envelope"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block'
+          }}
+        />
 
-      {/* Floating Sparkles & Light Beams */}
-      <div className="cover-ambient-glow"></div>
-
-      {/* Main Luxury Front Card Envelope */}
-      <div className="royal-cover-card">
-        {/* 4 Corner Ornaments */}
-        <div className="gold-corner-tl"></div>
-        <div className="gold-corner-tr"></div>
-        <div className="gold-corner-bl"></div>
-        <div className="gold-corner-br"></div>
-
-        {/* Auspicious Invocation */}
-        <div className="cover-invocation">
-          <Sparkles size={14} className="text-[#DFB756]" />
-          <span>{lang === 'ta' ? 'ஸ்ரீ முருகனருள் முன்னிற்க' : 'WITH THE BLESSINGS OF ALMIGHTY'}</span>
-          <Sparkles size={14} className="text-[#DFB756]" />
+        {/* Pulsing Touch Target over the Wax Seal */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '120px',
+            height: '120px',
+            borderRadius: '50%',
+            cursor: 'pointer',
+            zIndex: 10
+          }}
+        >
+          {/* Subtle Golden Glow Ripple */}
+          <div
+            className="ks-seal-glow"
+            style={{
+              position: 'absolute',
+              inset: '-8px',
+              borderRadius: '50%',
+              border: '2px solid rgba(212, 175, 55, 0.4)',
+              animation: 'sealPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1)'
+            }}
+          ></div>
         </div>
 
-        {/* Auspicious Emblem */}
-        <div className="cover-emblem">
-          <div className="emblem-inner">
-            <span className="emblem-symbol">🪷</span>
-          </div>
-        </div>
-
-        {/* Tagline */}
-        <p className="cover-subheading">
-          {lang === 'ta' ? 'இனிய திருமண அழைப்பிதழ்' : 'WEDDING INVITATION'}
-        </p>
-
-        {/* Couple Names with Royal Styling */}
-        <div className="cover-names-box">
-          <div className="cover-name-line">
-            <span className="cover-name">{content.groom.name}</span>
-            <span className="cover-degree-badge">{content.groom.degree}</span>
-          </div>
-
-          <div className="cover-ampersand-divider">
-            <div className="gold-line"></div>
-            <Heart size={16} className="heart-icon" />
-            <span className="ampersand">&amp;</span>
-            <Heart size={16} className="heart-icon" />
-            <div className="gold-line"></div>
-          </div>
-
-          <div className="cover-name-line">
-            <span className="cover-name">{content.bride.name}</span>
-            <span className="cover-degree-badge">{content.bride.degree}</span>
-          </div>
-        </div>
-
-        {/* Wedding Date & Venue Tag */}
-        <div className="cover-date-pill">
-          <span>10 &amp; 11 NOVEMBER 2026</span>
-          <span className="pill-dot">•</span>
-          <span>KABILARMALAI</span>
-        </div>
-
-        {/* Interactive Open Action Button */}
-        <div className="cover-action-area">
-          <button
-            onClick={triggerOpen}
-            className="royal-open-btn"
-            aria-label="Open Wedding Invitation"
-          >
-            <span className="btn-sparkle"><Sparkles size={16} /></span>
-            <span className="btn-text">
-              {lang === 'ta' ? 'அழைப்பிதழைத் திறக்க' : 'TAP TO OPEN INVITATION'}
-            </span>
-            <Send size={15} className="btn-arrow" />
-          </button>
-
-          {/* Swipe Up Hint for Mobile */}
-          <div className="swipe-hint" onClick={triggerOpen}>
-            <ChevronUp size={20} className="swipe-chevron animate-bounce" />
-            <span>{lang === 'ta' ? 'திறக்க மேலே ஸ்வைப் செய்யவும்' : 'Swipe up or tap to open'}</span>
-          </div>
+        {/* Floating Tap to Open Hint at the bottom */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '24px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+            zIndex: 10,
+            pointerEvents: 'none'
+          }}
+        >
+          <ChevronUp
+            size={22}
+            style={{
+              color: '#9B7026',
+              animation: 'bounceUp 1.5s infinite'
+            }}
+          />
+          <span style={{
+            fontSize: '11px',
+            fontFamily: "'Cinzel', 'Playfair Display', serif",
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: '#7A5E2E',
+            fontWeight: 700,
+            textShadow: '0 1px 2px rgba(255,255,255,0.8)'
+          }}>
+            {lang === 'ta' ? 'திறக்க தொடவும்' : 'Tap or Swipe to Open'}
+          </span>
         </div>
       </div>
     </div>

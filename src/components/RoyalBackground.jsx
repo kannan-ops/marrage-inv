@@ -2,46 +2,112 @@ import React from 'react';
 
 export default function RoyalBackground() {
   return (
-    <div className="royal-bg-layer" aria-hidden="true">
-      {/* Top Hanging Royal Garland & Temple Bells Arch */}
-      <div className="royal-garland-arch" style={{ height: '90px', pointerEvents: 'none' }}>
-        <svg viewBox="0 0 1200 110" preserveAspectRatio="none" style={{ width: '100%', height: '100%' }}>
-          <defs>
-            <linearGradient id="goldArchGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#9B7026" />
-              <stop offset="30%" stopColor="#DFB756" />
-              <stop offset="50%" stopColor="#FFF2B2" />
-              <stop offset="70%" stopColor="#DFB756" />
-              <stop offset="100%" stopColor="#9B7026" />
-            </linearGradient>
+    <div className="royal-bg-layer" aria-hidden="true" style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
+      {/* 1. Ultra-Luxury Top Golden Palace Aura & Header Arch */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '140px',
+        overflow: 'hidden',
+        pointerEvents: 'none',
+        zIndex: 2
+      }}>
+        {/* Central Crown Light Halo */}
+        <div style={{
+          position: 'absolute',
+          top: '-60px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '800px',
+          height: '140px',
+          background: 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(223, 183, 86, 0.42) 0%, rgba(255, 240, 184, 0.2) 50%, transparent 80%)',
+          filter: 'blur(20px)',
+          borderRadius: '50%'
+        }}></div>
 
-            <linearGradient id="marigoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#FF9800" />
-              <stop offset="100%" stopColor="#E65100" />
-            </linearGradient>
+        {/* 24K Gold Filigree Curved Thread */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3px',
+          background: 'linear-gradient(90deg, transparent 0%, rgba(223, 183, 86, 0.4) 15%, #FFF0B8 30%, #DFB756 50%, #FFF0B8 70%, rgba(223, 183, 86, 0.4) 85%, transparent 100%)',
+          boxShadow: '0 0 15px rgba(223, 183, 86, 0.8)'
+        }}></div>
+      </div>
 
-            <linearGradient id="jasmineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#FFFFFF" />
-              <stop offset="100%" stopColor="#FFF9C4" />
-            </linearGradient>
-          </defs>
+      {/* 2. Left Side Royal Palace Golden Vine Border Pillar */}
+      <div style={{
+        position: 'absolute',
+        top: '120px',
+        bottom: '120px',
+        left: '12px',
+        width: '28px',
+        opacity: 0.35,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+      }}>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <svg key={i} width="22" height="48" viewBox="0 0 22 48" fill="none">
+            <path d="M11 0 C4 12 0 24 11 48 C22 24 18 12 11 0 Z" fill="none" stroke="#B88523" strokeWidth="1.2" />
+            <circle cx="11" cy="24" r="2.5" fill="#DFB756" />
+          </svg>
+        ))}
+      </div>
 
-          {/* Scalloped Floral Garlands */}
-          <path d="M0,0 Q150,60 300,5 Q450,60 600,5 Q750,60 900,5 Q1050,60 1200,0 L1200,0 L0,0 Z" fill="url(#marigoldGrad)" opacity="0.85" />
-          <path d="M0,0 Q150,45 300,2 Q450,45 600,2 Q750,45 900,2 Q1050,45 1200,0" fill="none" stroke="url(#jasmineGrad)" strokeWidth="4" strokeDasharray="6 5" />
-          <path d="M0,10 Q150,75 300,12 Q450,75 600,12 Q750,75 900,12 Q1050,75 1200,10" fill="none" stroke="url(#goldArchGrad)" strokeWidth="2" />
+      {/* 3. Right Side Royal Palace Golden Vine Border Pillar */}
+      <div style={{
+        position: 'absolute',
+        top: '120px',
+        bottom: '120px',
+        right: '12px',
+        width: '28px',
+        opacity: 0.35,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+      }}>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <svg key={i} width="22" height="48" viewBox="0 0 22 48" fill="none">
+            <path d="M11 0 C4 12 0 24 11 48 C22 24 18 12 11 0 Z" fill="none" stroke="#B88523" strokeWidth="1.2" />
+            <circle cx="11" cy="24" r="2.5" fill="#DFB756" />
+          </svg>
+        ))}
+      </div>
 
-          {/* Hanging Golden Temple Bells */}
-          {[150, 450, 600, 750, 1050].map((cx, i) => (
-            <g key={i} className="hanging-bell" style={{ transformOrigin: `${cx}px 0px`, animationDelay: `${i * 0.4}s` }}>
-              <line x1={cx} y1="0" x2={cx} y2="65" stroke="url(#goldArchGrad)" strokeWidth="1.5" />
-              <circle cx={cx} cy="65" r="3" fill="#D4AF37" />
-              {/* Bell shape */}
-              <path d={`M${cx - 7},78 Q${cx},68 ${cx + 7},78 Q${cx + 10},90 ${cx - 10},90 Z`} fill="url(#goldArchGrad)" />
-              <circle cx={cx} cy="92" r="2" fill="#FFE082" />
-            </g>
-          ))}
-        </svg>
+      {/* 4. Ambient Floating Golden Dust Fireflies */}
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+        {[
+          { top: '15%', left: '10%', size: '6px', delay: '0s' },
+          { top: '28%', left: '85%', size: '8px', delay: '1.5s' },
+          { top: '45%', left: '8%', size: '5px', delay: '2.8s' },
+          { top: '62%', left: '90%', size: '7px', delay: '0.8s' },
+          { top: '78%', left: '15%', size: '6px', delay: '2.2s' },
+          { top: '88%', left: '82%', size: '8px', delay: '1.1s' }
+        ].map((dot, idx) => (
+          <div
+            key={idx}
+            style={{
+              position: 'absolute',
+              top: dot.top,
+              left: dot.left,
+              width: dot.size,
+              height: dot.size,
+              borderRadius: '50%',
+              backgroundColor: '#FFF0B8',
+              boxShadow: '0 0 12px 3px rgba(223, 183, 86, 0.85)',
+              animation: `sealPulse 4s ease-in-out infinite`,
+              animationDelay: dot.delay,
+              opacity: 0.75
+            }}
+          />
+        ))}
       </div>
     </div>
   );

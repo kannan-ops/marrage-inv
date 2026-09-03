@@ -19,65 +19,99 @@ export default function EventsSection({ content, lang }) {
   };
 
   return (
-    <section style={{ padding: '32px 0' }}>
-      <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+    <section style={{ padding: '36px 0 20px', maxWidth: '720px', margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: '28px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
-          <Sparkles size={15} style={{ color: 'var(--color-maroon)' }} />
-          <span style={{ fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--color-gold-dark)', fontWeight: 700 }}>
+          <Sparkles size={15} style={{ color: 'var(--color-royal-maroon)' }} />
+          <span style={{ fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--color-royal-maroon)', fontWeight: 800 }}>
             {content.eventsTitle}
           </span>
-          <Sparkles size={15} style={{ color: 'var(--color-maroon)' }} />
+          <Sparkles size={15} style={{ color: 'var(--color-royal-maroon)' }} />
         </div>
 
-        <h2 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', color: 'var(--color-peacock)', fontWeight: 700 }}>
+        <h2 style={{
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
+          color: 'var(--color-royal-peacock)',
+          fontWeight: 800
+        }}>
           {lang === 'ta' ? 'சுப நிகழ்வுகள்' : 'Ceremony Schedule'}
         </h2>
-        <p style={{ fontSize: '13px', color: 'var(--color-ink-soft)', marginTop: '4px' }}>
+        <p style={{ fontSize: '13.5px', color: '#5C4E3C', marginTop: '4px' }}>
           {content.eventsSubtitle}
         </p>
       </div>
 
-      <div className="events-grid">
+      <div className="events-grid" style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
         {content.events.map((event) => (
-          <div key={event.id} className="event-card">
-            <div className="corner-tl"></div>
-            <div className="corner-tr"></div>
+          <div key={event.id} className="event-card" style={{
+            background: 'linear-gradient(180deg, #FFFDF9 0%, #FAF2E3 100%)',
+            border: '2px solid #DFB756',
+            borderRadius: '28px',
+            padding: '28px 24px',
+            boxShadow: 'var(--shadow-royal-card), var(--shadow-gold-glow)',
+            position: 'relative'
+          }}>
+            <div className="gold-corner-tl"></div>
+            <div className="gold-corner-tr"></div>
+            <div className="gold-corner-bl"></div>
+            <div className="gold-corner-br"></div>
 
             <div>
-              <span className="event-tag">{event.tag}</span>
+              <span className="event-tag" style={{
+                background: 'linear-gradient(135deg, #0B3536 0%, #0E4446 100%)',
+                color: '#FFF2B2',
+                border: '1px solid #DFB756',
+                padding: '4px 14px',
+                borderRadius: '9999px',
+                fontSize: '11px',
+                fontWeight: 800,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                display: 'inline-block',
+                marginBottom: '10px'
+              }}>
+                {event.tag}
+              </span>
 
-              <h3 style={{ fontSize: '1.4rem', color: 'var(--color-peacock)', fontWeight: 700, marginBottom: '12px' }}>
+              <h3 style={{
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontSize: 'clamp(1.35rem, 4vw, 1.75rem)',
+                color: 'var(--color-royal-peacock)',
+                fontWeight: 800,
+                marginBottom: '14px'
+              }}>
                 {event.title}
               </h3>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: '16px 0', fontSize: '13px' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <Calendar size={16} style={{ color: 'var(--color-maroon)', marginTop: '2px', flexShrink: 0 }} />
-                  <span style={{ fontWeight: 600 }}>{event.date}</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', margin: '18px 0', fontSize: '13.5px' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <Calendar size={18} style={{ color: '#7A1910', marginTop: '2px', flexShrink: 0 }} />
+                  <span style={{ fontWeight: 700, color: 'var(--color-royal-peacock)' }}>{event.date}</span>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <Clock size={16} style={{ color: 'var(--color-maroon)', marginTop: '2px', flexShrink: 0 }} />
-                  <span>{event.time}</span>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <Clock size={18} style={{ color: '#7A1910', marginTop: '2px', flexShrink: 0 }} />
+                  <span style={{ fontWeight: 600, color: '#4A3B2C' }}>{event.time}</span>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <MapPin size={16} style={{ color: 'var(--color-maroon)', marginTop: '2px', flexShrink: 0 }} />
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <MapPin size={18} style={{ color: '#7A1910', marginTop: '2px', flexShrink: 0 }} />
                   <div>
-                    <strong style={{ display: 'block', color: 'var(--color-peacock)' }}>{event.venue}</strong>
-                    <span style={{ color: 'var(--color-ink-soft)', fontSize: '12px' }}>{event.address}</span>
+                    <strong style={{ display: 'block', color: 'var(--color-royal-peacock)', fontSize: '14.5px', fontWeight: 800 }}>{event.venue}</strong>
+                    <span style={{ color: '#6A5844', fontSize: '12.5px' }}>{event.address}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '10px', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid var(--color-border-light)' }}>
+            <div style={{ display: 'flex', gap: '12px', marginTop: '18px', paddingTop: '16px', borderTop: '1px solid rgba(223, 183, 86, 0.4)' }}>
               <button
                 onClick={() => handleOpenMap(event.mapQuery)}
                 className="btn-primary"
-                style={{ flex: 1 }}
+                style={{ flex: 1, fontWeight: 800 }}
               >
-                <Navigation size={14} />
+                <Navigation size={15} />
                 <span>{content.getDirections}</span>
               </button>
 
@@ -85,8 +119,9 @@ export default function EventsSection({ content, lang }) {
                 onClick={() => handleAddToCalendar(event)}
                 className="btn-secondary"
                 title="Add to Google Calendar"
+                style={{ fontWeight: 800 }}
               >
-                <CalendarPlus size={14} />
+                <CalendarPlus size={15} />
                 <span>{content.addToCalendar}</span>
               </button>
             </div>

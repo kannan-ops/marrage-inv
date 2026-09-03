@@ -3,116 +3,118 @@ import { Volume2, VolumeX, Music } from 'lucide-react';
 
 export default function FloatingMusicPlayer({ autoPlayTrigger }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioContextRef = useRef(null);
-  const oscillatorIntervalRef = useRef(null);
+  const mediaRef = useRef(null);
 
-  // Celebratory wedding ragam frequencies (Hz)
-  const melodyNotes = [
-    261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25,
-    440.00, 392.00, 349.23, 329.63, 293.66, 261.63, 329.63, 392.00
-  ];
-
-  const playSynthMelody = () => {
-    try {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (!AudioCtx) return;
-
-      if (!audioContextRef.current) {
-        audioContextRef.current = new AudioCtx();
-      }
-
-      const ctx = audioContextRef.current;
-      if (ctx.state === 'suspended') {
-        ctx.resume();
-      }
-
-      let noteIdx = 0;
-      const playNextTone = () => {
-        if (!ctx || ctx.state === 'closed') return;
-
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-
-        osc.type = 'triangle';
-        const freq = melodyNotes[noteIdx % melodyNotes.length];
-        osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-        gain.gain.setValueAtTime(0.001, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.06, ctx.currentTime + 0.12);
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.start(ctx.currentTime);
-        osc.stop(ctx.currentTime + 0.55);
-
-        noteIdx++;
-      };
-
-      playNextTone();
-      oscillatorIntervalRef.current = setInterval(playNextTone, 480);
-    } catch (e) {
-      console.warn("Audio Context:", e);
+  const playAudio = () => {
+    const media = mediaRef.current;
+    if (!media) return;
+    media.volume = 0.85;
+    const promise = media.play();
+    if (promise !== undefined) {
+      promise
+        .then(() => setIsPlaying(true))
+        .catch((err) => {
+          console.warn("Auto-play waiting for user interaction:", err);
+        });
     }
   };
 
-  const stopSynthMelody = () => {
-    if (oscillatorIntervalRef.current) {
-      clearInterval(oscillatorIntervalRef.current);
-      oscillatorIntervalRef.current = null;
-    }
+  const pauseAudio = () => {
+    const media = mediaRef.current;
+    if (!media) return;
+    media.pause();
+    setIsPlaying(false);
   };
 
-  const toggleMusic = () => {
-    if (isPlaying) {
-      stopSynthMelody();
-      setIsPlaying(false);
+  const toggleMusic = (e) => {
+    if (e) e.stopPropagation();
+    const media = mediaRef.current;
+    if (!media) return;
+
+    if (isPlaying || !media.paused) {
+      pauseAudio();
     } else {
-      playSynthMelody();
-      setIsPlaying(true);
+      playAudio();
     }
   };
 
+  // 1. Initial attempt on load
   useEffect(() => {
-    if (autoPlayTrigger && !isPlaying) {
-      toggleMusic();
-    }
-    return () => {
-      stopSynthMelody();
+    playAudio();
+
+    // 2. Fallback on first touch or click anywhere on the page
+    const handleFirstGesture = () => {
+      const media = mediaRef.current;
+      if (media && media.paused) {
+        playAudio();
+      }
+      window.removeEventListener('click', handleFirstGesture);
+      window.removeEventListener('touchstart', handleFirstGesture);
     };
+
+    window.addEventListener('click', handleFirstGesture, { passive: true });
+    window.addEventListener('touchstart', handleFirstGesture, { passive: true });
+
+    return () => {
+      window.removeEventListener('click', handleFirstGesture);
+      window.removeEventListener('touchstart', handleFirstGesture);
+    };
+  }, []);
+
+  // 3. Triggered when user opens the cover screen / envelope
+  useEffect(() => {
+    if (autoPlayTrigger) {
+      playAudio();
+    }
   }, [autoPlayTrigger]);
 
   return (
-    <div style={{ position: 'fixed', bottom: '24px', right: '20px', zIndex: 40 }}>
-      <button
-        onClick={toggleMusic}
-        className={`floating-audio-btn ${isPlaying ? 'playing' : ''}`}
-        title={isPlaying ? "Mute Music" : "Play Music"}
-        aria-label="Toggle Wedding Music"
+    <>
+      {/* Hidden audio element with fallback MP4/MP3 sources */}
+      <audio
+        ref={mediaRef}
+        loop
+        playsInline
+        preload="auto"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
       >
-        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px' }}>
-          {isPlaying ? <Volume2 size={16} /> : <VolumeX size={16} />}
-        </span>
+        <source src="/wedding-bgm.mp4" type="video/mp4" />
+        <source src="/wedding-bgm.mp4" type="audio/mp4" />
+        <source src="/audio/wedding-bgm.mp4" type="video/mp4" />
+        <source src="/wedding-bgm.mp3" type="audio/mpeg" />
+      </audio>
 
-        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          {isPlaying ? (
-            <>
-              <span className="sound-bars">
-                <span className="bar bar-1"></span>
-                <span className="bar bar-2"></span>
-                <span className="bar bar-3"></span>
-              </span>
-              <span>BGM</span>
-            </>
-          ) : (
-            <>
-              <Music size={13} />
-              <span>Music</span>
-            </>
-          )}
-        </span>
-      </button>
-    </div>
+      <div style={{ position: 'fixed', bottom: '24px', right: '20px', zIndex: 9999 }}>
+        <button
+          onClick={toggleMusic}
+          className={`floating-audio-btn ${isPlaying ? 'playing' : ''}`}
+          title={isPlaying ? "Mute Music" : "Play Music"}
+          aria-label="Toggle Wedding Music"
+        >
+          <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px' }}>
+            {isPlaying ? <Volume2 size={16} /> : <VolumeX size={16} />}
+          </span>
+
+          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            {isPlaying ? (
+              <>
+                <span className="sound-bars">
+                  <span className="bar bar-1"></span>
+                  <span className="bar bar-2"></span>
+                  <span className="bar bar-3"></span>
+                </span>
+                <span>BGM</span>
+              </>
+            ) : (
+              <>
+                <Music size={13} />
+                <span>Music</span>
+              </>
+            )}
+          </span>
+        </button>
+      </div>
+    </>
   );
 }

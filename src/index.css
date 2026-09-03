@@ -2,23 +2,64 @@
 
 :root {
   --color-royal-dark: #051A1B;
-  --color-royal-peacock: #0B3536;
-  --color-royal-emerald: #0E4446;
+  --color-royal-peacock: #072B2C;
+  --color-royal-emerald: #0A3D3F;
   --color-royal-maroon: #7A1910;
   
-  --color-silk-ivory: #FDFBF7;
-  --color-parchment: #F8F3E8;
-  --color-parchment-warm: #F2E7D3;
+  --color-silk-ivory: #FFFDF9;
+  --color-parchment: #FDF7EC;
+  --color-parchment-warm: #F7ECD7;
   
   --color-gold-24k: #DFB756;
-  --color-gold-light: #FFF0B8;
-  --color-gold-dark: #91681E;
-  --gold-foil: linear-gradient(135deg, #B38728 0%, #FBF5B7 25%, #DAA520 50%, #AA771C 75%, #FBF5B7 100%);
-  --gold-foil-border: linear-gradient(45deg, #D4AF37, #FFF5C0, #AA771C, #FFEDB3);
+  --color-gold-light: #FFF4C2;
+  --color-gold-dark: #8C5F12;
+  --gold-foil: linear-gradient(135deg, #B38728 0%, #FFF5C0 25%, #DFB756 50%, #8C5F12 75%, #FFF5C0 100%);
+  --gold-foil-border: linear-gradient(45deg, #D4AF37, #FFF5C0, #8C5F12, #FFEDB3);
 
-  --shadow-gold-glow: 0 0 30px rgba(223, 183, 86, 0.35);
-  --shadow-royal-card: 0 20px 50px rgba(5, 26, 27, 0.2), 0 0 25px rgba(223, 183, 86, 0.15);
-  --shadow-deep: 0 30px 70px rgba(0, 0, 0, 0.3);
+  --shadow-gold-glow: 0 0 35px rgba(223, 183, 86, 0.45);
+  --shadow-royal-card: 0 25px 60px rgba(5, 26, 27, 0.22), 0 0 30px rgba(223, 183, 86, 0.25);
+  --shadow-deep: 0 35px 80px rgba(0, 0, 0, 0.35);
+}
+
+/* ======================================================== */
+/* ✨ ULTRA-LUXURY 24K GOLD SHIMMER & METALLIC ANIMATIONS   */
+/* ======================================================== */
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer-text {
+  background: linear-gradient(90deg, #072B2C 0%, #8C5F12 25%, #DFB756 50%, #FFF5C0 60%, #8C5F12 75%, #072B2C 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: goldShimmer 6s linear infinite;
+  display: inline-block;
+}
+
+.gold-metallic-text {
+  background: linear-gradient(180deg, #FFF5D0 0%, #DFB756 45%, #9E6D1C 75%, #DFB756 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
 }
 
 * {
@@ -32,18 +73,58 @@ body {
   padding: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #26211B;
-  background-color: var(--color-parchment);
-  /* Grand Royal Indian Brocade / Mandala Texture Background */
+  background-color: #FAF4E8;
   background-image: 
-    radial-gradient(ellipse 100% 60% at 50% 0%, rgba(223, 183, 86, 0.22), transparent 70%),
-    radial-gradient(circle at 100% 30%, rgba(11, 53, 54, 0.08), transparent 50%),
-    radial-gradient(circle at 0% 70%, rgba(122, 25, 16, 0.06), transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(223, 183, 86, 0.06), transparent 60%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L40 20 L60 30 L40 40 L30 60 L20 40 L0 30 L20 20 Z' fill='%23D4AF37' fill-opacity='0.05'/%3E%3Ccircle cx='30' cy='30' r='8' fill='%23B38728' fill-opacity='0.03'/%3E%3C/svg%3E");
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 60px 60px;
+    radial-gradient(ellipse 100% 70% at 50% 0%, rgba(223, 183, 86, 0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(11, 53, 54, 0.12) 0%, transparent 70%),
+    radial-gradient(circle at 100% 25%, rgba(122, 25, 16, 0.08), transparent 45%),
+    radial-gradient(circle at 0% 75%, rgba(223, 183, 86, 0.1), transparent 45%),
+    /* Royal Indian Damask / Floral Mandap Texture */
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B88523' fill-opacity='0.07'%3E%3Cpath d='M40 0 C45 15 55 25 70 30 C55 35 45 45 40 60 C35 45 25 35 10 30 C25 25 35 15 40 0 Z'/%3E%3Ccircle cx='40' cy='30' r='6'/%3E%3Cpath d='M0 40 C5 55 15 65 30 70 C15 75 5 85 0 100 C-5 85 -15 75 -30 70 C-15 65 -5 55 0 40 Z'/%3E%3Cpath d='M80 40 C85 55 95 65 110 70 C95 75 85 85 80 100 C75 85 65 75 50 70 C65 65 75 55 80 40 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 80px 80px;
+  background-attachment: fixed;
   overflow-x: hidden;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ======================================================== */
+/* 💌 KS WAX SEAL ENVELOPE OPENING OVERLAY & ANIMATIONS     */
+/* ======================================================== */
+.ks-envelope-overlay.envelope-revealed {
+  transform: translateY(-100vh) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes sealPulse {
+  0% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+  70% { transform: scale(1.08); opacity: 0; box-shadow: 0 0 0 16px rgba(212, 175, 55, 0); }
+  100% { transform: scale(0.95); opacity: 0; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+@keyframes bounceUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes dripFall {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(4px) scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(28px) scale(0.95);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(42px) scale(0.5);
+    opacity: 0;
+  }
 }
 
 /* Typography styles */
@@ -61,248 +142,6 @@ body {
 
 .font-display {
   font-family: 'Cinzel', 'Playfair Display', serif;
-}
-
-/* ======================================================== */
-/* 💌 ROYAL FRONT COVER PAGE SCREEN (MOBILE FIRST TEMPLATE) */
-/* ======================================================== */
-.royal-cover-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #0B3536 0%, #061F20 70%, #031112 100%);
-  padding: 16px;
-  overflow: hidden;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-}
-
-.royal-cover-screen.cover-sliding-up {
-  transform: translateY(-105vh) scale(0.95);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.cover-bg-mandala {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(223, 183, 86, 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.cover-ambient-glow {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(223, 183, 86, 0.35) 0%, transparent 70%);
-  filter: blur(40px);
-  pointer-events: none;
-}
-
-.royal-cover-card {
-  position: relative;
-  max-width: 440px;
-  width: 100%;
-  background: linear-gradient(180deg, #FFFDF9 0%, #FAF3E6 50%, #F5E8D3 100%);
-  border: 2px solid #DFB756;
-  border-radius: 28px;
-  padding: 34px 22px 28px;
-  text-align: center;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), var(--shadow-gold-glow);
-  z-index: 10;
-}
-
-.cover-invocation {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Noto Serif Tamil', serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--color-gold-dark);
-  margin-bottom: 12px;
-}
-
-.cover-emblem {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  background: var(--gold-foil);
-  padding: 2.5px;
-  box-shadow: 0 4px 15px rgba(223, 183, 86, 0.4);
-}
-
-.emblem-inner {
-  width: 100%;
-  height: 100%;
-  background: #FFFDF9;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.emblem-symbol {
-  font-size: 26px;
-}
-
-.cover-subheading {
-  font-family: 'Cinzel', 'Noto Serif Tamil', serif;
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--color-royal-maroon);
-  font-weight: 800;
-  margin-bottom: 14px;
-}
-
-.cover-names-box {
-  margin: 14px 0 18px;
-}
-
-.cover-name-line {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.cover-name {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.6rem, 5.5vw, 2.1rem);
-  font-weight: 800;
-  font-style: italic;
-  color: var(--color-royal-peacock);
-  letter-spacing: 0.02em;
-}
-
-.cover-degree-badge {
-  font-size: 11px;
-  font-weight: 700;
-  font-style: normal;
-  color: #8A5D13;
-  background: #FFFDF8;
-  padding: 3px 8px;
-  border-radius: 6px;
-  border: 1.5px solid #DFB756;
-  letter-spacing: 0.05em;
-  box-shadow: 0 2px 5px rgba(223, 183, 86, 0.2);
-}
-
-.cover-ampersand-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 6px 0;
-}
-
-.cover-ampersand-divider .gold-line {
-  height: 1.5px;
-  width: 40px;
-  background: linear-gradient(90deg, transparent, #DFB756, transparent);
-}
-
-.cover-ampersand-divider .heart-icon {
-  fill: var(--color-royal-maroon);
-  color: var(--color-royal-maroon);
-}
-
-.cover-ampersand-divider .ampersand {
-  font-family: 'Cinzel', serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #DFB756;
-}
-
-.cover-date-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 6px 16px;
-  border-radius: 9999px;
-  background: rgba(223, 183, 86, 0.15);
-  border: 1px solid #DFB756;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--color-royal-peacock);
-  margin-bottom: 24px;
-}
-
-.cover-date-pill .pill-dot {
-  color: var(--color-royal-maroon);
-}
-
-.cover-action-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.royal-open-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  max-width: 300px;
-  padding: 15px 24px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, var(--color-royal-peacock) 0%, var(--color-royal-emerald) 50%, var(--color-royal-dark) 100%);
-  color: #FFFDF4;
-  border: 2px solid #DFB756;
-  font-family: 'Cinzel', 'Playfair Display', serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(11, 53, 54, 0.4), var(--shadow-gold-glow);
-  transition: all 0.3s ease;
-}
-
-.royal-open-btn:hover, .royal-open-btn:active {
-  transform: scale(1.03) translateY(-2px);
-  box-shadow: 0 12px 30px rgba(11, 53, 54, 0.5), 0 0 25px rgba(223, 183, 86, 0.55);
-}
-
-.royal-open-btn .btn-sparkle {
-  color: var(--color-gold-light);
-}
-
-.royal-open-btn .btn-arrow {
-  color: var(--color-gold-light);
-  transition: transform 0.2s ease;
-}
-
-.royal-open-btn:hover .btn-arrow {
-  transform: translateX(4px);
-}
-
-.swipe-hint {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  font-size: 11px;
-  color: #7A6953;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.swipe-chevron {
-  color: #DFB756;
 }
 
 /* Container */
@@ -328,7 +167,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 140px;
+  height: 90px;
   z-index: 2;
   pointer-events: none;
 }
@@ -371,9 +210,10 @@ body {
   height: 480px;
   overflow: hidden;
   border-radius: 30px 30px 18px 18px;
-  background-color: #EFE3D0;
-  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(223, 183, 86, 0.5);
+  background: radial-gradient(circle at center, #FFFDF8 0%, #FAF0E1 100%);
+  box-shadow: inset 0 0 35px rgba(223, 183, 86, 0.25), inset 0 0 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(223, 183, 86, 0.6);
+  position: relative;
 }
 
 .royal-img-box img {
@@ -381,24 +221,101 @@ body {
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-mask-image: radial-gradient(ellipse 95% 95% at 50% 50%, black 72%, rgba(0, 0, 0, 0.5) 88%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 95% at 50% 50%, black 72%, rgba(0, 0, 0, 0.5) 88%, transparent 100%);
 }
 
 .royal-palace-frame:hover .royal-img-box img {
   transform: scale(1.04);
 }
 
+/* ======================================================== */
+/* 📸 LUXURY FEATHERED PHOTO ALBUM CARD & VIGNETTE STYLES   */
+/* ======================================================== */
+.royal-photo-card {
+  position: relative;
+  max-width: 520px;
+  width: 100%;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCF9F3 100%);
+  padding: 16px 16px 24px;
+  border-radius: 24px;
+  box-shadow: 0 16px 45px rgba(5, 26, 27, 0.12), 0 0 20px rgba(223, 183, 86, 0.18);
+  border: 1.5px solid #DFB756;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.royal-photo-card:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow: 0 24px 60px rgba(5, 26, 27, 0.18), var(--shadow-gold-glow);
+}
+
+.feathered-photo-frame {
+  position: relative;
+  width: 100%;
+  max-height: 490px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: radial-gradient(ellipse at center, #FFFDF8 0%, #FAF0E1 100%);
+  margin-bottom: 16px;
+  padding: 6px;
+  border: 1.5px solid rgba(223, 183, 86, 0.5);
+  box-shadow: inset 0 0 25px rgba(223, 183, 86, 0.2), 0 4px 15px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feathered-photo-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Soft Edge Feathering Mask so side/top/bottom fade smoothly */
+  -webkit-mask-image: radial-gradient(ellipse 95% 95% at 50% 50%, black 72%, rgba(0, 0, 0, 0.5) 88%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 95% at 50% 50%, black 72%, rgba(0, 0, 0, 0.5) 88%, transparent 100%);
+}
+
+.royal-photo-card:hover .feathered-photo-img {
+  transform: scale(1.04);
+}
+
+/* Inner Filigree Inset Border */
+.photo-filigree-border {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 12px;
+  pointer-events: none;
+  box-shadow: inset 0 0 15px rgba(223, 183, 86, 0.15);
+  z-index: 2;
+}
+
+/* Soft Vignette Overlay */
+.photo-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 94% 94% at 50% 50%, transparent 68%, rgba(250, 240, 225, 0.7) 90%, #FAF0E1 100%);
+  border-radius: 18px;
+  z-index: 1;
+}
+
 /* Gold Corner Accents */
 .gold-corner-tl, .gold-corner-tr, .gold-corner-bl, .gold-corner-br {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   pointer-events: none;
   z-index: 10;
 }
-.gold-corner-tl { top: 10px; left: 10px; border-top: 3px solid #DFB756; border-left: 3px solid #DFB756; border-top-left-radius: 8px; }
-.gold-corner-tr { top: 10px; right: 10px; border-top: 3px solid #DFB756; border-right: 3px solid #DFB756; border-top-right-radius: 8px; }
-.gold-corner-bl { bottom: 10px; left: 10px; border-bottom: 3px solid #DFB756; border-left: 3px solid #DFB756; border-bottom-left-radius: 8px; }
-.gold-corner-br { bottom: 10px; right: 10px; border-bottom: 3px solid #DFB756; border-right: 3px solid #DFB756; border-bottom-right-radius: 8px; }
+.gold-corner-tl { top: 8px; left: 8px; border-top: 2.5px solid #DFB756; border-left: 2.5px solid #DFB756; border-top-left-radius: 6px; }
+.gold-corner-tr { top: 8px; right: 8px; border-top: 2.5px solid #DFB756; border-right: 2.5px solid #DFB756; border-top-right-radius: 6px; }
+.gold-corner-bl { bottom: 8px; left: 8px; border-bottom: 2.5px solid #DFB756; border-left: 2.5px solid #DFB756; border-bottom-left-radius: 6px; }
+.gold-corner-br { bottom: 8px; right: 8px; border-bottom: 2.5px solid #DFB756; border-right: 2.5px solid #DFB756; border-bottom-right-radius: 6px; }
 
 /* Ring Ceremony Card */
 .ring-ceremony-card {

@@ -4,9 +4,27 @@ import { Camera, X, Heart, Sparkles } from 'lucide-react';
 function ScrollPolaroidCard({ photo, index, onSelect }) {
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [likes, setLikes] = useState(() => {
+    const saved = localStorage.getItem(`photo_likes_${photo.src}`);
+    return saved ? parseInt(saved, 10) : 12 + (index * 3);
+  });
+  const [isLiked, setIsLiked] = useState(() => {
+    return localStorage.getItem(`photo_is_liked_${photo.src}`) === 'true';
+  });
 
   const isLeft = index % 2 === 0;
   const baseTilt = isLeft ? '-1deg' : '1deg';
+
+  const handleLike = (e) => {
+    e.stopPropagation();
+    if (!isLiked) {
+      const newCount = likes + 1;
+      setLikes(newCount);
+      setIsLiked(true);
+      localStorage.setItem(`photo_likes_${photo.src}`, newCount.toString());
+      localStorage.setItem(`photo_is_liked_${photo.src}`, 'true');
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,64 +54,82 @@ function ScrollPolaroidCard({ photo, index, onSelect }) {
       style={{
         maxWidth: '520px',
         width: '100%',
-        backgroundColor: '#ffffff',
-        padding: '16px 16px 24px',
-        borderRadius: '8px',
-        boxShadow: isVisible
-          ? '0 16px 45px rgba(5, 26, 27, 0.14), 0 2px 8px rgba(0,0,0,0.04)'
-          : '0 4px 10px rgba(0,0,0,0.02)',
-        border: '1px solid #ECE3D4',
-        cursor: 'pointer',
         position: 'relative',
         opacity: isVisible ? 1 : 0,
         transform: isVisible
           ? `translateX(0) translateY(0) rotate(${baseTilt}) scale(1)`
-          : `translateX(${isLeft ? '-60px' : '60px'}) translateY(40px) rotate(${isLeft ? '-6deg' : '6deg'}) scale(0.95)`,
+          : `translateX(${isLeft ? '-50px' : '50px'}) translateY(35px) rotate(${isLeft ? '-5deg' : '5deg'}) scale(0.96)`,
         transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
         willChange: 'transform, opacity'
       }}
-      className="polaroid-vertical-card"
+      className="royal-photo-card"
     >
-      {/* Photo Frame Box */}
-      <div style={{
-        width: '100%',
-        maxHeight: '480px',
-        overflow: 'hidden',
-        borderRadius: '4px',
-        backgroundColor: '#F3EDE2',
-        marginBottom: '16px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+      {/* 4 Golden Corner Accents on Card */}
+      <div className="gold-corner-tl"></div>
+      <div className="gold-corner-tr"></div>
+      <div className="gold-corner-bl"></div>
+      <div className="gold-corner-br"></div>
+
+      {/* Luxury Feathered Photo Frame (Melted soft edge fade) */}
+      <div className="feathered-photo-frame">
+        {/* Soft Vignette Overlay */}
+        <div className="photo-vignette-overlay"></div>
+
+        {/* Inner Gold Filigree Inset Border */}
+        <div className="photo-filigree-border"></div>
+
+        {/* Feathered Image with smooth 4-side radial dissolve */}
         <img
           src={photo.src}
           alt={photo.line1}
-          style={{
-            width: '100%',
-            height: 'auto',
-            maxHeight: '480px',
-            objectFit: 'cover',
-            display: 'block',
-            transition: 'transform 0.6s ease'
-          }}
+          className="feathered-photo-img"
           loading="lazy"
         />
+
+        {/* Interactive Floating Heart Reaction Button */}
+        <button
+          type="button"
+          onClick={handleLike}
+          style={{
+            position: 'absolute',
+            bottom: '12px',
+            right: '12px',
+            zIndex: 10,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '5px',
+            padding: '5px 12px',
+            borderRadius: '9999px',
+            backgroundColor: isLiked ? 'rgba(122, 25, 16, 0.92)' : 'rgba(255, 255, 255, 0.9)',
+            color: isLiked ? '#FFF' : '#7A1910',
+            border: '1px solid #DFB756',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.18)',
+            cursor: 'pointer',
+            fontSize: '11.5px',
+            fontWeight: 800,
+            backdropFilter: 'blur(6px)',
+            transition: 'all 0.25s ease'
+          }}
+          title="Like this moment"
+        >
+          <Heart size={13} style={{ fill: isLiked ? '#FFF' : '#7A1910', color: isLiked ? '#FFF' : '#7A1910' }} />
+          <span>{likes}</span>
+        </button>
       </div>
 
-      {/* 2-Line Clean Caption */}
+      {/* 2-Line Clean Caption with Tamil Kavithai */}
       <div style={{
         textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '5px',
-        padding: '0 6px'
+        gap: '6px',
+        padding: '4px 10px 6px'
       }}>
         {/* Line 1: Title / Names */}
         <div style={{
           fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: 'clamp(1.15rem, 3.8vw, 1.45rem)',
+          fontSize: 'clamp(1.18rem, 3.8vw, 1.48rem)',
           fontWeight: 700,
           color: 'var(--color-royal-peacock)',
           letterSpacing: '0.02em',
@@ -102,32 +138,40 @@ function ScrollPolaroidCard({ photo, index, onSelect }) {
           {photo.line1}
         </div>
 
-        {/* Line 2: Poetic Quote */}
+        {/* Line 2: Heart-touching Poetic Kavithai */}
         <div style={{
           fontFamily: "'Cormorant Garamond', 'Noto Serif Tamil', Georgia, serif",
-          fontSize: 'clamp(0.95rem, 3.2vw, 1.15rem)',
+          fontSize: 'clamp(0.98rem, 3.2vw, 1.18rem)',
           fontStyle: 'italic',
-          color: '#7A644D',
+          color: '#5C4834',
           fontWeight: 600,
-          lineHeight: '1.3'
+          lineHeight: '1.45',
+          maxWidth: '460px'
         }}>
-          {photo.line2}
+          "{photo.line2}"
         </div>
 
-        {/* Small Auspicious Badge */}
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '4px',
-          marginTop: '4px',
-          fontSize: '10px',
-          fontWeight: 800,
-          color: 'var(--color-royal-maroon)',
-          letterSpacing: '0.15em',
-          textTransform: 'uppercase'
-        }}>
-          <Heart size={10} style={{ fill: 'var(--color-royal-maroon)' }} />
-          <span>{photo.tag}</span>
+        {/* Small Auspicious Badge with Gold Divider */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '6px' }}>
+          <div style={{ height: '1px', width: '28px', background: 'linear-gradient(90deg, transparent, #DFB756)' }}></div>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '5px',
+            fontSize: '10.5px',
+            fontWeight: 800,
+            color: 'var(--color-royal-maroon)',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            background: '#FCF2F0',
+            padding: '3px 10px',
+            borderRadius: '9999px',
+            border: '1px solid #F3D4CE'
+          }}>
+            <Heart size={10} style={{ fill: 'var(--color-royal-maroon)' }} />
+            <span>{photo.tag}</span>
+          </div>
+          <div style={{ height: '1px', width: '28px', background: 'linear-gradient(90deg, #DFB756, transparent)' }}></div>
         </div>
       </div>
     </div>

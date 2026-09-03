@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Heart, MessageSquare, Send, Sparkles, User, Edit3 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-export default function WishesSection({ initialWishes, content, lang }) {
+export default function WishesSection({ initialWishes = [], content, lang }) {
   const [wishes, setWishes] = useState([]);
   const [activeTab, setActiveTab] = useState('wish');
   const [name, setName] = useState('');
@@ -12,15 +12,18 @@ export default function WishesSection({ initialWishes, content, lang }) {
   const [successMsg, setSuccessMsg] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('wedding_guestbook_wishes');
+    // Clear legacy dummy cache if present
+    localStorage.removeItem('wedding_guestbook_wishes');
+
+    const saved = localStorage.getItem('wedding_wishes_v2');
     if (saved) {
       try {
         setWishes(JSON.parse(saved));
       } catch (e) {
-        setWishes(initialWishes);
+        setWishes(initialWishes || []);
       }
     } else {
-      setWishes(initialWishes);
+      setWishes(initialWishes || []);
     }
   }, [initialWishes]);
 
@@ -40,7 +43,7 @@ export default function WishesSection({ initialWishes, content, lang }) {
 
     const updated = [newWish, ...wishes];
     setWishes(updated);
-    localStorage.setItem('wedding_guestbook_wishes', JSON.stringify(updated));
+    localStorage.setItem('wedding_wishes_v2', JSON.stringify(updated));
 
     try {
       confetti({
@@ -85,12 +88,13 @@ export default function WishesSection({ initialWishes, content, lang }) {
           alignItems: 'center',
           justifyContent: 'center',
           flexWrap: 'wrap',
-          gap: '8px',
-          margin: '4px 0'
+          gap: '8px 12px',
+          margin: '4px 0',
+          textAlign: 'center'
         }}>
-          <span>{content.groom.name}, {content.groom.degree}</span>
+          <span style={{ whiteSpace: 'nowrap' }}>{content.groom.name}, {content.groom.degree}</span>
           <span style={{ color: '#DFB756', fontWeight: 600 }}>&amp;</span>
-          <span>{content.bride.name}, {content.bride.degree}</span>
+          <span style={{ whiteSpace: 'nowrap' }}>{content.bride.name}, {content.bride.degree}</span>
         </h2>
 
         {/* Line 2: Subtitle Note */}
@@ -332,51 +336,91 @@ export default function WishesSection({ initialWishes, content, lang }) {
 
       {/* Wishes List (Polaroid Note Cards) */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {filteredWishes.map((wish, index) => {
-          return (
-            <div
-              key={wish.id}
-              style={{
-                backgroundColor: '#ffffff',
-                border: '1.5px solid #EADBCE',
-                borderRadius: '18px',
-                padding: '20px 22px',
-                boxShadow: '0 4px 15px rgba(5, 26, 27, 0.06)'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <h4 style={{ fontSize: '1.1rem', color: 'var(--color-royal-peacock)', fontStyle: 'italic', fontWeight: 700 }}>
-                  {wish.name}
-                </h4>
-
-                <span style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  fontSize: '11px',
-                  fontWeight: 800,
-                  textTransform: 'uppercase',
-                  color: 'var(--color-royal-maroon)',
-                  background: '#FCF2F0',
-                  padding: '3px 10px',
-                  borderRadius: '9999px',
-                  border: '1px solid #F3D4CE'
-                }}>
-                  <Heart size={11} style={{ fill: 'var(--color-royal-maroon)' }} />
-                  <span>{wish.type === 'wish' ? (lang === 'ta' ? 'வாழ்த்து' : 'Wish') : (lang === 'ta' ? 'அறிவுரை' : 'Advice')}</span>
-                </span>
-              </div>
-
-              <p style={{ fontSize: '13.5px', color: '#26211B', lineHeight: '1.65' }}>
-                {wish.message}
-              </p>
-
-              <div style={{ marginTop: '10px', fontSize: '11px', color: '#998D7D', textAlign: 'right', fontWeight: 600 }}>
-                {wish.time}
-              </div>
+        {filteredWishes.length === 0 ? (
+          <div style={{
+            backgroundColor: '#FFFFFF',
+            border: '1.5px dashed #DFB756',
+            borderRadius: '20px',
+            padding: '32px 20px',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '10px'
+          }}>
+            <div style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: '50%',
+              backgroundColor: '#FCF8F2',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#DFB756'
+            }}>
+              <Sparkles size={22} />
             </div>
-          );
-        })}
+            <p style={{
+              fontSize: '14.5px',
+              fontWeight: 700,
+              color: 'var(--color-royal-peacock)',
+              fontFamily: "'Playfair Display', Georgia, serif"
+            }}>
+              {lang === 'ta' ? 'முதல் வாழ்த்தைப் பதிவிடுங்கள்!' : 'Be the first to leave a wish!'}
+            </p>
+            <p style={{ fontSize: '12.5px', color: '#7A6B58', maxWidth: '340px', lineHeight: '1.5' }}>
+              {lang === 'ta'
+                ? 'மேலே உள்ள படிவத்தை நிரப்பி மணமக்களுக்கு உங்கள் ஆசிகளை வழங்குங்கள்.'
+                : 'Fill out the form above to share your love and blessings with the couple.'}
+            </p>
+          </div>
+        ) : (
+          filteredWishes.map((wish) => {
+            return (
+              <div
+                key={wish.id}
+                style={{
+                  backgroundColor: '#ffffff',
+                  border: '1.5px solid #EADBCE',
+                  borderRadius: '18px',
+                  padding: '20px 22px',
+                  boxShadow: '0 4px 15px rgba(5, 26, 27, 0.06)'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                  <h4 style={{ fontSize: '1.1rem', color: 'var(--color-royal-peacock)', fontStyle: 'italic', fontWeight: 700 }}>
+                    {wish.name}
+                  </h4>
+
+                  <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    fontSize: '11px',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    color: 'var(--color-royal-maroon)',
+                    background: '#FCF2F0',
+                    padding: '3px 10px',
+                    borderRadius: '9999px',
+                    border: '1px solid #F3D4CE'
+                  }}>
+                    <Heart size={11} style={{ fill: 'var(--color-royal-maroon)' }} />
+                    <span>{wish.type === 'wish' ? (lang === 'ta' ? 'வாழ்த்து' : 'Wish') : (lang === 'ta' ? 'அறிவுரை' : 'Advice')}</span>
+                  </span>
+                </div>
+
+                <p style={{ fontSize: '13.5px', color: '#26211B', lineHeight: '1.65' }}>
+                  {wish.message}
+                </p>
+
+                <div style={{ marginTop: '10px', fontSize: '11px', color: '#998D7D', textAlign: 'right', fontWeight: 600 }}>
+                  {wish.time}
+                </div>
+              </div>
+            );
+          })
+        )}
       </div>
     </section>
   );

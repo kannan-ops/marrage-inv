@@ -16,7 +16,9 @@ import ShareSaveDate from './components/ShareSaveDate';
 import BottomGrandFinale from './components/BottomGrandFinale';
 
 export default function App() {
-  const [lang, setLang] = useState('ta');
+  const [lang, setLang] = useState(() => {
+    return localStorage.getItem('wedding_lang') || 'ta';
+  });
   const [isCoverOpen, setIsCoverOpen] = useState(false);
   const [autoPlayMusic, setAutoPlayMusic] = useState(false);
 
@@ -27,8 +29,14 @@ export default function App() {
     setAutoPlayMusic(true);
   };
 
+  const handleSelectLang = (newLang) => {
+    setLang(newLang);
+    localStorage.setItem('wedding_lang', newLang);
+  };
+
   const handleToggleLang = () => {
-    setLang((prev) => (prev === 'ta' ? 'en' : 'ta'));
+    const next = lang === 'ta' ? 'en' : 'ta';
+    handleSelectLang(next);
   };
 
   return (
@@ -49,7 +57,7 @@ export default function App() {
       <PetalAnimation />
 
       {/* 4. Floating Action Controls (Language & Music) */}
-      <LanguageToggle currentLang={lang} onToggle={handleToggleLang} />
+      <LanguageToggle currentLang={lang} onToggle={handleToggleLang} onSelectLang={handleSelectLang} />
       <FloatingMusicPlayer autoPlayTrigger={autoPlayMusic} />
 
       {/* 5. Main Wedding Content Container */}
@@ -60,10 +68,11 @@ export default function App() {
         {/* Ring Ceremony Sacred Highlight Banner */}
         <RingCeremonyBanner content={content} lang={lang} />
 
-        {/* Live Countdown Timer to November 11, 2026 */}
+        {/* Live Countdown Timer & Interactive Date Reveal */}
         <CountdownTimer
           targetDate={weddingData.dates.targetCountdown}
           content={content}
+          lang={lang}
         />
 
         {/* Romantic Poetry Quote Divider */}

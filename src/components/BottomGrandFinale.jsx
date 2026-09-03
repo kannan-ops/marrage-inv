@@ -9,14 +9,18 @@ export default function BottomGrandFinale({ lang, content }) {
       overflow: 'hidden',
       backgroundColor: '#051E1F',
       color: '#FFF9ED',
-      textAlign: 'center'
+      textAlign: 'center',
+      borderTop: '3px solid #DFB756',
+      borderRadius: '40px 40px 0 0',
+      boxShadow: '0 -15px 40px rgba(5, 30, 31, 0.4), var(--shadow-gold-glow)'
     }}>
-      {/* Romantic HD Couple Image with Seamless Velvety Black Gradient Fade */}
+      {/* Romantic HD Couple Image with 100% Seamless Velvety Black Dissolve */}
       <div style={{
         position: 'relative',
         width: '100%',
         height: '460px',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundColor: '#051E1F'
       }}>
         <img
           src="/images/couple-forehead.jpg"
@@ -26,22 +30,26 @@ export default function BottomGrandFinale({ lang, content }) {
             height: '100%',
             objectFit: 'cover',
             objectPosition: 'center 22%',
-            display: 'block'
+            display: 'block',
+            // Deep radial black feathering mask so NO borders or lines show
+            WebkitMaskImage: 'radial-gradient(ellipse 92% 85% at 50% 45%, black 35%, rgba(0,0,0,0.7) 65%, transparent 95%)',
+            maskImage: 'radial-gradient(ellipse 92% 85% at 50% 45%, black 35%, rgba(0,0,0,0.7) 65%, transparent 95%)'
           }}
         />
 
-        {/* Seamless Multi-Layer Dark Gradient Shadows (No hard cutoffs) */}
+        {/* 100% Pure Velvety Dark Black Overlays on all sides (Top, Bottom, Left, Right) */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, rgba(248, 243, 232, 0.65) 0%, rgba(5, 30, 31, 0.1) 25%, rgba(5, 30, 31, 0.6) 55%, rgba(5, 30, 31, 0.96) 82%, #051E1F 100%)'
+          background: 'linear-gradient(180deg, #051E1F 0%, rgba(5, 30, 31, 0.15) 30%, rgba(5, 30, 31, 0.75) 65%, #051E1F 100%)',
+          pointerEvents: 'none'
         }}></div>
 
-        {/* Subtle vignette radial glow */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(circle at 50% 30%, transparent 40%, rgba(5, 30, 31, 0.8) 100%)'
+          background: 'radial-gradient(ellipse 90% 80% at 50% 40%, transparent 35%, rgba(5, 30, 31, 0.85) 75%, #051E1F 100%)',
+          pointerEvents: 'none'
         }}></div>
       </div>
 
@@ -99,13 +107,21 @@ export default function BottomGrandFinale({ lang, content }) {
         {/* Couple Names */}
         <h3 style={{
           fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: 'clamp(1.25rem, 4vw, 1.75rem)',
+          fontSize: 'clamp(1.15rem, 3.8vw, 1.65rem)',
           fontWeight: 700,
           color: '#FFFFFF',
           letterSpacing: '0.04em',
-          marginBottom: '18px'
+          marginBottom: '18px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          gap: '6px 12px',
+          textAlign: 'center'
         }}>
-          S. KANNAN, B.Sc. <span style={{ color: '#DFB756', margin: '0 6px' }}>&amp;</span> R. SURUTHIKA, D.M.E.
+          <span style={{ whiteSpace: 'nowrap' }}>S. KANNAN, B.Sc.</span>
+          <span style={{ color: '#DFB756', fontWeight: 600 }}>&amp;</span>
+          <span style={{ whiteSpace: 'nowrap' }}>R. SURUTHIKA, D.M.E.</span>
         </h3>
 
         {/* Gold Underline Divider */}
