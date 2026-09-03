@@ -5,6 +5,7 @@ import RoyalCoverScreen from './components/RoyalCoverScreen';
 import PetalAnimation from './components/PetalAnimation';
 import FloatingMusicPlayer from './components/FloatingMusicPlayer';
 import LanguageToggle from './components/LanguageToggle';
+import MassCelebrationControls from './components/MassCelebrationControls';
 import HeroSection from './components/HeroSection';
 import RingCeremonyBanner from './components/RingCeremonyBanner';
 import CountdownTimer from './components/CountdownTimer';
@@ -56,9 +57,10 @@ export default function App() {
       {/* 3. Falling Rose Petals Ambient Layer */}
       <PetalAnimation />
 
-      {/* 4. Floating Action Controls (Language & Music) */}
+      {/* 4. Floating Action Controls (Language, Music & Mass Celebration Dock) */}
       <LanguageToggle currentLang={lang} onToggle={handleToggleLang} onSelectLang={handleSelectLang} />
       <FloatingMusicPlayer autoPlayTrigger={autoPlayMusic} />
+      <MassCelebrationControls lang={lang} />
 
       {/* 5. Main Wedding Content Container */}
       <main className="wedding-container">
