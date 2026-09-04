@@ -119,6 +119,8 @@ function GoldScratchHeart({ isRevealed, onRevealed, title, subtitle, value, tapH
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        width: '100%',
+        minWidth: 0,
         userSelect: 'none'
       }}
     >
@@ -128,12 +130,12 @@ function GoldScratchHeart({ isRevealed, onRevealed, title, subtitle, value, tapH
         style={{
           position: 'relative',
           width: '100%',
-          maxWidth: '135px',
+          maxWidth: '120px',
           aspectRatio: '140 / 130',
           cursor: isRevealed ? 'default' : 'pointer',
           filter: isRevealed
-            ? 'drop-shadow(0 10px 24px rgba(11, 53, 54, 0.35)) drop-shadow(0 0 15px rgba(223, 183, 86, 0.5))'
-            : 'drop-shadow(0 10px 22px rgba(223, 183, 86, 0.45))',
+            ? 'drop-shadow(0 6px 16px rgba(11, 53, 54, 0.35)) drop-shadow(0 0 10px rgba(223, 183, 86, 0.45))'
+            : 'drop-shadow(0 6px 14px rgba(223, 183, 86, 0.4))',
           transition: 'all 0.4s ease'
         }}
         className="hover-pop"
@@ -160,55 +162,49 @@ function GoldScratchHeart({ isRevealed, onRevealed, title, subtitle, value, tapH
               <stop offset="70%" stopColor="#AA771C" />
               <stop offset="100%" stopColor="#FFF2B2" />
             </linearGradient>
+
+            <radialGradient id={`heartBgGrad_${id}`} cx="50%" cy="40%" r="60%">
+              <stop offset="0%" stopColor="#0E4446" />
+              <stop offset="60%" stopColor="#0B3536" />
+              <stop offset="100%" stopColor="#051A1B" />
+            </radialGradient>
           </defs>
 
           {/* Group Clipped to Genuine Heart Shape */}
           <g clipPath={`url(#heartClip_${id})`}>
-            {/* 1. UNDERNEATH LAYER: Revealed Emerald & Gold Heart Content */}
-            <foreignObject x="0" y="0" width="140" height="130">
-              <div style={{
-                width: '100%',
-                height: '100%',
-                background: 'radial-gradient(circle at 50% 35%, #0E4446 0%, #0B3536 60%, #051A1B 100%)',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '12px 10px 16px',
-                textAlign: 'center',
-                boxSizing: 'border-box'
-              }}>
-                <span style={{
-                  fontSize: '9.5px',
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  color: '#DFB756',
-                  fontWeight: 800,
-                  marginTop: '6px'
-                }}>
-                  {subtitle}
-                </span>
+            {/* 1. UNDERNEATH LAYER: Pure SVG Vector Revealed Emerald & Gold Heart Content */}
+            <path d={heartPath} fill={`url(#heartBgGrad_${id})`} />
 
-                <div style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: 'clamp(1.18rem, 3.8vw, 1.48rem)',
-                  fontWeight: 900,
-                  color: '#FFF8DD',
-                  lineHeight: '1.1',
-                  textShadow: '0 2px 8px rgba(0,0,0,0.5)',
-                  marginTop: '2px'
-                }}>
-                  {value}
-                </div>
+            {/* Subtitle / Tag (e.g. DAYS, MONTH, YEAR) */}
+            <text
+              x="70"
+              y="46"
+              textAnchor="middle"
+              fill="#DFB756"
+              fontSize="9"
+              fontWeight="800"
+              letterSpacing="0.16em"
+              style={{ textTransform: 'uppercase', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              {subtitle}
+            </text>
 
-                <div style={{
-                  marginTop: '4px',
-                  width: '28px',
-                  height: '1.5px',
-                  background: 'linear-gradient(90deg, transparent, #DFB756, transparent)'
-                }}></div>
-              </div>
-            </foreignObject>
+            {/* Big Value (e.g. 10 & 11, நவம்பர், 2026) */}
+            <text
+              x="70"
+              y="74"
+              textAnchor="middle"
+              fill="#FFF8DD"
+              fontSize={lang === 'ta' && value.length > 5 ? "14.5" : "17"}
+              fontWeight="900"
+              fontFamily="'Playfair Display', 'Noto Serif Tamil', Georgia, serif"
+              style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.5))' }}
+            >
+              {value}
+            </text>
+
+            {/* Small Gold Underline */}
+            <line x1="56" y1="84" x2="84" y2="84" stroke="#DFB756" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
 
             {/* 2. TOP LAYER: Scratchable Gold Foil Canvas */}
             {!isRevealed && (
@@ -248,12 +244,13 @@ function GoldScratchHeart({ isRevealed, onRevealed, title, subtitle, value, tapH
 
       {/* Label under Heart */}
       <span style={{
-        marginTop: '10px',
-        fontSize: '13px',
+        marginTop: '8px',
+        fontSize: 'clamp(11px, 2.8vw, 13px)',
         fontWeight: 800,
         color: isRevealed ? 'var(--color-royal-maroon)' : 'var(--color-royal-peacock)',
         letterSpacing: '0.04em',
-        transition: 'color 0.3s ease'
+        transition: 'color 0.3s ease',
+        textAlign: 'center'
       }}>
         {title}
       </span>
@@ -344,13 +341,15 @@ export default function CountdownTimer({ targetDate, content, lang }) {
       <div style={{
         background: 'linear-gradient(180deg, #FFFDF9 0%, #FAF2E3 100%)',
         border: '2px solid #DFB756',
-        borderRadius: '30px',
-        padding: '30px 20px',
+        borderRadius: '26px',
+        padding: '24px 10px',
         boxShadow: 'var(--shadow-royal-card), var(--shadow-gold-glow)',
-        marginBottom: '36px',
+        marginBottom: '32px',
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        width: '100%',
+        boxSizing: 'border-box'
       }}>
         {/* Corner Accents */}
         <div className="gold-corner-tl"></div>
@@ -370,14 +369,14 @@ export default function CountdownTimer({ targetDate, content, lang }) {
         {/* Section Heading */}
         <h3 style={{
           fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: 'clamp(1.25rem, 4vw, 1.65rem)',
+          fontSize: 'clamp(1.2rem, 3.8vw, 1.6rem)',
           fontWeight: 700,
           color: 'var(--color-royal-peacock)',
           marginBottom: '6px'
         }}>
           {lang === 'ta' ? 'ஒவ்வொரு இதயத்தையும் தொட்டுத் திறவுங்கள்' : 'Tap Each Heart to Reveal The Wedding Date'}
         </h3>
-        <p style={{ fontSize: '13px', color: '#6A5844', fontStyle: 'italic', marginBottom: '24px' }}>
+        <p style={{ fontSize: '12.5px', color: '#6A5844', fontStyle: 'italic', marginBottom: '20px' }}>
           {lang === 'ta' ? 'கண்ணன் & சுருதிகா திருமண நாள் ரகசியத்தை வெளிப்படுத்துங்கள் ✨' : 'Unlock the auspicious wedding moment of Kannan & Suruthika ✨'}
         </p>
 
@@ -385,9 +384,11 @@ export default function CountdownTimer({ targetDate, content, lang }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '14px',
-          maxWidth: '480px',
-          margin: '0 auto 26px'
+          gap: '6px',
+          maxWidth: '440px',
+          width: '100%',
+          margin: '0 auto 22px',
+          boxSizing: 'border-box'
         }}>
           {/* Card 1: Date */}
           <GoldScratchHeart
