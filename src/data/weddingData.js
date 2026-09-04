@@ -82,6 +82,13 @@ export const weddingData = {
     galleryFilterFamily: "Family & Elders",
     photos: [
       {
+        src: "/images/couple-outdoor.jpg",
+        line1: "S. Kannan, B.Sc. & R. Suruthika, D.M.E.",
+        line2: "Two loving souls with a single rhythm, stepping into a lifetime of endless joy. 🪷✨",
+        tag: "THE COUPLE",
+        category: "couple"
+      },
+      {
         src: "/images/couple-forehead.jpg",
         line1: "S. Kannan & R. Suruthika",
         line2: "A gentle touch of pure devotion, sealing our promise across a lifetime. ❤️✨",
@@ -241,6 +248,13 @@ export const weddingData = {
     galleryFilterCeremony: "சுப நிகழ்வுகள்",
     galleryFilterFamily: "குடும்பம் & ஆசிகள்",
     photos: [
+      {
+        src: "/images/couple-outdoor.jpg",
+        line1: "S. கண்ணன், B.Sc. & R. சுருதிகா, D.M.E.",
+        line2: "இரு இதயங்கள் இணைந்த நேரம்... இனி வரும் காலம் நம் வசந்த காலம்! 🪷✨",
+        tag: "மணமக்கள்",
+        category: "couple"
+      },
       {
         src: "/images/couple-forehead.jpg",
         line1: "S. கண்ணன் & R. சுருதிகா",
