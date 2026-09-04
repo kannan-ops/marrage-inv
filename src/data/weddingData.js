@@ -82,24 +82,10 @@ export const weddingData = {
     galleryFilterFamily: "Family & Elders",
     photos: [
       {
-        src: "/images/couple-proposal.jpg",
-        line1: "S. Kannan, B.Sc. & R. Suruthika, D.M.E.",
-        line2: "With hearts intertwined and blessings adorned, our eternal fairy tale begins here. 💍💐",
-        tag: "THE PROPOSAL",
-        category: "couple"
-      },
-      {
         src: "/images/couple-forehead.jpg",
         line1: "S. Kannan & R. Suruthika",
         line2: "A gentle touch of pure devotion, sealing our promise across a lifetime. ❤️✨",
         tag: "SOULMATES",
-        category: "couple"
-      },
-      {
-        src: "/images/couple-romantic.jpg",
-        line1: "S. Kannan & R. Suruthika",
-        line2: "In your eyes I found my universe, and in your smile my sweetest peace. 🌸💑",
-        tag: "ROMANTIC MOMENTS",
         category: "couple"
       },
       {
@@ -108,20 +94,6 @@ export const weddingData = {
         line2: "Walking into forever hand in hand, with hearts synchronized in eternal harmony. 🤝💖",
         tag: "ETERNAL PROMISE",
         category: "couple"
-      },
-      {
-        src: "/images/couple-hero.jpg",
-        line1: "S. Kannan, B.Sc. & R. Suruthika, D.M.E.",
-        line2: "Two souls with a single rhythm, stepping into a lifetime of endless joy. 🪷✨",
-        tag: "THE COUPLE",
-        category: "couple"
-      },
-      {
-        src: "/images/ring-ceremony.jpg",
-        line1: "The Sacred Engagement",
-        line2: "Sealed with a golden ring, our vows of love and loyalty are bound forever. 💍❤️",
-        tag: "SACRED UNION",
-        category: "ceremony"
       },
       {
         src: "/images/bouquet-ceremony.jpg",
@@ -270,24 +242,10 @@ export const weddingData = {
     galleryFilterFamily: "குடும்பம் & ஆசிகள்",
     photos: [
       {
-        src: "/images/couple-proposal.jpg",
-        line1: "S. கண்ணன், B.Sc. & R. சுருதிகா, D.M.E.",
-        line2: "மலர் மாலை சூடி, மனம் இணைந்து, மரணமில்லா காதல் காவியமாய் வாழத் தொடங்கும் மங்கலத் தருணம்! 💍💐",
-        tag: "முன்மொழிவு",
-        category: "couple"
-      },
-      {
         src: "/images/couple-forehead.jpg",
         line1: "S. கண்ணன் & R. சுருதிகா",
         line2: "உன் நெற்றியில் பதியும் என் அன்பின் சுவடு... நம் ஆயுள் வரை மாறாத காதல் உறவு! ❤️✨",
         tag: "காதல் பந்தம்",
-        category: "couple"
-      },
-      {
-        src: "/images/couple-romantic.jpg",
-        line1: "S. கண்ணன் & R. சுருதிகா",
-        line2: "உன் விழிகளில் என் உலகம்... உன் புன்னகையில் என் நிம்மதி! என்றும் பிரியாத அன்புப் பார்வை! 🌸💑",
-        tag: "காதல் தருணம்",
         category: "couple"
       },
       {
@@ -296,20 +254,6 @@ export const weddingData = {
         line2: "கைப்பிடித்து நடைபழகும் இந்த புதிய பயணம்... காலமெல்லாம் நிலைத்திருக்கும் நம் காதல் வரம்! 🤝💖",
         tag: "வாழ்க்கைத்துணை",
         category: "couple"
-      },
-      {
-        src: "/images/couple-hero.jpg",
-        line1: "S. கண்ணன், B.Sc. & R. சுருதிகா, D.M.E.",
-        line2: "இரு இதயங்கள் இணைந்த நேரம்... இனி வரும் காலம் நம் வசந்த காலம்! 🪷✨",
-        tag: "மணமக்கள்",
-        category: "couple"
-      },
-      {
-        src: "/images/ring-ceremony.jpg",
-        line1: "சுப நிச்சயதார்த்த மங்கல நேரம்",
-        line2: "விரல் தொட்ட மோதிரம் சொல்லும்... நீ எனக்கானவள் என்று உலகம் அறியும்! 💍❤️",
-        tag: "சுப நிகழ்வு",
-        category: "ceremony"
       },
       {
         src: "/images/bouquet-ceremony.jpg",
