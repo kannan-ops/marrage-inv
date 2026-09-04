@@ -24,7 +24,7 @@ export default function RoyalBackground() {
           height: '140px',
           background: 'radial-gradient(ellipse 100% 100% at 50% 0%, rgba(223, 183, 86, 0.42) 0%, rgba(255, 240, 184, 0.2) 50%, transparent 80%)',
           filter: 'blur(20px)',
-          borderRadius: '50%'
+          borderRadius: '50%' 
         }}></div>
 
         {/* 24K Gold Filigree Curved Thread */}

@@ -5,20 +5,21 @@ export default function BottomGrandFinale({ lang, content }) {
   return (
     <section style={{
       position: 'relative',
-      margin: '60px -16px -60px -16px',
+      margin: '50px -14px -60px -14px',
+      width: 'calc(100% + 28px)',
       overflow: 'hidden',
       backgroundColor: '#051E1F',
       color: '#FFF9ED',
       textAlign: 'center',
       borderTop: '3px solid #DFB756',
-      borderRadius: '40px 40px 0 0',
+      borderRadius: '36px 36px 0 0',
       boxShadow: '0 -15px 40px rgba(5, 30, 31, 0.4), var(--shadow-gold-glow)'
     }}>
       {/* Romantic HD Couple Image with 100% Seamless Velvety Black Dissolve */}
       <div style={{
         position: 'relative',
         width: '100%',
-        height: '460px',
+        height: 'clamp(320px, 75vw, 460px)',
         overflow: 'hidden',
         backgroundColor: '#051E1F'
       }}>

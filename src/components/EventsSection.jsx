@@ -105,11 +105,11 @@ export default function EventsSection({ content, lang }) {
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '12px', marginTop: '18px', paddingTop: '16px', borderTop: '1px solid rgba(223, 183, 86, 0.4)' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '18px', paddingTop: '16px', borderTop: '1px solid rgba(223, 183, 86, 0.4)' }}>
               <button
                 onClick={() => handleOpenMap(event.mapQuery)}
                 className="btn-primary"
-                style={{ flex: 1, fontWeight: 800 }}
+                style={{ flex: '1 1 140px', fontWeight: 800 }}
               >
                 <Navigation size={15} />
                 <span>{content.getDirections}</span>
@@ -119,7 +119,7 @@ export default function EventsSection({ content, lang }) {
                 onClick={() => handleAddToCalendar(event)}
                 className="btn-secondary"
                 title="Add to Google Calendar"
-                style={{ fontWeight: 800 }}
+                style={{ flex: '1 1 140px', fontWeight: 800 }}
               >
                 <CalendarPlus size={15} />
                 <span>{content.addToCalendar}</span>

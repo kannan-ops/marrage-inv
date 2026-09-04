@@ -106,12 +106,13 @@ export default function FloatingMusicPlayer({ autoPlayTrigger }) {
         <source src="/audio/wedding-bgm.mp4" type="video/mp4" />
       </video>
 
-      <div style={{ position: 'fixed', bottom: '24px', right: '20px', zIndex: 9999 }}>
+      <div style={{ position: 'fixed', bottom: '16px', right: '14px', zIndex: 9990 }}>
         <button
           onClick={toggleMusic}
           className={`floating-audio-btn ${isPlaying ? 'playing' : ''}`}
           title={isPlaying ? "Mute Music" : "Play Music"}
           aria-label="Toggle Wedding Music"
+          style={{ padding: '8px 14px', fontSize: '11.5px' }}
         >
           <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px' }}>
             {isPlaying ? <Volume2 size={16} /> : <VolumeX size={16} />}

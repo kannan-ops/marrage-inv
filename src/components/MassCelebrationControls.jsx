@@ -61,12 +61,12 @@ export default function MassCelebrationControls({ lang }) {
     <div
       style={{
         position: 'fixed',
-        bottom: '22px',
-        left: '20px',
-        zIndex: 90,
+        bottom: '16px',
+        left: '14px',
+        zIndex: 9990,
         display: 'flex',
         flexDirection: 'column',
-        gap: '10px'
+        gap: '8px'
       }}
     >
       {/* Button 1: Sacred Flower & Akshadhai Shower */}
@@ -76,24 +76,25 @@ export default function MassCelebrationControls({ lang }) {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '8px',
-          background: 'linear-gradient(135deg, #FFFDF8 0%, #F5E8CC 100%)',
+          gap: '6px',
+          background: 'linear-gradient(135deg, rgba(255, 253, 248, 0.95) 0%, rgba(245, 232, 204, 0.95) 100%)',
           color: '#7A1910',
-          border: '2px solid #DFB756',
+          border: '1.5px solid #DFB756',
           borderRadius: '9999px',
-          padding: '9px 16px',
+          padding: '7px 13px',
           fontWeight: 800,
-          fontSize: '12px',
+          fontSize: '11.5px',
           letterSpacing: '0.04em',
           cursor: 'pointer',
-          boxShadow: '0 8px 24px rgba(122, 25, 16, 0.25), 0 0 15px rgba(223, 183, 86, 0.4)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 8px 24px rgba(122, 25, 16, 0.25), 0 0 15px rgba(223, 183, 86, 0.3)',
           transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
           transform: isSparking ? 'scale(1.1)' : 'scale(1)'
         }}
         className="hover-pop"
       >
-        <span style={{ fontSize: '16px' }}>🌸</span>
-        <span>{lang === 'ta' ? 'மலர் தூவ' : 'Bless Flowers'}</span>
+        <span style={{ fontSize: '14px' }}>🌸</span>
+        <span>{lang === 'ta' ? 'மலர் தூவ' : 'Flowers'}</span>
       </button>
 
       {/* Button 2: Grand Fireworks (வானவேடிக்கை) */}
@@ -103,22 +104,23 @@ export default function MassCelebrationControls({ lang }) {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '8px',
-          background: 'linear-gradient(135deg, #0A3D3F 0%, #051A1B 100%)',
+          gap: '6px',
+          background: 'linear-gradient(135deg, rgba(10, 61, 63, 0.95) 0%, rgba(5, 26, 27, 0.95) 100%)',
           color: '#FFF2B2',
-          border: '2px solid #DFB756',
+          border: '1.5px solid #DFB756',
           borderRadius: '9999px',
-          padding: '9px 16px',
+          padding: '7px 13px',
           fontWeight: 800,
-          fontSize: '12px',
+          fontSize: '11.5px',
           letterSpacing: '0.04em',
           cursor: 'pointer',
-          boxShadow: '0 8px 24px rgba(5, 26, 27, 0.35), 0 0 15px rgba(223, 183, 86, 0.35)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 8px 24px rgba(5, 26, 27, 0.35), 0 0 15px rgba(223, 183, 86, 0.3)',
           transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
         }}
         className="hover-pop"
       >
-        <span style={{ fontSize: '16px' }}>🎆</span>
+        <span style={{ fontSize: '14px' }}>🎆</span>
         <span>{lang === 'ta' ? 'வானவேடிக்கை' : 'Fireworks'}</span>
       </button>
     </div>

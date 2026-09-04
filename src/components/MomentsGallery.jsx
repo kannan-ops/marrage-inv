@@ -57,8 +57,8 @@ function ScrollPolaroidCard({ photo, index, onSelect }) {
         position: 'relative',
         opacity: isVisible ? 1 : 0,
         transform: isVisible
-          ? `translateX(0) translateY(0) rotate(${baseTilt}) scale(1)`
-          : `translateX(${isLeft ? '-50px' : '50px'}) translateY(35px) rotate(${isLeft ? '-5deg' : '5deg'}) scale(0.96)`,
+          ? `translateY(0) rotate(${baseTilt}) scale(1)`
+          : `translateY(30px) rotate(${isLeft ? '-2deg' : '2deg'}) scale(0.96)`,
         transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
         willChange: 'transform, opacity'
       }}

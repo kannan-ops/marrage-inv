@@ -3,13 +3,13 @@ import { Globe } from 'lucide-react';
 
 export default function LanguageToggle({ currentLang, onToggle, onSelectLang }) {
   return (
-    <div style={{ position: 'fixed', bottom: '24px', left: '20px', zIndex: 9999 }}>
+    <div style={{ position: 'fixed', top: '14px', right: '14px', zIndex: 9990 }}>
       <div style={{
         display: 'inline-flex',
         alignItems: 'center',
         padding: '3px',
         backgroundColor: 'rgba(255, 253, 248, 0.95)',
-        backdropFilter: 'blur(10px)',
+        backdropFilter: 'blur(12px)',
         border: '1.5px solid #DFB756',
         borderRadius: '9999px',
         boxShadow: '0 8px 25px rgba(5, 26, 27, 0.18), var(--shadow-gold-glow)',

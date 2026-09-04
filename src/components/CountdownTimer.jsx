@@ -127,8 +127,9 @@ function GoldScratchHeart({ isRevealed, onRevealed, title, subtitle, value, tapH
         onClick={handleTapQuickReveal}
         style={{
           position: 'relative',
-          width: '135px',
-          height: '125px',
+          width: '100%',
+          maxWidth: '135px',
+          aspectRatio: '140 / 130',
           cursor: isRevealed ? 'default' : 'pointer',
           filter: isRevealed
             ? 'drop-shadow(0 10px 24px rgba(11, 53, 54, 0.35)) drop-shadow(0 0 15px rgba(223, 183, 86, 0.5))'
@@ -143,7 +144,8 @@ function GoldScratchHeart({ isRevealed, onRevealed, title, subtitle, value, tapH
           style={{
             width: '100%',
             height: '100%',
-            overflow: 'visible'
+            overflow: 'visible',
+            display: 'block'
           }}
         >
           <defs>
@@ -487,21 +489,21 @@ export default function CountdownTimer({ targetDate, content, lang }) {
         {/* Celestial Circular Dial Clock */}
         <div style={{
           position: 'relative',
-          width: '310px',
-          height: '310px',
-          margin: '0 auto 30px',
+          width: 'min(280px, 76vw)',
+          height: 'min(280px, 76vw)',
+          margin: '0 auto 24px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
         }}>
           {/* 1. ROTATING ASTRONOMICAL GOLDEN CONSTELLATION WHEEL */}
           <svg
-            width="310"
-            height="310"
             viewBox="0 0 320 320"
             style={{
               position: 'absolute',
               inset: 0,
+              width: '100%',
+              height: '100%',
               animation: 'rotateClockwise 90s linear infinite',
               pointerEvents: 'none',
               opacity: 0.6
@@ -526,12 +528,12 @@ export default function CountdownTimer({ targetDate, content, lang }) {
 
           {/* 2. SVG Animated Glowing Outer Dial */}
           <svg
-            width="290"
-            height="290"
             viewBox="0 0 300 300"
             style={{
               position: 'absolute',
-              inset: 10,
+              inset: 0,
+              width: '100%',
+              height: '100%',
               transform: 'rotate(-90deg)'
             }}
           >
@@ -603,8 +605,8 @@ export default function CountdownTimer({ targetDate, content, lang }) {
           <div style={{
             position: 'relative',
             zIndex: 5,
-            width: '215px',
-            height: '215px',
+            width: 'min(195px, 54vw)',
+            height: 'min(195px, 54vw)',
             borderRadius: '50%',
             background: 'radial-gradient(circle at 40% 30%, #FFFFFF 0%, #FAF3E6 70%, #F5E5CF 100%)',
             border: '3px solid #DFB756',
@@ -613,14 +615,14 @@ export default function CountdownTimer({ targetDate, content, lang }) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '16px'
+            padding: '12px'
           }}>
             {/* Days Big Number with Gold Shimmer */}
             <span
               className="gold-shimmer-text"
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: 'clamp(3.4rem, 11vw, 4.6rem)',
+                fontSize: 'clamp(2.5rem, 8vw, 4.2rem)',
                 fontWeight: 900,
                 lineHeight: '0.95',
                 letterSpacing: '-0.02em',
@@ -632,7 +634,7 @@ export default function CountdownTimer({ targetDate, content, lang }) {
 
             {/* Days Label */}
             <span style={{
-              fontSize: '13px',
+              fontSize: 'clamp(11px, 2.8vw, 13px)',
               fontFamily: "'Playfair Display', Georgia, serif",
               fontWeight: 900,
               letterSpacing: '0.22em',
@@ -645,15 +647,15 @@ export default function CountdownTimer({ targetDate, content, lang }) {
 
             {/* Gold Divider Line */}
             <div style={{
-              width: '70px',
+              width: '60px',
               height: '1.5px',
               background: 'linear-gradient(90deg, transparent, #DFB756, transparent)',
-              margin: '8px 0 6px'
+              margin: '6px 0 4px'
             }}></div>
 
             {/* Mini Ticking Second Indicator */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '12px', color: 'var(--color-royal-maroon)', fontWeight: 800 }}>
-              <Heart size={11} style={{ fill: 'var(--color-royal-maroon)', animation: 'sealPulse 1s infinite' }} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11px', color: 'var(--color-royal-maroon)', fontWeight: 800 }}>
+              <Heart size={10} style={{ fill: 'var(--color-royal-maroon)', animation: 'sealPulse 1s infinite' }} />
               <span>{String(timeLeft.seconds).padStart(2, '0')}s</span>
             </div>
           </div>
@@ -663,21 +665,21 @@ export default function CountdownTimer({ targetDate, content, lang }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '12px',
+          gap: '8px',
           maxWidth: '460px',
           margin: '0 auto'
         }}>
           {/* Hours Box */}
           <div style={{
             background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF4E8 100%)',
-            border: '2px solid #DFB756',
-            borderRadius: '20px',
-            padding: '16px 10px',
-            boxShadow: '0 6px 18px rgba(0,0,0,0.06)'
+            border: '1.5px solid #DFB756',
+            borderRadius: '16px',
+            padding: '12px 6px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
           }}>
             <span style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: '1.85rem',
+              fontSize: 'clamp(1.35rem, 4.5vw, 1.85rem)',
               fontWeight: 900,
               color: 'var(--color-royal-peacock)',
               display: 'block',
@@ -685,7 +687,7 @@ export default function CountdownTimer({ targetDate, content, lang }) {
             }}>
               {String(timeLeft.hours).padStart(2, '0')}
             </span>
-            <span style={{ fontSize: '11px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            <span style={{ fontSize: '10px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {content.hours}
             </span>
           </div>
@@ -693,14 +695,14 @@ export default function CountdownTimer({ targetDate, content, lang }) {
           {/* Minutes Box */}
           <div style={{
             background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF4E8 100%)',
-            border: '2px solid #DFB756',
-            borderRadius: '20px',
-            padding: '16px 10px',
-            boxShadow: '0 6px 18px rgba(0,0,0,0.06)'
+            border: '1.5px solid #DFB756',
+            borderRadius: '16px',
+            padding: '12px 6px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
           }}>
             <span style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: '1.85rem',
+              fontSize: 'clamp(1.35rem, 4.5vw, 1.85rem)',
               fontWeight: 900,
               color: 'var(--color-royal-peacock)',
               display: 'block',
@@ -708,7 +710,7 @@ export default function CountdownTimer({ targetDate, content, lang }) {
             }}>
               {String(timeLeft.minutes).padStart(2, '0')}
             </span>
-            <span style={{ fontSize: '11px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            <span style={{ fontSize: '10px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {content.minutes}
             </span>
           </div>
@@ -716,14 +718,14 @@ export default function CountdownTimer({ targetDate, content, lang }) {
           {/* Seconds Box */}
           <div style={{
             background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF4E8 100%)',
-            border: '2px solid #DFB756',
-            borderRadius: '20px',
-            padding: '16px 10px',
-            boxShadow: '0 6px 18px rgba(0,0,0,0.06)'
+            border: '1.5px solid #DFB756',
+            borderRadius: '16px',
+            padding: '12px 6px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
           }}>
             <span style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: '1.85rem',
+              fontSize: 'clamp(1.35rem, 4.5vw, 1.85rem)',
               fontWeight: 900,
               color: 'var(--color-royal-maroon)',
               display: 'block',
@@ -731,7 +733,7 @@ export default function CountdownTimer({ targetDate, content, lang }) {
             }}>
               {String(timeLeft.seconds).padStart(2, '0')}
             </span>
-            <span style={{ fontSize: '11px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            <span style={{ fontSize: '10px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {content.seconds}
             </span>
           </div>
