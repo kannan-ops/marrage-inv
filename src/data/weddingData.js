@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/assetUrl';
+
 export const weddingData = {
   dates: {
     reception: "2026-11-11T07:00:00",
@@ -170,28 +172,28 @@ export const weddingData = {
     galleryFilterCeremony: "Ceremony",
     photos: [
       {
-        src: "/images/couple-outdoor.jpg",
+        src: getAssetUrl('/images/couple-outdoor.jpg'),
         line1: "S. Kannan, B.Sc. & R. Suruthika, ECE.",
         line2: "Two loving souls with a single rhythm, stepping into a lifetime of endless joy. 🪷✨",
         tag: "THE COUPLE",
         category: "couple"
       },
       {
-        src: "/images/couple-forehead.jpg",
+        src: getAssetUrl('/images/couple-forehead.jpg'),
         line1: "S. Kannan & R. Suruthika",
         line2: "A gentle touch of pure devotion, sealing our promise across a lifetime. ❤️✨",
         tag: "SOULMATES",
         category: "couple"
       },
       {
-        src: "/images/couple-intimate.jpg",
+        src: getAssetUrl('/images/couple-intimate.jpg'),
         line1: "S. Kannan & R. Suruthika",
         line2: "Walking into forever hand in hand, with hearts synchronized in eternal harmony. 🤝💖",
         tag: "ETERNAL PROMISE",
         category: "couple"
       },
       {
-        src: "/images/bouquet-ceremony.jpg",
+        src: getAssetUrl('/images/bouquet-ceremony.jpg'),
         line1: "Fragrance of Togetherness",
         line2: "Blossoming with the fragrance of holy blessings and fragrant garlands. 💐🪷",
         tag: "CEREMONY",
@@ -284,28 +286,28 @@ export const weddingData = {
     galleryFilterCeremony: "சுப நிகழ்வுகள்",
     photos: [
       {
-        src: "/images/couple-outdoor.jpg",
+        src: getAssetUrl('/images/couple-outdoor.jpg'),
         line1: "S. கண்ணன், B.Sc. & R. சுருதிகா, ECE.",
         line2: "இரு இதயங்கள் இணைந்த நேரம்... இனி வரும் காலம் நம் வசந்த காலம்! 🪷✨",
         tag: "மணமக்கள்",
         category: "couple"
       },
       {
-        src: "/images/couple-forehead.jpg",
+        src: getAssetUrl('/images/couple-forehead.jpg'),
         line1: "S. கண்ணன் & R. சுருதிகா",
         line2: "உன் நெற்றியில் பதியும் என் அன்பின் சுவடு... நம் ஆயுள் வரை மாறாத காதல் உறவு! ❤️✨",
         tag: "காதல் பந்தம்",
         category: "couple"
       },
       {
-        src: "/images/couple-intimate.jpg",
+        src: getAssetUrl('/images/couple-intimate.jpg'),
         line1: "S. கண்ணன் & R. சுருதிகா",
         line2: "கைப்பிடித்து நடைபழகும் இந்த புதிய பயணம்... காலமெல்லாம் நிலைத்திருக்கும் நம் காதல் வரம்! 🤝💖",
         tag: "வாழ்க்கைத்துணை",
         category: "couple"
       },
       {
-        src: "/images/bouquet-ceremony.jpg",
+        src: getAssetUrl('/images/bouquet-ceremony.jpg'),
         line1: "மங்கல மலர் மாலை நேரம்",
         line2: "மணக்கும் மலர்களின் சாட்சியோடு, மனங்கள் இணைந்த மங்கல தருணம்! 💐🪷",
         tag: "ஆசிர்வாதம்",

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Calendar, MapPin, Heart, Briefcase, GraduationCap } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 export default function HeroSection({ content, lang }) {
   const isTa = lang === 'ta';
@@ -361,7 +362,7 @@ export default function HeroSection({ content, lang }) {
 
         <div className="royal-img-box">
           <img
-            src="/images/couple-proposal.jpg"
+            src={getAssetUrl('/images/couple-proposal.jpg')}
             alt="S. Kannan, B.Sc. & R. Suruthika, ECE."
             style={{ objectPosition: 'center 30%' }}
           />

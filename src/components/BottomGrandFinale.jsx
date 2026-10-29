@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Sparkles } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 export default function BottomGrandFinale({ lang, content }) {
   return (
@@ -24,7 +25,7 @@ export default function BottomGrandFinale({ lang, content }) {
         backgroundColor: '#35060A'
       }}>
         <img
-          src="/images/couple-forehead.jpg"
+          src={getAssetUrl('/images/couple-forehead.jpg')}
           alt="S. Kannan & R. Suruthika Romantic Moment"
           style={{
             width: '100%',

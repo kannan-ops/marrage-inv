@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX, Music, Play, Pause, ChevronUp, ChevronDown, Sparkles } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 export default function FloatingMusicPlayer({ autoPlayTrigger }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -80,10 +81,10 @@ export default function FloatingMusicPlayer({ autoPlayTrigger }) {
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       >
-        <source src="/wedding-bgm.mp4?v=full-song-track" type="audio/mp4" />
-        <source src="/audio/idicha-pacharisi-full-song.mp4?v=full-song-track" type="audio/mp4" />
-        <source src="/audio/idicha-pacharisi.mp4?v=full-song-track" type="audio/mp4" />
-        <source src="/audio/new-wedding-bgm.mp4?v=full-song-track" type="audio/mp4" />
+        <source src={getAssetUrl('wedding-bgm.mp4?v=full-song-track')} type="audio/mp4" />
+        <source src={getAssetUrl('audio/idicha-pacharisi-full-song.mp4?v=full-song-track')} type="audio/mp4" />
+        <source src={getAssetUrl('audio/idicha-pacharisi.mp4?v=full-song-track')} type="audio/mp4" />
+        <source src={getAssetUrl('audio/new-wedding-bgm.mp4?v=full-song-track')} type="audio/mp4" />
       </audio>
 
       {/* Floating Audio Controller */}

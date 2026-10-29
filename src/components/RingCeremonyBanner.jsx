@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Heart } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 export default function RingCeremonyBanner({ content, lang }) {
   const isTa = lang === 'ta';
@@ -14,7 +15,7 @@ export default function RingCeremonyBanner({ content, lang }) {
       {/* Ring Ceremony Photo with 24K Golden Sunburst Aura */}
       <div className="ring-img-thumb">
         <img
-          src="/images/ring-ceremony.jpg"
+          src={getAssetUrl('/images/ring-ceremony.jpg')}
           alt="The Sacred Ring Exchange — S. Kannan & R. Suruthika"
         />
       </div>
