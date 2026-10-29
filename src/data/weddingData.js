@@ -1,89 +1,177 @@
 export const weddingData = {
   dates: {
-    reception: "2026-11-10T18:30:00",
-    muhurtham: "2026-11-11T09:00:00",
-    targetCountdown: "2026-11-11T09:00:00+05:30"
+    reception: "2026-11-11T07:00:00",
+    muhurtham: "2026-11-11T05:00:00",
+    targetCountdown: "2026-11-11T05:00:00+05:30"
   },
   couple: {
     groom: {
       name: "S. Kannan",
       degree: "B.Sc.",
       fullName: "S. Kannan, B.Sc.",
+      profession: "Software Developer, Elevada Softwares P.Ltd., Covai",
       tamilName: "S. கண்ணன்",
-      tamilDegree: "B.Sc."
+      tamilDegree: "B.Sc.",
+      tamilProfession: "Software Developer, Elevada Softwares P.Ltd., Covai",
+      native: "Jangamanaickenpatti, Villipalayam, Paramathi Velur, Namakkal",
+      tamilNative: "ஜங்கமநாயக்கன்பட்டி, வில்லிபாளையம், பரமத்தி வேலூர் வட்டம், நாமக்கல் மாவட்டம்",
+      phone: "94443 63964"
     },
     bride: {
       name: "R. Suruthika",
-      degree: "D.M.E.",
-      fullName: "R. Suruthika, D.M.E.",
+      degree: "ECE.",
+      fullName: "R. Suruthika, ECE.",
+      profession: "B.E. ECE Graduate",
       tamilName: "R. சுருதிகா",
-      tamilDegree: "D.M.E."
+      tamilDegree: "ECE.",
+      tamilProfession: "ECE.",
+      native: "Karattupalayam, Tiruchengode, Namakkal",
+      tamilNative: "கரட்டுப்பாளையம், திருச்செங்கோடு வட்டம், நாமக்கல் மாவட்டம்",
+      phone: "63749 11332"
+    }
+  },
+  traditional: {
+    deities: {
+      left: ["ஸ்ரீ பொம்முசாமி துணை", "ஸ்ரீ காமாட்சியம்மன் துணை"],
+      center: "உ ஸ்ரீ அங்காளம்மன் துணை",
+      right: ["ஸ்ரீ நல்லேந்திரசாமி துணை", "ஸ்ரீ வீரம்மா துணை"]
+    },
+    kural: {
+      lines: [
+        "அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை",
+        "பண்பும் பயனும் அது"
+      ],
+      author: "குறள்",
+      english: "If love and virtue adorn the wedded life, their joy and fruit is its eternal grace."
+    },
+    panjangam: {
+      ta: "நிகழும் மங்கலகரமான ஸ்ரீ பராபவ வருடம் ஐப்பசி மாதம் 25-ம் நாள் (11-11-2026) புதன்கிழமை, துவிதியை திதியும், அனுஷம் நட்சத்திரமும் சித்தயோகமும் கூடிய சுபயோக சுபதினத்தில் அன்று அதிகாலை 5-00 மணிக்குமேல் 6-00 மணிக்குள் பிரம்ம முகூர்த்தத்தில்",
+      en: "On the auspicious day of Sri Parabhava Year, Aippasi 25 (Wednesday, 11th November 2026), in the celestial confluence of Thvithiyai Thithi, Anusham Nakshathiram and Siddhayogam, during the sacred Brahma Muhurtham between 5:00 AM and 6:00 AM"
+    },
+    groomSide: {
+      placeTa: "நாமக்கல் மாவட்டம், பரமத்தி வேலூர் வட்டம், வில்லிபாளையம், ஜங்கமநாயக்கன்பட்டி",
+      placeEn: "Jangamanaickenpatti, Villipalayam, Paramathi Velur, Namakkal Dt.",
+      paternalTa: "தெய்வத்திரு பூசாரி - திருமதி லட்சுமி ஆகியோரின் மகன்வழி பேரன்",
+      paternalEn: "Paternal Grandson of Late Poosari & Smt. Lakshmi",
+      maternalTa: "திரு ராஜு - திருமதி சின்னம்மாள் ஆகியோரின் மகள்வழி பேரன்",
+      maternalEn: "Maternal Grandson of Thiru Raju & Smt. Chinnammal",
+      parentsTa: "P. செந்தில்குமார் - S. சுமதி ஆகியோரின் குமாரன்",
+      parentsEn: "Son of Thiru P. Senthilkumar & Smt. S. Sumathi",
+      fullNameTa: "திருநிறைச் செல்வன் S. கண்ணன் B.Sc.,",
+      fullNameEn: "Mr. S. Kannan, B.Sc.,",
+      jobTa: "(Software Developer, Elevada Softwares P.Ltd., Covai)",
+      jobEn: "Software Developer, Elevada Softwares P.Ltd., Covai",
+      invitersTa: [
+        "P. செந்தில்குமார் - S. சுமதி",
+        "தம்பி S. லோகநாதன் DME., - L. லித்திகா B.Sc.,",
+        "அத்தை ருக்மணி"
+      ],
+      invitersEn: [
+        "P. Senthilkumar - S. Sumathi",
+        "Brother S. Loganathan DME., - L. Lithika B.Sc.,",
+        "Aunt Rukmani"
+      ],
+      phone: "94443 63964"
+    },
+    brideSide: {
+      placeTa: "நாமக்கல் மாவட்டம், திருச்செங்கோட்டு வட்டம், கரட்டுப்பாளையம்",
+      placeEn: "Karattupalayam, Tiruchengode Taluk, Namakkal Dt.",
+      paternalTa: "திரு N. பெரியசாமி - திருமதி P. செட்டியம்மாள் ஆகியோரின் மகன்வழி பேத்தி",
+      paternalEn: "Paternal Granddaughter of Thiru N. Periyasamy & Smt. P. Chettiyammal",
+      maternalTa: "திரு D. சரவணன் - S. துளசிமணி ஆகியோரின் மகள்வழி பேத்தி",
+      maternalEn: "Maternal Granddaughter of Thiru D. Saravanan & Smt. S. Thulasimani",
+      parentsTa: "P. ரவி - R. பிரபாவதி ஆகியோரின் குமாரத்தி",
+      parentsEn: "Daughter of Thiru P. Ravi & Smt. R. Prabavathi",
+      fullNameTa: "திருநிறைச் செல்வி R. சுருதிகா ECE.,",
+      fullNameEn: "Ms. R. Suruthika, ECE.,",
+      jobTa: "",
+      jobEn: "",
+      invitersTa: [
+        "P. ரவி - R. பிரபாவதி",
+        "அண்ணன் R. சுதீஷ் (Gold Waste Recovery Work)",
+        "(லேட்) P. சுரேஷ் - S. குமரேஸ்வரி",
+        "S. அனுஷ்கா, S. அனீஷ்",
+        "P. ரமேஷ் - R. பிரியதர்ஷினி",
+        "R. அத்விக்"
+      ],
+      invitersEn: [
+        "P. Ravi - R. Prabavathi",
+        "Brother R. Sudheesh (Gold Waste Recovery Work)",
+        "(Late) P. Suresh - S. Kumareswari",
+        "S. Anushka, S. Aneesh",
+        "P. Ramesh - R. Priyadharshini",
+        "R. Aadhvik"
+      ],
+      phone: "63749 11332"
     }
   },
   en: {
-    tagline: "WE'RE GETTING MARRIED",
-    presenting: "PRESENTING",
+    tagline: "SACRED WEDDING INVITATION",
+    presenting: "WITH THE BLESSINGS OF ALMIGHTY & ELDERS",
     groom: {
       title: "Groom",
       name: "S. Kannan",
       degree: "B.Sc.",
       fullName: "S. Kannan, B.Sc.",
-      parents: "Son of Respected Parents",
-      residence: "Groom's Residence"
+      job: "Software Developer, Elevada Softwares P.Ltd., Covai",
+      parents: "Son of P. Senthilkumar & S. Sumathi",
+      residence: "Jangamanaickenpatti, Villipalayam"
     },
     bride: {
       title: "Bride",
       name: "R. Suruthika",
-      degree: "D.M.E.",
-      fullName: "R. Suruthika, D.M.E.",
-      parents: "Daughter of Respected Parents"
+      degree: "ECE.",
+      fullName: "R. Suruthika, ECE.",
+      job: "ECE.",
+      parents: "Daughter of P. Ravi & R. Prabavathi",
+      residence: "Karattupalayam, Tiruchengode"
     },
-    invitationNote: "With the divine blessings of Almighty and elders, we cordially invite you and your family to grace the auspicious occasion of our wedding ceremony.",
+    invitationNote: "With the divine blessings of our beloved family deities and elders, we cordially invite you and your family to grace the auspicious occasion of our sacred wedding ceremony.",
     countdownTitle: "COUNTING DOWN TO THE FOREVER",
     days: "Days",
     hours: "Hours",
     minutes: "Mins",
     seconds: "Secs",
     eventsTitle: "Ceremony & Celebrations",
-    eventsSubtitle: "Join us in our sacred union and joyful festivities",
+    eventsSubtitle: "Join us in our sacred union and joyful wedding feast",
     events: [
       {
-        id: "reception",
-        tag: "EVENING CELEBRATION",
-        title: "Wedding Reception",
-        tamilTitle: "வரவேற்பு நிகழ்ச்சி",
-        date: "Tuesday, 10th November 2026",
-        time: "6:30 PM Onwards",
-        venue: "Groom's Residence (மாப்பிள்ளை இல்லம்)",
-        address: "Mapla Veedu, Tamil Nadu",
-        mapQuery: "Kabilarmalai, Namakkal, Tamil Nadu",
-        icon: "party"
+        id: "muhurtham",
+        tag: "SACRED BRAHMA MUHURTHAM",
+        title: "Subha Muhurtham",
+        tamilTitle: "திருக்கல்யாண வைபவம்",
+        date: "Wednesday, 11th November 2026",
+        time: "5:00 AM – 6:00 AM (Brahma Muhurtham)",
+        venue: "Arulmigu Balasubramanya Swamy Temple",
+        address: "Kabilarmalai, Paramathi Velur Taluk, Namakkal Dt.",
+        mapQuery: "Arulmigu Balasubramanya Swamy Temple, Kabilarmalai, Tamil Nadu",
+        icon: "temple"
       },
       {
-        id: "muhurtham",
-        tag: "SACRED CEREMONY",
-        title: "Subha Muhurtham",
-        tamilTitle: "திருமண முகூர்த்தம்",
+        id: "reception",
+        tag: "WEDDING FEAST & RECEPTION",
+        title: "Reception & Feast",
+        tamilTitle: "வரவேற்பும் விருந்தும்",
         date: "Wednesday, 11th November 2026",
-        time: "9:00 AM – 10:30 AM",
-        venue: "Arulmigu Murugan Temple (அருள்மிகு முருகன் கோவில்)",
-        address: "Kabilarmalai, Namakkal District, Tamil Nadu",
-        mapQuery: "Arulmigu Subramanya Swamy Temple, Kabilarmalai, Tamil Nadu",
-        icon: "temple"
+        time: "7:00 AM Onwards (Following Muhurtham)",
+        venue: "Kannan Home (Groom's Residence)",
+        address: "Jangamanaickenpatti, Villipalayam, Paramathi Velur, Namakkal",
+        mapQuery: "Kannan home, 52XV+Q4G, Villipalayam, Tamil Nadu 637207",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kannan+home%2C+52XV%2BQ4G%2C+Villipalayam%2C+Tamil+Nadu+637207",
+        icon: "party"
       }
     ],
-    getDirections: "Get Directions",
+    getDirections: "Get Directions (Map)",
     addToCalendar: "Add to Calendar",
     galleryTitle: "Cherished Moments",
-    gallerySubtitle: "Every picture tells a story of love, family & blessings",
+    gallerySubtitle: "Every picture tells a story of love & togetherness",
     galleryFilterAll: "All Photos",
     galleryFilterCouple: "Couple",
     galleryFilterCeremony: "Ceremony",
-    galleryFilterFamily: "Family & Elders",
     photos: [
       {
         src: "/images/couple-outdoor.jpg",
-        line1: "S. Kannan, B.Sc. & R. Suruthika, D.M.E.",
+        line1: "S. Kannan, B.Sc. & R. Suruthika, ECE.",
         line2: "Two loving souls with a single rhythm, stepping into a lifetime of endless joy. 🪷✨",
         tag: "THE COUPLE",
         category: "couple"
@@ -108,70 +196,14 @@ export const weddingData = {
         line2: "Blossoming with the fragrance of holy blessings and fragrant garlands. 💐🪷",
         tag: "CEREMONY",
         category: "ceremony"
-      },
-      {
-        src: "/images/couple-parents-four.jpg",
-        line1: "With Beloved Parents",
-        line2: "Embraced by the purest love of parents, stepping forward under their sacred grace. 👨‍👩‍👧‍👦🙏",
-        tag: "PARENTS' BLESSINGS",
-        category: "family"
-      },
-      {
-        src: "/images/parents-blessings-1.jpg",
-        line1: "Cherished Family Love",
-        line2: "The warmest shelter in the world is the boundless affection of our loving parents. 💖✨",
-        tag: "FAMILY LOVE",
-        category: "family"
-      },
-      {
-        src: "/images/parents-blessings-2.jpg",
-        line1: "Joyful Family Gatherings",
-        line2: "Moments of laughter and shared happiness, etched in our hearts as timeless treasures. 🌟😊",
-        tag: "MEMORIES",
-        category: "family"
-      },
-      {
-        src: "/images/family-mothers.jpg",
-        line1: "With Loving Mothers",
-        line2: "A mother's unconditional love and tender prayers — the sweetest foundation of our home. 🪷❤️",
-        tag: "MOTHERS' LOVE",
-        category: "family"
-      },
-      {
-        src: "/images/elders-blessings-2.jpg",
-        line1: "Grace of Respected Elders",
-        line2: "Guided by the timeless wisdom, values and sacred blessings of our respected elders. 🙏✨",
-        tag: "ELDERS' GRACE",
-        category: "family"
-      },
-      {
-        src: "/images/elders-blessings-1.jpg",
-        line1: "Traditional Family Celebrations",
-        line2: "Rooted in sacred ancestral traditions, honouring culture, dignity and devotion. 🪷🕊️",
-        tag: "TRADITION",
-        category: "family"
-      },
-      {
-        src: "/images/family-photo.jpg",
-        line1: "The Joyful Family Circle",
-        line2: "Surrounded by the cheerful smiles and loving warmth of our complete family circle. 👨‍👩‍👧‍👦🎉",
-        tag: "FAMILY UNION",
-        category: "family"
-      },
-      {
-        src: "/images/grand-family.jpg",
-        line1: "Grand Gathering of Loved Ones",
-        line2: "A grand celebration blessed by the heartfelt prayers and good wishes of all loved ones. 🌟💐",
-        tag: "CELEBRATION",
-        category: "family"
       }
     ],
     wishesTitle: "Words for Forever",
-    wishesSubtitle: "Leave a wish, memory, or advice for our new beginning",
+    wishesSubtitle: "Leave a wish, memory, or blessing for Kannan & Suruthika",
     tabWish: "Wish",
     tabAdvice: "Advice",
     namePlaceholder: "Your full name",
-    messagePlaceholder: "Write your heartfelt wishes or advice for Kannan & Suruthika...",
+    messagePlaceholder: "Write your heartfelt wishes for Kannan & Suruthika...",
     submitWish: "Add to the Memory Book",
     wishesCount: "Wishes & Blessings",
     shareTitle: "Share the Joy",
@@ -185,72 +217,75 @@ export const weddingData = {
   },
   ta: {
     tagline: "இனிய திருமண அழைப்பிதழ்",
-    presenting: "மங்கல நாண் பூட்டுதல்",
+    presenting: "பெரியோர்களால் நிச்சயிக்கப்பட்ட சுப முகூர்த்தம்",
     groom: {
       title: "மணமகன்",
       name: "S. Kannan",
       degree: "B.Sc.",
-      fullName: "S. Kannan, B.Sc.",
+      fullName: "S. கண்ணன், B.Sc.",
+      job: "Software Developer, Elevada Softwares P.Ltd., Covai",
       tamilName: "S. கண்ணன்",
       tamilDegree: "B.Sc.",
-      parents: "பெற்றோரின் அன்பு புதல்வன்",
-      residence: "மாப்பிள்ளை இல்லம்"
+      parents: "P. செந்தில்குமார் - S. சுமதி ஆகியோரின் குமாரன்",
+      residence: "ஜங்கமநாயக்கன்பட்டி, வில்லிபாளையம், பரமத்தி வேலூர்"
     },
     bride: {
       title: "மணமகள்",
       name: "R. Suruthika",
-      degree: "D.M.E.",
-      fullName: "R. Suruthika, D.M.E.",
+      degree: "ECE.",
+      fullName: "R. சுருதிகா, ECE.",
+      job: "ECE.",
       tamilName: "R. சுருதிகா",
-      tamilDegree: "D.M.E.",
-      parents: "பெற்றோரின் அன்பு புதல்வி"
+      tamilDegree: "ECE.",
+      parents: "P. ரவி - R. பிரபாவதி ஆகியோரின் குமாரத்தி",
+      residence: "கரட்டுப்பாளையம், திருச்செங்கோடு"
     },
-    invitationNote: "எல்லாம் வல்ல இறைவனின் திருவருளாலும், பெரியோர்களின் ஆசியோடும் நடைபெறும் எங்கள் இல்லத் திருமண விழாவிற்குத் தாங்களும் தங்கள் குடும்பத்தாரும் வருகை தந்து மணமக்களை வாழ்த்தி அருள வேண்டுகிறோம்.",
-    countdownTitle: "மங்கல நாளுக்கான நொடிகள்",
+    invitationNote: "எல்லாம் வல்ல இறைவனின் திருவருளாலும், பெரியோர்களின் ஆசியோடும் நடைபெறும் எங்கள் இல்லத் திருமண விழாவிற்குத் தாங்களும் தங்கள் சுற்றமும் நட்பும் சூழ வருகைதந்து மணமக்களை வாழ்த்தியருள அன்புடன் அழைக்கின்றோம்.",
+    countdownTitle: "சுப முகூர்த்தத்திற்கான நொடிகள்",
     days: "நாட்கள்",
     hours: "மணிகள்",
     minutes: "நிமிடங்கள்",
     seconds: "நொடிகள்",
-    eventsTitle: "திருமண நிகழ்வுகள்",
-    eventsSubtitle: "இனிய தருணங்களில் இணைந்து மணமக்களை வாழ்த்துக",
+    eventsTitle: "திருமண சுப நிகழ்வுகள்",
+    eventsSubtitle: "இறைவனின் திருவருளோடு நடைபெறும் மங்கல நிகழ்வுகள்",
     events: [
       {
-        id: "reception",
-        tag: "இனிய மாலைப் பொழுது",
-        title: "வரவேற்பு நிகழ்ச்சி (Reception)",
-        tamilTitle: "வரவேற்பு நிகழ்ச்சி",
-        date: "செவ்வாய்க்கிழமை, 10 நவம்பர் 2026",
-        time: "மாலை 6:30 மணி முதல்",
-        venue: "மாப்பிள்ளை இல்லம் (Groom's Home)",
-        address: "கபிலர்மலை, நாமக்கல் மாவட்டம்",
-        mapQuery: "Kabilarmalai, Namakkal, Tamil Nadu",
-        icon: "party"
+        id: "muhurtham",
+        tag: "சுப பிரம்ம முகூர்த்தம்",
+        title: "திருக்கல்யாண வைபவம் (Muhurtham)",
+        tamilTitle: "திருக்கல்யாண வைபவம்",
+        date: "புதன்கிழமை, 11 நவம்பர் 2026 (ஐப்பசி 25)",
+        time: "அதிகாலை 5:00 மணி முதல் 6:00 மணிக்குள் (பிரம்ம முகூர்த்தம்)",
+        venue: "கபிலர்மலை அருள்மிகு பாலசுப்ரமணிய சுவாமி திருக்கோவில்",
+        address: "கபிலர்மலை, பரமத்தி வேலூர் வட்டம், நாமக்கல் மாவட்டம், தமிழ்நாடு",
+        mapQuery: "Arulmigu Balasubramanya Swamy Temple, Kabilarmalai, Tamil Nadu",
+        icon: "temple"
       },
       {
-        id: "muhurtham",
-        tag: "சுப முகூர்த்தம்",
-        title: "திருமண திருக்கல்யாணம் (Muhurtham)",
-        tamilTitle: "திருக்கல்யாண வைபவம்",
-        date: "புதன்கிழமை, 11 நவம்பர் 2026",
-        time: "காலை 9:00 மணி முதல் 10:30 மணிக்குள்",
-        venue: "அருள்மிகு முருகன் திருக்கோவில்",
-        address: "கபிலர்மலை, நாமக்கல் மாவட்டம், தமிழ்நாடு",
-        mapQuery: "Arulmigu Subramanya Swamy Temple, Kabilarmalai, Tamil Nadu",
-        icon: "temple"
+        id: "reception",
+        tag: "வரவேற்பும் விருந்து உபசரிப்பும்",
+        title: "வரவேற்பும் விருந்தும் (Reception & Feast)",
+        tamilTitle: "வரவேற்பும் விருந்தும்",
+        date: "புதன்கிழமை, 11 நவம்பர் 2026 (திருமணத்தை தொடர்ந்து)",
+        time: "காலை 7:00 மணி முதல்",
+        venue: "கண்ணன் இல்லம் (மணமகன் இல்லம்)",
+        address: "ஜங்கமநாயக்கன்பட்டி, வில்லிபாளையம், பரமத்தி வேலூர், நாமக்கல் மாவட்டம்",
+        mapQuery: "Kannan home, 52XV+Q4G, Villipalayam, Tamil Nadu 637207",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kannan+home%2C+52XV%2BQ4G%2C+Villipalayam%2C+Tamil+Nadu+637207",
+        icon: "party"
       }
     ],
     getDirections: "வழிகாட்டி (Map)",
-    addToCalendar: "நினைவூட்டல் பதிவு",
+    addToCalendar: "நினைவூட்டல் பதிவு (Calendar)",
     galleryTitle: "இனிய நினைவுகள்",
-    gallerySubtitle: "அன்பும் பாசமும் நிறைந்த எங்கள் பொன்னான தருணங்கள்",
+    gallerySubtitle: "அன்பும் காதலும் நிறைந்த எங்கள் பொன்னான தருணங்கள்",
     galleryFilterAll: "அனைத்துப் படங்கள்",
     galleryFilterCouple: "மணமக்கள்",
     galleryFilterCeremony: "சுப நிகழ்வுகள்",
-    galleryFilterFamily: "குடும்பம் & ஆசிகள்",
     photos: [
       {
         src: "/images/couple-outdoor.jpg",
-        line1: "S. கண்ணன், B.Sc. & R. சுருதிகா, D.M.E.",
+        line1: "S. கண்ணன், B.Sc. & R. சுருதிகா, ECE.",
         line2: "இரு இதயங்கள் இணைந்த நேரம்... இனி வரும் காலம் நம் வசந்த காலம்! 🪷✨",
         tag: "மணமக்கள்",
         category: "couple"
@@ -275,62 +310,6 @@ export const weddingData = {
         line2: "மணக்கும் மலர்களின் சாட்சியோடு, மனங்கள் இணைந்த மங்கல தருணம்! 💐🪷",
         tag: "ஆசிர்வாதம்",
         category: "ceremony"
-      },
-      {
-        src: "/images/couple-parents-four.jpg",
-        line1: "அன்புப் பெற்றோரின் நல்லாசி",
-        line2: "பெற்றோரின் பாச அரவணைப்பில், அவர்களின் ஆசிகளின் நிழலில் தொடங்கும் நல்வாழ்வு! 👨‍👩‍👧‍👦🙏",
-        tag: "பெற்றோர் ஆசி",
-        category: "family"
-      },
-      {
-        src: "/images/parents-blessings-1.jpg",
-        line1: "பாசமிகு குடும்ப தருணம்",
-        line2: "அன்பும் அரவணைப்பும் நிறைந்த இல்லம்... பெற்றோரின் புன்னகையே எங்கள் செல்வம்! 💖✨",
-        tag: "குடும்ப பாசம்",
-        category: "family"
-      },
-      {
-        src: "/images/parents-blessings-2.jpg",
-        line1: "மகிழ்ச்சி நிறைந்த நினைவுகள்",
-        line2: "கண்ணிமைக்கும் நேரத்தில் கடந்து போகும் தருணங்கள்... காலமெல்லாம் நிலைத்திருக்கும் பொக்கிஷங்கள்! 🌟😊",
-        tag: "நினைவுகள்",
-        category: "family"
-      },
-      {
-        src: "/images/family-mothers.jpg",
-        line1: "அன்புத் தாய்மார்களின் ஆசிகள்",
-        line2: "தாயின் அன்பு மடியில் தவழ்ந்தோம்... இன்று தாரமாய் கரம் கோர்த்து புதிய இல்லறம் புகுகிறோம்! 🪷❤️",
-        tag: "தாய்மை ஆசி",
-        category: "family"
-      },
-      {
-        src: "/images/elders-blessings-2.jpg",
-        line1: "பெரியோர்களின் நல்லாசி",
-        line2: "மூத்தோரின் ஆசி மொழிகள்... எங்கள் இல்லற வாழ்வின் என்றும் ஒளிரும் வழிகாட்டி! 🙏✨",
-        tag: "பெரியோர்கள்",
-        category: "family"
-      },
-      {
-        src: "/images/elders-blessings-1.jpg",
-        line1: "பாரம்பரிய மங்கல விழா",
-        line2: "பண்பாடும் பாரம்பரியமும் போற்றி, தலைமுறை காக்கும் புண்ணிய மங்கல பந்தம்! 🪷🕊️",
-        tag: "பாரம்பரியம்",
-        category: "family"
-      },
-      {
-        src: "/images/family-photo.jpg",
-        line1: "அன்பு குடும்பத்தினருடன்",
-        line2: "சுற்றமும் நட்பும் சூழ மகிழும் இந்த பொன்னான நாள்... எங்கள் வாழ்வின் அழியா வசந்தம்! 👨‍👩‍👧‍👦🎉",
-        tag: "குடும்பம்",
-        category: "family"
-      },
-      {
-        src: "/images/grand-family.jpg",
-        line1: "உற்றார் உறவினர்களின் பெருவிழா",
-        line2: "உற்றார் உறவினர் ஒன்று கூடி வாழ்த்த, மங்கல நாண் பூட்டி மகிழும் பெருவாழ்வு! 🌟💐",
-        tag: "மங்கல விழா",
-        category: "family"
       }
     ],
     wishesTitle: "வாழ்த்து மடல் (Memory Book)",

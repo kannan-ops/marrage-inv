@@ -8,20 +8,20 @@ export default function BottomGrandFinale({ lang, content }) {
       margin: '50px -14px -60px -14px',
       width: 'calc(100% + 28px)',
       overflow: 'hidden',
-      backgroundColor: '#051E1F',
+      backgroundColor: '#35060A',
       color: '#FFF9ED',
       textAlign: 'center',
       borderTop: '3px solid #DFB756',
       borderRadius: '36px 36px 0 0',
-      boxShadow: '0 -15px 40px rgba(5, 30, 31, 0.4), var(--shadow-gold-glow)'
+      boxShadow: '0 -15px 40px rgba(53, 6, 10, 0.4), var(--shadow-gold-glow)'
     }}>
-      {/* Romantic HD Couple Image with 100% Seamless Velvety Black Dissolve */}
+      {/* Romantic HD Couple Image with 100% Seamless Velvety Crimson Dissolve */}
       <div style={{
         position: 'relative',
         width: '100%',
         height: 'clamp(320px, 75vw, 460px)',
         overflow: 'hidden',
-        backgroundColor: '#051E1F'
+        backgroundColor: '#35060A'
       }}>
         <img
           src="/images/couple-forehead.jpg"
@@ -38,18 +38,18 @@ export default function BottomGrandFinale({ lang, content }) {
           }}
         />
 
-        {/* 100% Pure Velvety Dark Black Overlays on all sides (Top, Bottom, Left, Right) */}
+        {/* 100% Pure Velvety Crimson Overlays on all sides */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, #051E1F 0%, rgba(5, 30, 31, 0.15) 30%, rgba(5, 30, 31, 0.75) 65%, #051E1F 100%)',
+          background: 'linear-gradient(180deg, #35060A 0%, rgba(53, 6, 10, 0.15) 30%, rgba(53, 6, 10, 0.75) 65%, #35060A 100%)',
           pointerEvents: 'none'
         }}></div>
 
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 90% 80% at 50% 40%, transparent 35%, rgba(5, 30, 31, 0.85) 75%, #051E1F 100%)',
+          background: 'radial-gradient(ellipse 90% 80% at 50% 40%, transparent 35%, rgba(53, 6, 10, 0.85) 75%, #35060A 100%)',
           pointerEvents: 'none'
         }}></div>
       </div>
@@ -125,7 +125,7 @@ export default function BottomGrandFinale({ lang, content }) {
           </span>
           <span style={{ color: '#DFB756', fontWeight: 600 }}>&amp;</span>
           <span style={{ whiteSpace: 'nowrap' }}>
-            {lang === 'ta' ? 'R. சுருதிகா, D.M.E.' : 'R. SURUTHIKA, D.M.E.'}
+            {lang === 'ta' ? 'R. சுருதிகா, ECE.' : 'R. SURUTHIKA, ECE.'}
           </span>
         </h3>
 
@@ -145,7 +145,7 @@ export default function BottomGrandFinale({ lang, content }) {
           color: '#D1C2A5',
           fontWeight: 700
         }}>
-          10 &amp; 11 NOVEMBER 2026 • KABILARMALAI
+          11 NOVEMBER 2026 • KABILARMALAI &amp; PARAMATHI VELUR
         </p>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '18px', opacity: 0.8 }}>

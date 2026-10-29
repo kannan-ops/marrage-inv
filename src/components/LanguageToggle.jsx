@@ -9,13 +9,13 @@ export default function LanguageToggle({ currentLang, onToggle, onSelectLang }) 
         alignItems: 'center',
         padding: '3px',
         backgroundColor: 'rgba(255, 253, 248, 0.95)',
-        backdropFilter: 'blur(12px)',
+        backdropFilter: 'blur(16px)',
         border: '1.5px solid #DFB756',
         borderRadius: '9999px',
-        boxShadow: '0 8px 25px rgba(5, 26, 27, 0.18), var(--shadow-gold-glow)',
+        boxShadow: '0 8px 25px rgba(0, 0, 0, 0.15), 0 0 15px rgba(223, 183, 86, 0.35)',
         gap: '2px'
       }}>
-        <div style={{ paddingLeft: '8px', paddingRight: '4px', display: 'flex', alignItems: 'center', color: '#8A5D13' }}>
+        <div style={{ paddingLeft: '8px', paddingRight: '4px', display: 'flex', alignItems: 'center', color: '#85141C' }}>
           <Globe size={15} />
         </div>
 
@@ -28,14 +28,14 @@ export default function LanguageToggle({ currentLang, onToggle, onSelectLang }) 
             borderRadius: '9999px',
             border: 'none',
             background: currentLang === 'ta'
-              ? 'linear-gradient(135deg, var(--color-royal-peacock) 0%, var(--color-royal-emerald) 100%)'
+              ? 'linear-gradient(135deg, #85141C 0%, #5C0B12 100%)'
               : 'transparent',
-            color: currentLang === 'ta' ? '#FFFDF4' : '#5C5243',
+            color: currentLang === 'ta' ? '#FFFDF8' : '#684824',
             fontSize: '12px',
             fontWeight: 800,
             cursor: 'pointer',
             transition: 'all 0.25s ease',
-            boxShadow: currentLang === 'ta' ? '0 2px 8px rgba(11, 53, 54, 0.35)' : 'none'
+            boxShadow: currentLang === 'ta' ? '0 2px 10px rgba(133, 20, 28, 0.4)' : 'none'
           }}
         >
           தமிழ்
@@ -50,14 +50,14 @@ export default function LanguageToggle({ currentLang, onToggle, onSelectLang }) 
             borderRadius: '9999px',
             border: 'none',
             background: currentLang === 'en'
-              ? 'linear-gradient(135deg, var(--color-royal-peacock) 0%, var(--color-royal-emerald) 100%)'
+              ? 'linear-gradient(135deg, #85141C 0%, #5C0B12 100%)'
               : 'transparent',
-            color: currentLang === 'en' ? '#FFFDF4' : '#5C5243',
+            color: currentLang === 'en' ? '#FFFDF8' : '#684824',
             fontSize: '12px',
             fontWeight: 800,
             cursor: 'pointer',
             transition: 'all 0.25s ease',
-            boxShadow: currentLang === 'en' ? '0 2px 8px rgba(11, 53, 54, 0.35)' : 'none'
+            boxShadow: currentLang === 'en' ? '0 2px 10px rgba(133, 20, 28, 0.4)' : 'none'
           }}
         >
           English

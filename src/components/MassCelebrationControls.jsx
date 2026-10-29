@@ -11,7 +11,7 @@ export default function MassCelebrationControls({ lang }) {
 
     // Left Cannon - Yellow Akshadhai & Red Rose Petals
     confetti({
-      particleCount: 70,
+      particleCount: 75,
       angle: 60,
       spread: 75,
       origin: { x: 0, y: 0.8 },
@@ -21,7 +21,7 @@ export default function MassCelebrationControls({ lang }) {
 
     // Right Cannon - Sacred Golden Flower Petals
     confetti({
-      particleCount: 70,
+      particleCount: 75,
       angle: 120,
       spread: 75,
       origin: { x: 1, y: 0.8 },
@@ -37,14 +37,14 @@ export default function MassCelebrationControls({ lang }) {
 
     (function frame() {
       confetti({
-        particleCount: 4,
+        particleCount: 5,
         angle: 60,
         spread: 55,
         origin: { x: 0 },
         colors: colors
       });
       confetti({
-        particleCount: 4,
+        particleCount: 5,
         angle: 120,
         spread: 55,
         origin: { x: 1 },
@@ -77,17 +77,17 @@ export default function MassCelebrationControls({ lang }) {
           display: 'flex',
           alignItems: 'center',
           gap: '6px',
-          background: 'linear-gradient(135deg, rgba(255, 253, 248, 0.95) 0%, rgba(245, 232, 204, 0.95) 100%)',
-          color: '#7A1910',
+          background: 'linear-gradient(135deg, #FFFDF8 0%, #F5E8CB 100%)',
+          color: '#85141C',
           border: '1.5px solid #DFB756',
           borderRadius: '9999px',
-          padding: '7px 13px',
+          padding: '8px 14px',
           fontWeight: 800,
-          fontSize: '11.5px',
+          fontSize: '12px',
           letterSpacing: '0.04em',
           cursor: 'pointer',
-          backdropFilter: 'blur(10px)',
-          boxShadow: '0 8px 24px rgba(122, 25, 16, 0.25), 0 0 15px rgba(223, 183, 86, 0.3)',
+          backdropFilter: 'blur(12px)',
+          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15), 0 0 15px rgba(223, 183, 86, 0.35)',
           transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
           transform: isSparking ? 'scale(1.1)' : 'scale(1)'
         }}
@@ -105,17 +105,17 @@ export default function MassCelebrationControls({ lang }) {
           display: 'flex',
           alignItems: 'center',
           gap: '6px',
-          background: 'linear-gradient(135deg, rgba(10, 61, 63, 0.95) 0%, rgba(5, 26, 27, 0.95) 100%)',
+          background: 'linear-gradient(135deg, #85141C 0%, #5C0B12 100%)',
           color: '#FFF2B2',
           border: '1.5px solid #DFB756',
           borderRadius: '9999px',
-          padding: '7px 13px',
+          padding: '8px 14px',
           fontWeight: 800,
-          fontSize: '11.5px',
+          fontSize: '12px',
           letterSpacing: '0.04em',
           cursor: 'pointer',
-          backdropFilter: 'blur(10px)',
-          boxShadow: '0 8px 24px rgba(5, 26, 27, 0.35), 0 0 15px rgba(223, 183, 86, 0.3)',
+          backdropFilter: 'blur(12px)',
+          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.25), 0 0 15px rgba(223, 183, 86, 0.35)',
           transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
         }}
         className="hover-pop"

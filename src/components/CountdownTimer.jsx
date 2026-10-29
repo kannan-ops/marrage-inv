@@ -1,264 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Sparkles, Heart, Clock, Lock, CheckCircle2, RotateCcw } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, Heart, Clock, Calendar, CalendarPlus, MapPin, PartyPopper, Lock } from 'lucide-react';
 import confetti from 'canvas-confetti';
-
-function GoldScratchHeart({ isRevealed, onRevealed, title, subtitle, value, tapHint, lang, id }) {
-  const canvasRef = useRef(null);
-  const isDrawing = useRef(false);
-
-  // Initialize Canvas Gold Foil Layer
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-
-    if (isRevealed) {
-      ctx.clearRect(0, 0, width, height);
-      return;
-    }
-
-    // Draw Gold Foil Gradient
-    const grad = ctx.createLinearGradient(0, 0, width, height);
-    grad.addColorStop(0, '#FFF5C0');
-    grad.addColorStop(0.25, '#DFB756');
-    grad.addColorStop(0.65, '#996B1F');
-    grad.addColorStop(1, '#E6BA54');
-
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, width, height);
-
-    // Draw Heart Pattern on Gold Foil
-    ctx.fillStyle = '#7A1910';
-    ctx.font = 'bold 18px serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('❤️', width / 2, height / 2 - 8);
-
-    // Draw Scratch Hint
-    ctx.fillStyle = '#4A2F05';
-    ctx.font = 'bold 11px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText(lang === 'ta' ? 'தேய்க்கவும் ✨' : 'SCRATCH ✨', width / 2, height / 2 + 15);
-  }, [isRevealed, lang]);
-
-  const checkScratchPercentage = () => {
-    const canvas = canvasRef.current;
-    if (!canvas || isRevealed) return;
-    const ctx = canvas.getContext('2d');
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const pixels = imageData.data;
-    let transparentCount = 0;
-
-    for (let i = 3; i < pixels.length; i += 4) {
-      if (pixels[i] < 128) {
-        transparentCount++;
-      }
-    }
-
-    const percent = (transparentCount / (pixels.length / 4)) * 100;
-    if (percent > 30 && !isRevealed) {
-      onRevealed();
-    }
-  };
-
-  const scratch = (clientX, clientY) => {
-    const canvas = canvasRef.current;
-    if (!canvas || isRevealed) return;
-    const rect = canvas.getBoundingClientRect();
-    const x = (clientX - rect.left) * (canvas.width / rect.width);
-    const y = (clientY - rect.top) * (canvas.height / rect.height);
-
-    const ctx = canvas.getContext('2d');
-    ctx.globalCompositeOperation = 'destination-out';
-    ctx.beginPath();
-    ctx.arc(x, y, 22, 0, Math.PI * 2);
-    ctx.fill();
-
-    checkScratchPercentage();
-  };
-
-  const handleMouseDown = (e) => {
-    isDrawing.current = true;
-    scratch(e.clientX, e.clientY);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDrawing.current) return;
-    scratch(e.clientX, e.clientY);
-  };
-
-  const handleMouseUp = () => {
-    isDrawing.current = false;
-  };
-
-  const handleTouchStart = (e) => {
-    isDrawing.current = true;
-    if (e.touches[0]) {
-      scratch(e.touches[0].clientX, e.touches[0].clientY);
-    }
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isDrawing.current) return;
-    if (e.touches[0]) {
-      scratch(e.touches[0].clientX, e.touches[0].clientY);
-    }
-  };
-
-  const handleTapQuickReveal = () => {
-    if (!isRevealed) {
-      onRevealed();
-    }
-  };
-
-  const heartPath = "M 70,20 C 52,-8 6,-4 2,34 C -2,70 42,98 70,126 C 98,98 142,70 138,34 C 134,-4 88,-8 70,20 Z";
-
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '100%',
-        minWidth: 0,
-        userSelect: 'none'
-      }}
-    >
-      {/* 3D Heart Shaped Container */}
-      <div
-        onClick={handleTapQuickReveal}
-        style={{
-          position: 'relative',
-          width: '100%',
-          maxWidth: '120px',
-          aspectRatio: '140 / 130',
-          cursor: isRevealed ? 'default' : 'pointer',
-          filter: isRevealed
-            ? 'drop-shadow(0 6px 16px rgba(11, 53, 54, 0.35)) drop-shadow(0 0 10px rgba(223, 183, 86, 0.45))'
-            : 'drop-shadow(0 6px 14px rgba(223, 183, 86, 0.4))',
-          transition: 'all 0.4s ease'
-        }}
-        className="hover-pop"
-      >
-        {/* SVG Wrapper with Clip-Path Heart Mask */}
-        <svg
-          viewBox="0 0 140 130"
-          style={{
-            width: '100%',
-            height: '100%',
-            overflow: 'visible',
-            display: 'block'
-          }}
-        >
-          <defs>
-            {/* Heart Clip Path for Scratch Card Content */}
-            <clipPath id={`heartClip_${id}`}>
-              <path d={heartPath} />
-            </clipPath>
-
-            <linearGradient id={`goldBorderGrad_${id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFF5D0" />
-              <stop offset="35%" stopColor="#DFB756" />
-              <stop offset="70%" stopColor="#AA771C" />
-              <stop offset="100%" stopColor="#FFF2B2" />
-            </linearGradient>
-
-            <radialGradient id={`heartBgGrad_${id}`} cx="50%" cy="40%" r="60%">
-              <stop offset="0%" stopColor="#0E4446" />
-              <stop offset="60%" stopColor="#0B3536" />
-              <stop offset="100%" stopColor="#051A1B" />
-            </radialGradient>
-          </defs>
-
-          {/* Group Clipped to Genuine Heart Shape */}
-          <g clipPath={`url(#heartClip_${id})`}>
-            {/* 1. UNDERNEATH LAYER: Pure SVG Vector Revealed Emerald & Gold Heart Content */}
-            <path d={heartPath} fill={`url(#heartBgGrad_${id})`} />
-
-            {/* Subtitle / Tag (e.g. DAYS, MONTH, YEAR) */}
-            <text
-              x="70"
-              y="46"
-              textAnchor="middle"
-              fill="#DFB756"
-              fontSize="9"
-              fontWeight="800"
-              letterSpacing="0.16em"
-              style={{ textTransform: 'uppercase', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            >
-              {subtitle}
-            </text>
-
-            {/* Big Value (e.g. 10 & 11, நவம்பர், 2026) */}
-            <text
-              x="70"
-              y="74"
-              textAnchor="middle"
-              fill="#FFF8DD"
-              fontSize={lang === 'ta' && value.length > 5 ? "14.5" : "17"}
-              fontWeight="900"
-              fontFamily="'Playfair Display', 'Noto Serif Tamil', Georgia, serif"
-              style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.5))' }}
-            >
-              {value}
-            </text>
-
-            {/* Small Gold Underline */}
-            <line x1="56" y1="84" x2="84" y2="84" stroke="#DFB756" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
-
-            {/* 2. TOP LAYER: Scratchable Gold Foil Canvas */}
-            {!isRevealed && (
-              <foreignObject x="0" y="0" width="140" height="130" style={{ zIndex: 10 }}>
-                <canvas
-                  ref={canvasRef}
-                  width={140}
-                  height={130}
-                  onMouseDown={handleMouseDown}
-                  onMouseMove={handleMouseMove}
-                  onMouseUp={handleMouseUp}
-                  onMouseLeave={handleMouseUp}
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={handleMouseUp}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    touchAction: 'none',
-                    display: 'block'
-                  }}
-                />
-              </foreignObject>
-            )}
-          </g>
-
-          {/* 3. 24K GOLD 3D EMBOSSED HEART OUTLINE BORDER */}
-          <path
-            d={heartPath}
-            fill="none"
-            stroke={`url(#goldBorderGrad_${id})`}
-            strokeWidth="3.5"
-            style={{ pointerEvents: 'none' }}
-          />
-        </svg>
-      </div>
-
-      {/* Label under Heart */}
-      <span style={{
-        marginTop: '8px',
-        fontSize: 'clamp(11px, 2.8vw, 13px)',
-        fontWeight: 800,
-        color: isRevealed ? 'var(--color-royal-maroon)' : 'var(--color-royal-peacock)',
-        letterSpacing: '0.04em',
-        transition: 'color 0.3s ease',
-        textAlign: 'center'
-      }}>
-        {title}
-      </span>
-    </div>
-  );
-}
+import ScratchCardDate from './ScratchCardDate';
 
 export default function CountdownTimer({ targetDate, content, lang }) {
+  const [isDateRevealed, setIsDateRevealed] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -267,48 +13,12 @@ export default function CountdownTimer({ targetDate, content, lang }) {
     totalSeconds: 0
   });
 
-  // Interactive 3-Heart Secret State
-  const [revealedHearts, setRevealedHearts] = useState({
-    date: false,
-    month: false,
-    year: false
-  });
+  const isTa = lang === 'ta';
 
-  const allRevealed = revealedHearts.date && revealedHearts.month && revealedHearts.year;
-
-  const handleRevealHeart = (key) => {
-    if (revealedHearts[key]) return;
-    const nextState = { ...revealedHearts, [key]: true };
-    setRevealedHearts(nextState);
-
-    // If all are revealed now, trigger celebratory confetti
-    if (nextState.date && nextState.month && nextState.year) {
-      try {
-        confetti({
-          particleCount: 70,
-          spread: 80,
-          origin: { y: 0.55 },
-          colors: ['#DFB756', '#0B3536', '#7A1910', '#FFF2B2']
-        });
-      } catch (e) {}
-    }
-  };
-
-  const handleRevealAll = () => {
-    setRevealedHearts({ date: true, month: true, year: true });
-    try {
-      confetti({
-        particleCount: 90,
-        spread: 90,
-        origin: { y: 0.55 },
-        colors: ['#DFB756', '#0B3536', '#7A1910', '#FFF2B2']
-      });
-    } catch (e) {}
-  };
-
+  // Calculate Countdown to Brahma Muhurtham (11-11-2026 5:00 AM)
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = +new Date("2026-11-11T09:00:00+05:30") - +new Date();
+      const difference = +new Date(targetDate || "2026-11-11T05:00:00+05:30") - +new Date();
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -333,23 +43,42 @@ export default function CountdownTimer({ targetDate, content, lang }) {
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (secondsProgress / 100) * circumference;
 
+  const handleCelebrate = () => {
+    try {
+      confetti({
+        particleCount: 95,
+        spread: 85,
+        origin: { y: 0.55 },
+        colors: ['#DFB756', '#FFE894', '#85141C', '#FFFFFF', '#0B3C3E']
+      });
+    } catch (e) {}
+  };
+
+  const handleAddToCalendar = () => {
+    const startTime = '20261111T050000';
+    const endTime = '20261111T070000';
+    const title = encodeURIComponent(isTa ? 'S. கண்ணன் & R. சுருதிகா திருமண முகூர்த்தம்' : 'S. Kannan & R. Suruthika Wedding Muhurtham');
+    const details = encodeURIComponent(isTa ? 'கபிலர்மலை அருள்மிகு பாலசுப்ரமணிய சுவாமி திருக்கோவிலில் நடைபெறும் சுப பிரம்ம முகூர்த்தம்' : 'Sacred Subha Brahma Muhurtham at Arulmigu Balasubramanya Swamy Temple, Kabilarmalai');
+    const location = encodeURIComponent('Arulmigu Balasubramanya Swamy Temple, Kabilarmalai, Namakkal');
+    const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startTime}/${endTime}&details=${details}&location=${location}`;
+    window.open(gcalUrl, '_blank');
+  };
+
   return (
-    <section style={{ padding: '36px 0 24px', maxWidth: '640px', margin: '0 auto', width: '100%' }}>
+    <section style={{ padding: '36px 0 24px', maxWidth: '640px', margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
       {/* ========================================================================= */}
-      {/* 💌 FEATURE 1: INTERACTIVE 3-GOLDEN HEARTS DATE SECRET REVEAL CARD         */}
+      {/* 📅 FEATURE 1: 3D ROYAL LUXURY SAVE THE DATE SHOWCASE CARD                 */}
       {/* ========================================================================= */}
       <div style={{
-        background: 'linear-gradient(180deg, #FFFDF9 0%, #FAF2E3 100%)',
+        background: 'linear-gradient(160deg, #FFFFFF 0%, #FDFBF7 60%, #FAF2E3 100%)',
         border: '2px solid #DFB756',
-        borderRadius: '26px',
-        padding: '24px 10px',
+        borderRadius: '32px',
+        padding: '28px 20px',
         boxShadow: 'var(--shadow-royal-card), var(--shadow-gold-glow)',
-        marginBottom: '32px',
+        marginBottom: '36px',
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden',
-        width: '100%',
-        boxSizing: 'border-box'
+        overflow: 'hidden'
       }}>
         {/* Corner Accents */}
         <div className="gold-corner-tl"></div>
@@ -358,133 +87,95 @@ export default function CountdownTimer({ targetDate, content, lang }) {
         <div className="gold-corner-br"></div>
 
         {/* Auspicious Tag */}
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
           <Sparkles size={14} style={{ color: '#DFB756' }} />
-          <span style={{ fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--color-royal-maroon)', fontWeight: 800 }}>
-            {lang === 'ta' ? 'ஒரு சிறு ரகசியம்' : 'A SACRED SECRET'}
+          <span style={{ fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#7A1910', fontWeight: 800 }}>
+            {isTa ? 'சுப முகூர்த்த நன்னாள்' : 'SAVE THE SACRED DATE'}
           </span>
           <Sparkles size={14} style={{ color: '#DFB756' }} />
         </div>
 
-        {/* Section Heading */}
-        <h3 style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: 'clamp(1.2rem, 3.8vw, 1.6rem)',
-          fontWeight: 700,
-          color: 'var(--color-royal-peacock)',
-          marginBottom: '6px'
-        }}>
-          {lang === 'ta' ? 'ஒவ்வொரு இதயத்தையும் தொட்டுத் திறவுங்கள்' : 'Tap Each Heart to Reveal The Wedding Date'}
-        </h3>
-        <p style={{ fontSize: '12.5px', color: '#6A5844', fontStyle: 'italic', marginBottom: '20px' }}>
-          {lang === 'ta' ? 'கண்ணன் & சுருதிகா திருமண நாள் ரகசியத்தை வெளிப்படுத்துங்கள் ✨' : 'Unlock the auspicious wedding moment of Kannan & Suruthika ✨'}
-        </p>
+        {/* Interactive Scratch Card to Reveal Wedding Date */}
+        <ScratchCardDate
+          lang={lang}
+          onReveal={() => {
+            setIsDateRevealed(true);
+            handleCelebrate();
+          }}
+          onReset={() => {
+            setIsDateRevealed(false);
+          }}
+        />
 
-        {/* 3 Interactive Real HTML5 Gold Scratch Cards */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '6px',
-          maxWidth: '440px',
-          width: '100%',
-          margin: '0 auto 22px',
-          boxSizing: 'border-box'
-        }}>
-          {/* Card 1: Date */}
-          <GoldScratchHeart
-            id="date"
-            isRevealed={revealedHearts.date}
-            onRevealed={() => handleRevealHeart('date')}
-            title={lang === 'ta' ? 'தேதி' : 'Date'}
-            subtitle={lang === 'ta' ? 'முகூர்த்தம்' : 'DAYS'}
-            value="10 & 11"
-            lang={lang}
-          />
-
-          {/* Card 2: Month */}
-          <GoldScratchHeart
-            id="month"
-            isRevealed={revealedHearts.month}
-            onRevealed={() => handleRevealHeart('month')}
-            title={lang === 'ta' ? 'மாதம்' : 'Month'}
-            subtitle={lang === 'ta' ? 'மங்கலம்' : 'MONTH'}
-            value={lang === 'ta' ? 'நவம்பர்' : 'NOV'}
-            lang={lang}
-          />
-
-          {/* Card 3: Year */}
-          <GoldScratchHeart
-            id="year"
-            isRevealed={revealedHearts.year}
-            onRevealed={() => handleRevealHeart('year')}
-            title={lang === 'ta' ? 'வருடம்' : 'Year'}
-            subtitle={lang === 'ta' ? 'திருமணம்' : 'YEAR'}
-            value="2026"
-            lang={lang}
-          />
-        </div>
-
-        {/* Reveal All or Reset Option */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-          {!allRevealed ? (
+        {/* Interactive Action Buttons - Visible when date is unlocked */}
+        {isDateRevealed && (
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
+            animation: 'scaleIn 0.4s ease-out'
+          }}>
             <button
               type="button"
-              onClick={handleRevealAll}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#8A5D13',
-                fontSize: '12.5px',
-                fontWeight: 700,
-                textDecoration: 'underline',
-                textUnderlineOffset: '4px',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}
+              onClick={handleAddToCalendar}
+              className="btn-primary"
+              style={{ padding: '11px 22px', fontSize: '13px' }}
             >
-              <Sparkles size={14} style={{ color: '#DFB756' }} />
-              <span>{lang === 'ta' ? 'அனைத்தையும் ஒரே தட்டலில் திறக்க' : 'Reveal All Instantly'}</span>
+              <CalendarPlus size={16} />
+              <span>{isTa ? 'கேலெண்டரில் குறிக்கவும்' : 'Add to Google Calendar'}</span>
             </button>
-          ) : (
-            <span style={{ fontSize: '12px', fontWeight: 700, color: '#065F46', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <CheckCircle2 size={15} style={{ color: '#059669' }} />
-              <span>{lang === 'ta' ? 'மங்கல நாள் உறுதி செய்யப்பட்டது!' : 'Auspicious Date Unlocked!'}</span>
-            </span>
-          )}
-        </div>
+
+            <button
+              type="button"
+              onClick={handleCelebrate}
+              className="btn-secondary"
+              style={{ padding: '11px 20px', fontSize: '13px' }}
+            >
+              <PartyPopper size={16} style={{ color: '#85141C' }} />
+              <span>{isTa ? 'வாழ்த்துகள் 🎉' : 'Celebrate 🎉'}</span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* ========================================================================= */}
       {/* ⏳ FEATURE 2: MASS ROYAL CELESTIAL CIRCULAR COUNTDOWN CLOCK               */}
       {/* ========================================================================= */}
-      <div style={{
-        background: 'linear-gradient(180deg, #FFFDF9 0%, #F5ECE0 100%)',
-        border: '2px solid #DFB756',
-        borderRadius: '36px',
-        padding: '36px 20px',
-        boxShadow: 'var(--shadow-royal-card), var(--shadow-gold-glow)',
-        textAlign: 'center',
-        position: 'relative'
-      }}>
+      {isDateRevealed ? (
+        <div style={{
+          background: 'linear-gradient(160deg, #FFFFFF 0%, #FDFBF7 60%, #FAF2E3 100%)',
+          border: '2px solid #DFB756',
+          borderRadius: '36px',
+          padding: '36px 20px',
+          boxShadow: 'var(--shadow-royal-card), var(--shadow-gold-glow)',
+          textAlign: 'center',
+          position: 'relative',
+          animation: 'scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
+        }}>
+        <div className="gold-corner-tl"></div>
+        <div className="gold-corner-tr"></div>
+        <div className="gold-corner-bl"></div>
+        <div className="gold-corner-br"></div>
+
         {/* Top Auspicious Header */}
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
-          <Clock size={15} style={{ color: 'var(--color-royal-maroon)' }} />
-          <span style={{ fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--color-royal-maroon)', fontWeight: 800 }}>
-            {lang === 'ta' ? 'காத்திருப்பு தொடங்குகிறது' : 'THE SACRED COUNTDOWN'}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+          <Clock size={15} style={{ color: '#7A1910' }} />
+          <span style={{ fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#7A1910', fontWeight: 800 }}>
+            {isTa ? 'காத்திருப்பு தொடங்குகிறது' : 'THE SACRED COUNTDOWN'}
           </span>
-          <Clock size={15} style={{ color: 'var(--color-royal-maroon)' }} />
+          <Clock size={15} style={{ color: '#7A1910' }} />
         </div>
 
         <h2 style={{
           fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: 'clamp(1.4rem, 4.5vw, 2rem)',
+          fontSize: 'clamp(1.45rem, 4.5vw, 2.1rem)',
           fontWeight: 800,
-          color: 'var(--color-royal-peacock)',
+          color: '#7A1910',
           marginBottom: '26px'
         }}>
-          {lang === 'ta' ? 'நாங்கள் இணையும் மங்கல நேரம் வரை' : 'Until We Become One Forever'}
+          {isTa ? 'நாங்கள் இணையும் மங்கல நேரம் வரை' : 'Until We Become One Forever'}
         </h2>
 
         {/* Celestial Circular Dial Clock */}
@@ -492,12 +183,12 @@ export default function CountdownTimer({ targetDate, content, lang }) {
           position: 'relative',
           width: 'min(280px, 76vw)',
           height: 'min(280px, 76vw)',
-          margin: '0 auto 24px',
+          margin: '0 auto 26px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          {/* 1. ROTATING ASTRONOMICAL GOLDEN CONSTELLATION WHEEL */}
+          {/* Rotating Celestial Star Ring */}
           <svg
             viewBox="0 0 320 320"
             style={{
@@ -510,7 +201,6 @@ export default function CountdownTimer({ targetDate, content, lang }) {
               opacity: 0.6
             }}
           >
-            {/* Outer Star Constellation Dots */}
             {Array.from({ length: 24 }).map((_, i) => {
               const angle = (i * 15 * Math.PI) / 180;
               const cx = 160 + 152 * Math.cos(angle);
@@ -520,14 +210,14 @@ export default function CountdownTimer({ targetDate, content, lang }) {
                   key={i}
                   cx={cx}
                   cy={cy}
-                  r={i % 2 === 0 ? "2" : "1.2"}
-                  fill={i % 3 === 0 ? "#DFB756" : "#AA771C"}
+                  r={i % 2 === 0 ? "2.2" : "1.4"}
+                  fill={i % 3 === 0 ? "#DFB756" : "#8C5F12"}
                 />
               );
             })}
           </svg>
 
-          {/* 2. SVG Animated Glowing Outer Dial */}
+          {/* SVG Animated Glowing Outer Dial */}
           <svg
             viewBox="0 0 300 300"
             style={{
@@ -540,8 +230,8 @@ export default function CountdownTimer({ targetDate, content, lang }) {
           >
             <defs>
               <linearGradient id="goldDialGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FFF2B2" />
-                <stop offset="50%" stopColor="#DFB756" />
+                <stop offset="0%" stopColor="#DFB756" />
+                <stop offset="50%" stopColor="#FFF5C0" />
                 <stop offset="100%" stopColor="#8C5F12" />
               </linearGradient>
 
@@ -560,11 +250,11 @@ export default function CountdownTimer({ targetDate, content, lang }) {
               cy="150"
               r={radius}
               fill="none"
-              stroke="#E0CDAF"
+              stroke="#E8D5B5"
               strokeWidth="3.5"
             />
 
-            {/* Astrological Dial Tick Marks (12 Hours Clock Marks) */}
+            {/* Dial Tick Marks */}
             {Array.from({ length: 12 }).map((_, i) => {
               const angle = (i * 30 * Math.PI) / 180;
               const x1 = 150 + (radius - 14) * Math.cos(angle);
@@ -578,8 +268,9 @@ export default function CountdownTimer({ targetDate, content, lang }) {
                   y1={y1}
                   x2={x2}
                   y2={y2}
-                  stroke="#B88523"
+                  stroke="#DFB756"
                   strokeWidth={i % 3 === 0 ? "2.5" : "1.2"}
+                  opacity={i % 3 === 0 ? 0.9 : 0.5}
                 />
               );
             })}
@@ -602,7 +293,7 @@ export default function CountdownTimer({ targetDate, content, lang }) {
             />
           </svg>
 
-          {/* 3. Center Circular Palace Card Display */}
+          {/* Center Circular Vault Display */}
           <div style={{
             position: 'relative',
             zIndex: 5,
@@ -611,7 +302,7 @@ export default function CountdownTimer({ targetDate, content, lang }) {
             borderRadius: '50%',
             background: 'radial-gradient(circle at 40% 30%, #FFFFFF 0%, #FAF3E6 70%, #F5E5CF 100%)',
             border: '3px solid #DFB756',
-            boxShadow: '0 12px 35px rgba(5, 26, 27, 0.15), inset 0 0 25px rgba(223, 183, 86, 0.25)',
+            boxShadow: '0 12px 35px rgba(45, 25, 15, 0.12), inset 0 0 25px rgba(223, 183, 86, 0.25)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -623,7 +314,7 @@ export default function CountdownTimer({ targetDate, content, lang }) {
               className="gold-shimmer-text"
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: 'clamp(2.5rem, 8vw, 4.2rem)',
+                fontSize: 'clamp(2.6rem, 8.5vw, 4.4rem)',
                 fontWeight: 900,
                 lineHeight: '0.95',
                 letterSpacing: '-0.02em',
@@ -655,8 +346,8 @@ export default function CountdownTimer({ targetDate, content, lang }) {
             }}></div>
 
             {/* Mini Ticking Second Indicator */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11px', color: 'var(--color-royal-maroon)', fontWeight: 800 }}>
-              <Heart size={10} style={{ fill: 'var(--color-royal-maroon)', animation: 'sealPulse 1s infinite' }} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11px', color: '#7A1910', fontWeight: 800 }}>
+              <Heart size={10} style={{ fill: '#7A1910', color: '#7A1910', animation: 'sealPulse 1s infinite' }} />
               <span>{String(timeLeft.seconds).padStart(2, '0')}s</span>
             </div>
           </div>
@@ -666,80 +357,132 @@ export default function CountdownTimer({ targetDate, content, lang }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '8px',
+          gap: '10px',
           maxWidth: '460px',
           margin: '0 auto'
         }}>
           {/* Hours Box */}
           <div style={{
-            background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF4E8 100%)',
+            background: '#FFFFFF',
             border: '1.5px solid #DFB756',
-            borderRadius: '16px',
-            padding: '12px 6px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            borderRadius: '18px',
+            padding: '14px 6px',
+            boxShadow: '0 4px 12px rgba(45, 25, 15, 0.06)'
           }}>
             <span style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(1.35rem, 4.5vw, 1.85rem)',
+              fontSize: 'clamp(1.4rem, 4.5vw, 1.95rem)',
               fontWeight: 900,
-              color: 'var(--color-royal-peacock)',
+              color: '#7A1910',
               display: 'block',
               lineHeight: '1.1'
             }}>
               {String(timeLeft.hours).padStart(2, '0')}
             </span>
-            <span style={{ fontSize: '10px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <span style={{ fontSize: '10.5px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {content.hours}
             </span>
           </div>
 
           {/* Minutes Box */}
           <div style={{
-            background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF4E8 100%)',
+            background: '#FFFFFF',
             border: '1.5px solid #DFB756',
-            borderRadius: '16px',
-            padding: '12px 6px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            borderRadius: '18px',
+            padding: '14px 6px',
+            boxShadow: '0 4px 12px rgba(45, 25, 15, 0.06)'
           }}>
             <span style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(1.35rem, 4.5vw, 1.85rem)',
+              fontSize: 'clamp(1.4rem, 4.5vw, 1.95rem)',
               fontWeight: 900,
-              color: 'var(--color-royal-peacock)',
+              color: '#7A1910',
               display: 'block',
               lineHeight: '1.1'
             }}>
               {String(timeLeft.minutes).padStart(2, '0')}
             </span>
-            <span style={{ fontSize: '10px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <span style={{ fontSize: '10.5px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {content.minutes}
             </span>
           </div>
 
           {/* Seconds Box */}
           <div style={{
-            background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF4E8 100%)',
+            background: '#FFFFFF',
             border: '1.5px solid #DFB756',
-            borderRadius: '16px',
-            padding: '12px 6px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            borderRadius: '18px',
+            padding: '14px 6px',
+            boxShadow: '0 4px 12px rgba(45, 25, 15, 0.06)'
           }}>
             <span style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(1.35rem, 4.5vw, 1.85rem)',
+              fontSize: 'clamp(1.4rem, 4.5vw, 1.95rem)',
               fontWeight: 900,
-              color: 'var(--color-royal-maroon)',
+              color: '#A31822',
               display: 'block',
               lineHeight: '1.1'
             }}>
               {String(timeLeft.seconds).padStart(2, '0')}
             </span>
-            <span style={{ fontSize: '10px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <span style={{ fontSize: '10.5px', fontWeight: 800, color: '#8C5F12', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {content.seconds}
             </span>
           </div>
         </div>
       </div>
+      ) : (
+        /* Locked Countdown Card until Date is Scratched */
+        <div style={{
+          background: 'linear-gradient(150deg, rgba(255, 253, 248, 0.98) 0%, rgba(250, 242, 227, 0.98) 100%)',
+          border: '2px dashed rgba(223, 183, 86, 0.7)',
+          borderRadius: '30px',
+          padding: '32px 20px',
+          textAlign: 'center',
+          boxShadow: '0 8px 25px rgba(45, 25, 15, 0.05)',
+          position: 'relative'
+        }}>
+          <div style={{
+            width: '52px',
+            height: '52px',
+            margin: '0 auto 14px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #85141C 0%, #5C0B12 100%)',
+            border: '2px solid #DFB756',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#FFE894',
+            boxShadow: '0 6px 18px rgba(133, 20, 28, 0.35)'
+          }}>
+            <Lock size={22} />
+          </div>
+
+          <h3 style={{
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontSize: '16px',
+            fontWeight: 800,
+            color: '#85141C',
+            letterSpacing: '0.04em',
+            marginBottom: '6px'
+          }}>
+            {isTa ? 'கவுண்ட்டவுன் கடிகாரம் பூட்டப்பட்டுள்ளது ⏳' : 'The Sacred Countdown is Locked ⏳'}
+          </h3>
+
+          <p style={{
+            fontSize: '13px',
+            color: '#5C4834',
+            fontWeight: 600,
+            maxWidth: '430px',
+            margin: '0 auto',
+            lineHeight: '1.5'
+          }}>
+            {isTa
+              ? 'மேலே உள்ள தங்க அட்டையை விரலால் தேய்த்து தேதியைத் திறந்தவுடன், திருமணத்திற்கான நேரலை கவுண்ட்டவுன் கடிகாரம் தானாகவே திறக்கும்!'
+              : 'Scratch the golden date card above to reveal the sacred date and unlock the live countdown timer!'}
+          </p>
+        </div>
+      )}
     </section>
   );
 }

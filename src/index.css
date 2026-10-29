@@ -1,28 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Noto+Serif+Tamil:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Noto+Serif+Tamil:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --color-royal-dark: #051A1B;
-  --color-royal-peacock: #072B2C;
-  --color-royal-emerald: #0A3D3F;
-  --color-royal-maroon: #7A1910;
+  /* 👑 SUPREME ROYAL HERITAGE PALETTE (SILK IVORY, 24K GOLD & KUMKUM RUBY) */
+  --color-royal-base: #FCF8F2;
+  --color-royal-cream: #FDFBF7;
+  --color-royal-silk: #FAF3E6;
   
-  --color-silk-ivory: #FFFDF9;
-  --color-parchment: #FDF7EC;
-  --color-parchment-warm: #F7ECD7;
-  
+  --color-royal-maroon: #85141C;
+  --color-royal-crimson: #A31822;
+  --color-royal-peacock: #0B3C3E;
+  --color-royal-dark: #1F1511;
+
   --color-gold-24k: #DFB756;
-  --color-gold-light: #FFF4C2;
+  --color-gold-bright: #FFEAA5;
+  --color-gold-light: #FFF6D6;
   --color-gold-dark: #8C5F12;
+  --color-gold-bronze: #6B4910;
+
   --gold-foil: linear-gradient(135deg, #B38728 0%, #FFF5C0 25%, #DFB756 50%, #8C5F12 75%, #FFF5C0 100%);
-  --gold-foil-border: linear-gradient(45deg, #D4AF37, #FFF5C0, #8C5F12, #FFEDB3);
+  --gold-foil-border: linear-gradient(45deg, #DFB756, #FFF5C0, #8C5F12, #FFEDB3, #DFB756);
+  --gold-foil-text: linear-gradient(180deg, #8C5F12 0%, #D4AF37 35%, #8C5F12 70%, #B38728 100%);
 
   --shadow-gold-glow: 0 0 35px rgba(223, 183, 86, 0.45);
-  --shadow-royal-card: 0 25px 60px rgba(5, 26, 27, 0.22), 0 0 30px rgba(223, 183, 86, 0.25);
-  --shadow-deep: 0 35px 80px rgba(0, 0, 0, 0.35);
+  --shadow-royal-card: 0 16px 45px rgba(45, 25, 15, 0.1), 0 0 25px rgba(223, 183, 86, 0.2);
+  --shadow-deep: 0 30px 70px rgba(35, 18, 10, 0.22);
 }
 
 /* ======================================================== */
-/* ✨ ULTRA-LUXURY 24K GOLD SHIMMER & METALLIC ANIMATIONS   */
+/* ✨ 24K METALLIC GOLD SHIMMER & ANIMATIONS                */
 /* ======================================================== */
 @keyframes goldShimmer {
   0% { background-position: -200% 0; }
@@ -30,21 +35,21 @@
 }
 
 .gold-shimmer-text {
-  background: linear-gradient(90deg, #072B2C 0%, #8C5F12 25%, #DFB756 50%, #FFF5C0 60%, #8C5F12 75%, #072B2C 100%);
+  background: linear-gradient(90deg, #7A1910 0%, #B38728 20%, #DFB756 40%, #FFF5C0 50%, #DFB756 60%, #B38728 80%, #7A1910 100%);
   background-size: 200% auto;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: goldShimmer 6s linear infinite;
+  animation: goldShimmer 5s linear infinite;
   display: inline-block;
 }
 
 .gold-metallic-text {
-  background: linear-gradient(180deg, #FFF5D0 0%, #DFB756 45%, #9E6D1C 75%, #DFB756 100%);
+  background: linear-gradient(180deg, #FFF9E6 0%, #FFE28A 35%, #DFB756 60%, #9E6D1C 85%, #DFB756 100%);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
 }
 
 @keyframes rotateClockwise {
@@ -59,7 +64,12 @@
 
 @keyframes floatGentle {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(1deg); }
+  50% { transform: translateY(-7px) rotate(0.8deg); }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(223, 183, 86, 0.35); }
+  50% { box-shadow: 0 0 45px rgba(223, 183, 86, 0.7); }
 }
 
 html {
@@ -81,15 +91,15 @@ body {
   width: 100%;
   max-width: 100vw;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #26211B;
+  color: #2D2319;
   background-color: #FAF4E8;
   background-image: 
-    radial-gradient(ellipse 100% 70% at 50% 0%, rgba(223, 183, 86, 0.28) 0%, transparent 65%),
-    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(11, 53, 54, 0.12) 0%, transparent 70%),
-    radial-gradient(circle at 100% 25%, rgba(122, 25, 16, 0.08), transparent 45%),
-    radial-gradient(circle at 0% 75%, rgba(223, 183, 86, 0.1), transparent 45%),
-    /* Royal Indian Damask / Floral Mandap Texture */
-    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B88523' fill-opacity='0.07'%3E%3Cpath d='M40 0 C45 15 55 25 70 30 C55 35 45 45 40 60 C35 45 25 35 10 30 C25 25 35 15 40 0 Z'/%3E%3Ccircle cx='40' cy='30' r='6'/%3E%3Cpath d='M0 40 C5 55 15 65 30 70 C15 75 5 85 0 100 C-5 85 -15 75 -30 70 C-15 65 -5 55 0 40 Z'/%3E%3Cpath d='M80 40 C85 55 95 65 110 70 C95 75 85 85 80 100 C75 85 65 75 50 70 C65 65 75 55 80 40 Z'/%3E%3C/g%3E%3C/svg%3E");
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(223, 183, 86, 0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(133, 20, 28, 0.12) 0%, transparent 70%),
+    radial-gradient(circle at 95% 20%, rgba(133, 20, 28, 0.08), transparent 45%),
+    radial-gradient(circle at 5% 80%, rgba(11, 60, 62, 0.1), transparent 50%),
+    /* Auspicious South Indian Floral Mandala & Kolam Pattern */
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B88523' fill-opacity='0.06'%3E%3Cpath d='M40 0 C45 15 55 25 70 30 C55 35 45 45 40 60 C35 45 25 35 10 30 C25 25 35 15 40 0 Z'/%3E%3Ccircle cx='40' cy='30' r='5'/%3E%3Cpath d='M0 40 C5 55 15 65 30 70 C15 75 5 85 0 100 C-5 85 -15 75 -30 70 C-15 65 -5 55 0 40 Z'/%3E%3Cpath d='M80 40 C85 55 95 65 110 70 C95 75 85 85 80 100 C75 85 65 75 50 70 C65 65 75 55 80 40 Z'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 80px 80px;
   background-attachment: fixed;
   overflow-x: hidden !important;
@@ -102,45 +112,6 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   position: relative;
-}
-
-/* ======================================================== */
-/* 💌 KS WAX SEAL ENVELOPE OPENING OVERLAY & ANIMATIONS     */
-/* ======================================================== */
-.ks-envelope-overlay.envelope-revealed {
-  transform: translateY(-100vh) scale(0.9);
-  opacity: 0;
-  pointer-events: none;
-}
-
-@keyframes sealPulse {
-  0% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
-  70% { transform: scale(1.08); opacity: 0; box-shadow: 0 0 0 16px rgba(212, 175, 55, 0); }
-  100% { transform: scale(0.95); opacity: 0; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-}
-
-@keyframes bounceUp {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes dripFall {
-  0% {
-    transform: translateY(0) scale(0.6);
-    opacity: 0;
-  }
-  20% {
-    transform: translateY(4px) scale(1);
-    opacity: 1;
-  }
-  75% {
-    transform: translateY(28px) scale(0.95);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(42px) scale(0.5);
-    opacity: 0;
-  }
 }
 
 /* Typography styles */
@@ -160,10 +131,10 @@ body {
   font-family: 'Cinzel', 'Playfair Display', serif;
 }
 
-/* Container */
+/* Main Container */
 .wedding-container {
   width: 100%;
-  max-width: 920px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 16px 14px 60px;
   position: relative;
@@ -172,46 +143,18 @@ body {
   overflow-x: hidden;
 }
 
-/* Royal Background Layer */
-.royal-bg-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.royal-garland-arch {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 90px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-@keyframes bellSwing {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(6deg); }
-  75% { transform: rotate(-6deg); }
-}
-
-.hanging-bell {
-  animation: bellSwing 3.5s ease-in-out infinite;
-}
-
-/* Royal Palace Jharokha Arch Frame for Main Hero */
+/* ======================================================== */
+/* 🏛️ 24K GOLD ROYAL PALACE ARCH COUPLE FRAME              */
+/* ======================================================== */
 .royal-palace-frame {
   position: relative;
   max-width: 520px;
   margin: 28px auto;
-  padding: 18px 18px 24px;
+  padding: 16px 16px 22px;
   border-radius: 40px 40px 24px 24px;
-  background: linear-gradient(180deg, #FFFDF8 0%, #FAF2E4 50%, #F5E5CF 100%);
-  border: 3px solid transparent;
-  background-clip: padding-box;
-  box-shadow: var(--shadow-royal-card), var(--shadow-gold-glow);
+  background: linear-gradient(170deg, #FFFDF8 0%, #FCF8F0 50%, #F7EEDB 100%);
+  border: 2px solid #DFB756;
+  box-shadow: 0 20px 60px rgba(45, 25, 15, 0.16), 0 0 30px rgba(223, 183, 86, 0.35);
   position: relative;
 }
 
@@ -222,6 +165,7 @@ body {
   border-radius: 42px 42px 26px 26px;
   background: var(--gold-foil);
   z-index: -1;
+  opacity: 0.85;
 }
 
 .royal-img-box {
@@ -229,9 +173,9 @@ body {
   height: 480px;
   overflow: hidden;
   border-radius: 30px 30px 18px 18px;
-  background: radial-gradient(circle at center, #FFFDF8 0%, #FAF0E1 100%);
+  background: radial-gradient(circle at center, #FFFDF8 0%, #F5ECE0 100%);
   box-shadow: inset 0 0 35px rgba(223, 183, 86, 0.25), inset 0 0 15px rgba(0, 0, 0, 0.08);
-  border: 2px solid rgba(223, 183, 86, 0.6);
+  border: 2px solid rgba(223, 183, 86, 0.7);
   position: relative;
 }
 
@@ -256,26 +200,26 @@ body {
   flex-wrap: wrap;
   padding: 10px 22px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(255, 253, 248, 0.96) 0%, rgba(250, 243, 229, 0.96) 100%);
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98) 0%, rgba(250, 243, 229, 0.98) 100%);
   border: 1.5px solid #DFB756;
-  box-shadow: 0 8px 24px rgba(5, 26, 27, 0.08), 0 0 15px rgba(223, 183, 86, 0.25);
+  box-shadow: 0 8px 24px rgba(45, 25, 15, 0.08), 0 0 20px rgba(223, 183, 86, 0.3);
   font-size: 13px;
   font-weight: 700;
-  color: var(--color-royal-peacock);
+  color: #7A1910;
   max-width: 100%;
 }
 
 /* ======================================================== */
-/* 📸 LUXURY FEATHERED PHOTO ALBUM CARD & VIGNETTE STYLES   */
+/* 📸 LUXURY ROYAL PHOTO ALBUM CARDS                        */
 /* ======================================================== */
 .royal-photo-card {
   position: relative;
   max-width: 520px;
   width: 100%;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCF9F3 100%);
+  background: linear-gradient(170deg, #FFFFFF 0%, #FDFBF7 60%, #F9F3E8 100%);
   padding: 16px 16px 24px;
-  border-radius: 24px;
-  box-shadow: 0 16px 45px rgba(5, 26, 27, 0.12), 0 0 20px rgba(223, 183, 86, 0.18);
+  border-radius: 26px;
+  box-shadow: 0 16px 45px rgba(45, 25, 15, 0.12), 0 0 25px rgba(223, 183, 86, 0.2);
   border: 1.5px solid #DFB756;
   cursor: pointer;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
@@ -283,7 +227,8 @@ body {
 
 .royal-photo-card:hover {
   transform: translateY(-6px) scale(1.02) !important;
-  box-shadow: 0 24px 60px rgba(5, 26, 27, 0.18), var(--shadow-gold-glow);
+  box-shadow: 0 24px 60px rgba(45, 25, 15, 0.18), var(--shadow-gold-glow);
+  border-color: #B38728;
 }
 
 .feathered-photo-frame {
@@ -291,12 +236,12 @@ body {
   width: 100%;
   max-height: 490px;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 20px;
   background: radial-gradient(ellipse at center, #FFFDF8 0%, #FAF0E1 100%);
   margin-bottom: 16px;
   padding: 6px;
-  border: 1.5px solid rgba(223, 183, 86, 0.5);
-  box-shadow: inset 0 0 25px rgba(223, 183, 86, 0.2), 0 4px 15px rgba(0,0,0,0.04);
+  border: 1.5px solid rgba(223, 183, 86, 0.6);
+  box-shadow: inset 0 0 25px rgba(223, 183, 86, 0.2), 0 4px 15px rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -308,9 +253,8 @@ body {
   max-height: 480px;
   object-fit: cover;
   display: block;
-  border-radius: 14px;
+  border-radius: 16px;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  /* Soft Edge Feathering Mask so side/top/bottom fade smoothly */
   -webkit-mask-image: radial-gradient(ellipse 95% 95% at 50% 50%, black 72%, rgba(0, 0, 0, 0.5) 88%, transparent 100%);
   mask-image: radial-gradient(ellipse 95% 95% at 50% 50%, black 72%, rgba(0, 0, 0, 0.5) 88%, transparent 100%);
 }
@@ -319,32 +263,30 @@ body {
   transform: scale(1.04);
 }
 
-/* Inner Filigree Inset Border */
 .photo-filigree-border {
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  border-radius: 12px;
+  border: 1px solid rgba(223, 183, 86, 0.5);
+  border-radius: 14px;
   pointer-events: none;
-  box-shadow: inset 0 0 15px rgba(223, 183, 86, 0.15);
+  box-shadow: inset 0 0 15px rgba(223, 183, 86, 0.2);
   z-index: 2;
 }
 
-/* Soft Vignette Overlay */
 .photo-vignette-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background: radial-gradient(ellipse 94% 94% at 50% 50%, transparent 68%, rgba(250, 240, 225, 0.7) 90%, #FAF0E1 100%);
-  border-radius: 18px;
+  border-radius: 20px;
   z-index: 1;
 }
 
-/* Gold Corner Accents */
+/* 4 Gold Corner Accents */
 .gold-corner-tl, .gold-corner-tr, .gold-corner-bl, .gold-corner-br {
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   pointer-events: none;
   z-index: 10;
 }
@@ -358,31 +300,31 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-  padding: 24px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, #FFFDF9 0%, #FAF3E5 100%);
+  gap: 20px;
+  padding: 28px 24px;
+  border-radius: 30px;
+  background: linear-gradient(160deg, #FFFDF9 0%, #FAF4E8 60%, #F5EADB 100%);
   border: 2px solid var(--color-gold-24k);
   box-shadow: var(--shadow-royal-card), var(--shadow-gold-glow);
-  margin: 28px auto 36px;
-  max-width: 700px;
+  margin: 32px auto 40px;
+  max-width: 720px;
   position: relative;
 }
 
 @media (min-width: 640px) {
   .ring-ceremony-card {
     flex-direction: row;
-    padding: 24px 28px;
+    padding: 26px 32px;
   }
 }
 
 .ring-img-thumb {
-  width: 150px;
-  height: 150px;
+  width: 155px;
+  height: 155px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #DFB756;
-  box-shadow: 0 0 25px rgba(223, 183, 86, 0.5), inset 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 35px rgba(223, 183, 86, 0.5), inset 0 0 15px rgba(0,0,0,0.15);
   flex-shrink: 0;
 }
 
@@ -394,12 +336,12 @@ body {
 
 /* Luxury Romantic Quote Banner */
 .romantic-quote-banner {
-  margin: 32px auto;
-  padding: 28px 32px;
+  margin: 36px auto;
+  padding: 32px 30px;
   max-width: 740px;
   text-align: center;
-  border-radius: 24px;
-  background: linear-gradient(135deg, rgba(255, 253, 248, 0.95) 0%, rgba(247, 237, 220, 0.9) 100%);
+  border-radius: 28px;
+  background: linear-gradient(160deg, #FFFDF8 0%, #FAF3E6 60%, #F5EBDC 100%);
   border: 1.5px solid #DFB756;
   box-shadow: var(--shadow-royal-card), var(--shadow-gold-glow);
   position: relative;
@@ -412,24 +354,26 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3.5px;
   background: var(--gold-foil);
+  box-shadow: 0 0 15px rgba(223, 183, 86, 0.8);
 }
 
 .quote-script {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.75rem, 4.5vw, 2.4rem);
-  color: var(--color-royal-peacock);
+  font-size: clamp(1.85rem, 5vw, 2.6rem);
+  color: #7A1910;
   line-height: 1.35;
+  text-shadow: 0 1px 4px rgba(223, 183, 86, 0.3);
 }
 
-/* Live Countdown Box */
+/* 3D Glass Countdown Box */
 .countdown-box {
-  background: linear-gradient(180deg, #FFFDF9 0%, #F5ECE0 100%);
+  background: linear-gradient(160deg, #FFFDF8 0%, #FAF2E3 60%, #F5EADB 100%);
   border: 2px solid #DFB756;
-  border-radius: 30px;
-  padding: 30px 20px;
-  max-width: 580px;
+  border-radius: 32px;
+  padding: 32px 24px;
+  max-width: 620px;
   margin: 0 auto;
   box-shadow: var(--shadow-royal-card), var(--shadow-gold-glow);
   text-align: center;
@@ -440,55 +384,55 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 .countdown-item {
-  background: #ffffff;
-  border: 1.5px solid #E8D8C0;
+  background: #FFFFFF;
+  border: 1.5px solid #DFB756;
   border-radius: 20px;
-  padding: 16px 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 16px 8px;
+  box-shadow: 0 8px 24px rgba(45, 25, 15, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.8);
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .countdown-item:hover {
   transform: translateY(-4px);
-  border-color: #DFB756;
-  box-shadow: 0 8px 20px rgba(223, 183, 86, 0.25);
+  border-color: #B38728;
+  box-shadow: 0 12px 30px rgba(223, 183, 86, 0.35);
 }
 
 .countdown-val {
-  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-size: clamp(1.7rem, 5vw, 2.5rem);
   font-weight: 900;
-  color: var(--color-royal-peacock);
+  color: #7A1910;
   display: block;
   font-family: 'Playfair Display', serif;
 }
 
 .countdown-lbl {
   font-size: 11px;
-  color: var(--color-gold-dark);
+  color: #8C5F12;
   text-transform: uppercase;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
 /* Event Cards */
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 28px;
+  gap: 26px;
   margin-top: 28px;
 }
 
 .event-card {
   position: relative;
-  background: linear-gradient(180deg, #FFFDF9 0%, #FAF3E5 100%);
+  background: linear-gradient(160deg, #FFFDF8 0%, #FAF3E6 60%, #F5EADC 100%);
   border: 2px solid #DFB756;
   border-radius: 30px;
   padding: 32px 24px;
-  box-shadow: var(--shadow-royal-card);
+  box-shadow: var(--shadow-royal-card), 0 0 25px rgba(223, 183, 86, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -498,20 +442,22 @@ body {
 .event-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-deep), var(--shadow-gold-glow);
+  border-color: #B38728;
 }
 
 .event-tag {
   display: inline-block;
   padding: 6px 16px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #FAEBD7, #F5D3A3);
-  border: 1px solid #E2CCA8;
-  color: var(--color-gold-dark);
+  background: linear-gradient(135deg, #85141C 0%, #A31822 100%);
+  border: 1px solid #DFB756;
+  color: #FFF2C2;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 14px;
+  box-shadow: 0 4px 15px rgba(133, 20, 28, 0.25);
 }
 
 .btn-primary {
@@ -521,21 +467,22 @@ body {
   gap: 8px;
   padding: 13px 22px;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--color-royal-peacock) 0%, var(--color-royal-emerald) 100%);
-  color: #FFFDF4;
-  border: 1.5px solid #DFB756;
+  background: linear-gradient(135deg, #DFB756 0%, #C4972E 50%, #9E7019 100%);
+  color: #1F1511;
+  border: 1.5px solid #FFF5C0;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.05em;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(11, 53, 54, 0.3);
+  box-shadow: 0 6px 20px rgba(223, 183, 86, 0.4);
   text-decoration: none;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(11, 53, 54, 0.4), 0 0 15px rgba(223, 183, 86, 0.4);
+  background: linear-gradient(135deg, #FFE894 0%, #DFB756 50%, #B38728 100%);
+  box-shadow: 0 10px 30px rgba(223, 183, 86, 0.6);
 }
 
 .btn-secondary {
@@ -545,56 +492,25 @@ body {
   gap: 8px;
   padding: 13px 22px;
   border-radius: 14px;
-  background-color: #F5E8D4;
-  color: var(--color-royal-peacock);
-  border: 1px solid #DFB756;
+  background: #FFFDF8;
+  color: #7A1910;
+  border: 1.5px solid #DFB756;
   font-size: 13px;
   font-weight: 800;
   cursor: pointer;
   transition: all 0.2s;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .btn-secondary:hover {
-  background-color: #ECD8BC;
-}
-
-/* Polaroid Vertical Stream Cards */
-.polaroid-vertical-card {
-  position: relative;
-  max-width: 520px;
-  width: 100%;
-  background-color: #ffffff;
-  padding: 18px 18px 26px;
-  border-radius: 10px;
-  box-shadow: 0 16px 45px rgba(5, 26, 27, 0.12), 0 2px 8px rgba(0,0,0,0.06);
-  border: 1px solid #ECE3D4;
-  cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-}
-
-.polaroid-vertical-card::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-1deg);
-  width: 80px;
-  height: 22px;
-  background: linear-gradient(135deg, rgba(242, 201, 122, 0.8), rgba(223, 183, 86, 0.7));
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  border-left: 2px dashed rgba(0,0,0,0.1);
-  border-right: 2px dashed rgba(0,0,0,0.1);
-  z-index: 5;
-}
-
-.polaroid-vertical-card:hover {
-  transform: scale(1.03) rotate(0deg) !important;
-  box-shadow: 0 25px 60px rgba(5, 26, 27, 0.2), var(--shadow-gold-glow);
+  background: #FDF7EB;
+  border-color: #B38728;
 }
 
 /* Guestbook Form */
 .wishes-card-form {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCF8F2 100%);
+  background: linear-gradient(160deg, #FFFDF8 0%, #FAF3E6 60%, #F5EADC 100%);
   border: 2px solid #DFB756;
   border-radius: 28px;
   padding: 30px 24px;
@@ -636,14 +552,14 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
+  padding: 10px 18px;
   border-radius: 9999px;
-  border: 2px solid #DFB756;
-  background-color: rgba(255, 253, 248, 0.96);
-  color: var(--color-royal-peacock);
-  box-shadow: 0 10px 30px rgba(5, 26, 27, 0.2), 0 0 20px rgba(223, 183, 86, 0.35);
+  border: 1.5px solid #DFB756;
+  background: rgba(255, 253, 248, 0.96);
+  color: #7A1910;
+  box-shadow: 0 10px 30px rgba(45, 25, 15, 0.15), 0 0 20px rgba(223, 183, 86, 0.35);
   cursor: pointer;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   transition: all 0.3s ease;
   font-size: 13px;
   font-weight: 800;
@@ -652,15 +568,38 @@ body {
 
 .floating-lang-btn:hover,
 .floating-audio-btn:hover {
-  background-color: #ffffff;
+  background: #FFFFFF;
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 15px 40px rgba(5, 26, 27, 0.3), var(--shadow-gold-glow);
+  box-shadow: 0 15px 40px rgba(45, 25, 15, 0.22), var(--shadow-gold-glow);
 }
 
 .floating-audio-btn.playing {
-  background: linear-gradient(135deg, var(--color-royal-peacock) 0%, var(--color-royal-emerald) 100%);
-  color: #FFF0B8;
+  background: linear-gradient(135deg, #7A1910 0%, #9E1B23 100%);
+  color: #FFEAA5;
   border-color: #DFB756;
+  box-shadow: 0 0 25px rgba(223, 183, 86, 0.5);
+}
+
+/* Equalizer sound bars */
+.sound-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+}
+.sound-bars .bar {
+  width: 3px;
+  background: #DFB756;
+  border-radius: 2px;
+  animation: bounceBar 0.9s ease-in-out infinite alternate;
+}
+.sound-bars .bar-1 { height: 8px; animation-delay: 0.1s; }
+.sound-bars .bar-2 { height: 14px; animation-delay: 0.3s; }
+.sound-bars .bar-3 { height: 6px; animation-delay: 0.5s; }
+
+@keyframes bounceBar {
+  0% { height: 3px; }
+  100% { height: 14px; }
 }
 
 /* Responsive */
@@ -695,7 +634,7 @@ body {
     border-radius: 14px;
   }
   .countdown-val {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
   }
   .countdown-lbl {
     font-size: 9.5px;
@@ -711,9 +650,9 @@ body {
     height: 120px !important;
   }
   .romantic-quote-banner {
-    padding: 20px 16px !important;
-    margin: 22px auto !important;
-    border-radius: 18px !important;
+    padding: 22px 16px !important;
+    margin: 24px auto !important;
+    border-radius: 20px !important;
   }
   .event-card {
     padding: 22px 16px !important;
@@ -721,15 +660,15 @@ body {
   }
   .royal-photo-card {
     padding: 12px 12px 18px !important;
-    border-radius: 18px !important;
+    border-radius: 20px !important;
   }
   .feathered-photo-frame {
-    border-radius: 14px !important;
+    border-radius: 16px !important;
     max-height: 380px !important;
   }
   .feathered-photo-img {
     max-height: 370px !important;
-    border-radius: 12px !important;
+    border-radius: 14px !important;
   }
   .wishes-card-form {
     padding: 20px 14px !important;
@@ -743,4 +682,3 @@ body {
     font-size: 12px !important;
   }
 }
-

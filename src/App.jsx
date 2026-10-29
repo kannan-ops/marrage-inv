@@ -80,7 +80,7 @@ export default function App() {
         {/* Romantic Poetry Quote Divider */}
         <RomanticQuote
           englishQuote="Every love story is beautiful, but ours is our favorite."
-          tamilQuote={lang === 'ta' ? "அன்பும் காதலும் நிறைந்த எங்கள் புதிய இல்லற வாழ்வின் தொடக்கம்..." : null}
+          tamilQuote={lang === 'ta' ? "அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை பண்பும் பயனும் அது — குறள்" : null}
           author="S. Kannan & R. Suruthika"
         />
 
